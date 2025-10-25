@@ -29,11 +29,9 @@ SECRET_KEY = 'django-insecure-d942o)!gea*x@+o66yy%7=8n26*0^*6ozafkfb3%8*hv@al3@#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
 
-=======
-ALLOWED_HOSTS = ['16.16.68.81', '*','www.kovaltaxi.in', 'kovaltaxi.in', 'kovaltaxi.onrender.com']
->>>>>>> 869c00615316b160e237e86d3f599361e70b0bec
+ALLOWED_HOSTS = ['www.kovaltaxi.in', 'kovaltaxi.in', 'kovaltaxi.onrender.com']
+
 
 
 # Application definition
