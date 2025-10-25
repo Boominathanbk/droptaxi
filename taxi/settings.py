@@ -32,7 +32,7 @@ DEBUG = True
 <<<<<<< HEAD
 
 =======
-ALLOWED_HOSTS = ['16.16.68.81', '*']
+ALLOWED_HOSTS = ['16.16.68.81', '*','www.kovaltaxi.in', 'kovaltaxi.in', 'kovaltaxi.onrender.com']
 >>>>>>> 869c00615316b160e237e86d3f599361e70b0bec
 
 
