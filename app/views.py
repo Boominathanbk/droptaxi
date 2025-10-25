@@ -187,8 +187,8 @@ Driver Bata: ₹{driverCharge}
 Total Fare: ₹{total}
 Car Type: {carType}
 """
-            telegram_bot_token = '7815945679:AAHNKfpFh_OpU0vQELrHCRcGqozz7AtHfes'  # Replace with your bot's token
-            telegram_chat_id = '1941956017'  # Replace with your admin's chat ID
+            telegram_bot_token = ''  # Replace with your bot's token
+            telegram_chat_id = ''
             telegram_url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
 
             payload = {
@@ -383,8 +383,8 @@ Driver Bata: ₹{driverCharge}
 Total Fare: ₹{total}
 Car Type: {carType}
 """
-            telegram_bot_token = '7815945679:AAHNKfpFh_OpU0vQELrHCRcGqozz7AtHfes'  # Replace with your bot's token
-            telegram_chat_id = '1941956017'  # Replace with your admin's chat ID
+            telegram_bot_token = ''  # Replace with your bot's token
+            telegram_chat_id = ''  # Replace with your admin's chat ID
             telegram_url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
 
             payload = {

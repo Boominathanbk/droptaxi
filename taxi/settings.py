@@ -29,7 +29,11 @@ SECRET_KEY = 'django-insecure-d942o)!gea*x@+o66yy%7=8n26*0^*6ozafkfb3%8*hv@al3@#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.kovaltaxi.in', 'kovaltaxi.in']
+<<<<<<< HEAD
+
+=======
+ALLOWED_HOSTS = ['16.16.68.81', '*']
+>>>>>>> 869c00615316b160e237e86d3f599361e70b0bec
 
 
 # Application definition
@@ -146,5 +150,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True                            #Transport Layer Security
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'boominathanpoongavanam@gmail.com'  #from email id
-EMAIL_HOST_PASSWORD = 'ytkv ixpj nxjl xzuz'        #App Password
+EMAIL_HOST_USER = ''  #from email id
+EMAIL_HOST_PASSWORD = ''        #App Password
