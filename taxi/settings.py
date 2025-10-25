@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-d942o)!gea*x@+o66yy%7=8n26*0^*6ozafkfb3%8*hv@al3@#
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['www.kovaltaxi.in', 'kovaltaxi.in', 'kovaltaxi.onrender.com']
+ALLOWED_HOSTS = ['16.16.68.81','*' ,'www.kovaltaxi.in', 'kovaltaxi.in', 'kovaltaxi.onrender.com','127.0.0.1']
 
 
 
