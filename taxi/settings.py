@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
+from dotenv import load_dotenv
 
+load_dotenv() 
 GOOGLE_API_KEY = "AIzaSyC2FasXIMLUeQ9VpKDbbpaei9SEhozy0R0"
 
 
@@ -81,17 +84,23 @@ WSGI_APPLICATION = 'taxi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'koval',
-        'USER' : 'root',
-        'PASSWORD' : '',
-        'HOST' : 'localhost',
-        'PORT' : '3306'
-    }
-}
+#DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.mysql',
+    #    'NAME': 'koval',
+    #    'USER' : 'root',
+    #    'PASSWORD' : '',
+    #    'HOST' : 'localhost',
+    #    'PORT' : '3306'
+    #}
+#}
 
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://kovaltaxi_db_user:M3uDHYw0tvlGFKHi8P5Ix6ZL3q6XHTq2@dpg-d3vpcsali9vc73csv7p0-a.oregon-postgres.render.com/kovaltaxi_db',
+        conn_max_age=800
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -148,5 +157,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True                            #Transport Layer Security
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''  #from email id
-EMAIL_HOST_PASSWORD = ''        #App Password
+EMAIL_HOST_USER = 'boominathanpoongavanam@gmail.com'  #from email id
+EMAIL_HOST_PASSWORD = 'ytkv ixpj nxjl xzuz'        #App Password
