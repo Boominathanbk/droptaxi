@@ -97,6 +97,11 @@ def homepage(request):
 import requests
 
 # Booking view
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
+import requests
+
 def booking(request):
     if request.method == 'POST':
         # Get data from the form
@@ -113,13 +118,13 @@ def booking(request):
         distance = request.POST['distance']
         carType = request.POST['carType']
 
-        # Validate the data (you can add more validations here)
+        # Validation
         if not pickup or not drop or not name or not phone or not email or not date or not time:
             messages.error(request, "All fields are required.")
-            return redirect('login')  # Stay on the same page if fields are missing
+            return redirect('login')
 
         try:
-            # Create a booking instance
+            # Save booking data
             booking = Booking.objects.create(
                 pickup=pickup,
                 drop=drop,
@@ -136,49 +141,50 @@ def booking(request):
             )
             booking.save()
 
-            # Send confirmation email to the user
-            subject = "Booking Completed"
-            message = f"""Your Booking confirmed.\nTRIP TYPE: ONE WAY TRIP
+            # ✅ Email section - SendGrid
+            subject = "Booking Confirmed ✅"
+            message = f"""
+Your booking is confirmed successfully!
 
-Pickup: {pickup},
-
-Drop: {drop},
-
-Dear: {name}
-
+🚗 **TRIP DETAILS:**
+Pickup: {pickup}
+Drop: {drop}
+Name: {name}
 Phone: {phone}
-
 Email: {email}
-
-Distance: {distance} km (Approximate)
-
+Distance: {distance} km (approx)
 Date: {date}
-
 Time: {time}
-
-Fare : ₹ {fare}
-
+Fare: ₹{fare}
 Driver Bata: ₹{driverCharge}
-
 Total Amount: ₹{total}
-
 Car Type: {carType}
 
-Note : Toll & Permit, Hills, package =Rs 300, cleaning = Rs 300, carrer charge =Rs 300, Extre Luggage=Rs 300
+📝 Note:
+Toll, Permit, Hills Package = ₹300
+Cleaning = ₹300
+Carrier Charge = ₹300
+Extra Luggage = ₹300
+(Charges applicable)
 
-Charges Applicable
-
-Thank you for booking with us!"""
-            recipient = email
-            #send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
+Thank you for booking with us!
+"""
             try:
-              send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
+                send_mail(
+                    subject,
+                    message,
+                    "boominathanpoongavanam@gmail.com",  # 👈 SendGrid verified sender email
+                    [email],
+                    fail_silently=False,
+                )
+                messages.success(request, "Booking successful! Confirmation sent to your email.")
             except Exception as e:
-              print("EMAIL ERROR:", e)
-              messages.warning(request, f"Email send failed: {e}")
-            
-            # Send Telegram message to Admin
-            telegram_message = f"""New Booking\nTRIP TYPE: ONE WAY TRIP:
+                print("SENDGRID EMAIL ERROR:", e)
+                messages.warning(request, f"Booking saved, but email sending failed: {e}")
+
+            # ✅ Telegram notification
+            telegram_message = f"""
+📩 New Booking - ONE WAY TRIP
 
 Pickup: {pickup}
 Drop: {drop}
@@ -192,30 +198,24 @@ Driver Bata: ₹{driverCharge}
 Total Fare: ₹{total}
 Car Type: {carType}
 """
-            telegram_bot_token = '7815945679:AAHNKfpFh_OpU0vQELrHCRcGqozz7AtHfes'  # Replace with your bot's token
-            telegram_chat_id = '1941956017'
-            telegram_url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
+            telegram_bot_token = "7815945679:AAHNKfpFh_OpU0vQELrHCRcGqozz7AtHfes"
+            telegram_chat_id = "1941956017"
+            telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
-            payload = {
-                'chat_id': telegram_chat_id,
-                'text': telegram_message
-            }
-
-            # Send the Telegram message
+            payload = {"chat_id": telegram_chat_id, "text": telegram_message}
             response = requests.post(telegram_url, data=payload)
             if response.status_code != 200:
-                raise Exception(f"Telegram error: {response.text}")
+                print("Telegram Error:", response.text)
 
-            # Success message and redirect to the homepage or success page
-            messages.success(request, "Booking successful! A confirmation message has been sent to your Email.")
-            return redirect('homepage')  # Adjust the redirection as per your URL configuration
+            return redirect('homepage')
 
         except Exception as e:
+            print("BOOKING ERROR:", e)
             messages.error(request, f"An error occurred: {e}")
-            return redirect('homepage')  # Stay on the same page and show the error
+            return redirect('homepage')
 
-    # Render the booking form if it's a GET request
     return render(request, 'home.html')
+
 
 
 def round(request):
