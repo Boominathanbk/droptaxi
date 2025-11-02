@@ -170,8 +170,13 @@ Charges Applicable
 
 Thank you for booking with us!"""
             recipient = email
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
-
+            #send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
+            try:
+              send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
+            except Exception as e:
+              print("EMAIL ERROR:", e)
+              messages.warning(request, f"Email send failed: {e}")
+            
             # Send Telegram message to Admin
             telegram_message = f"""New Booking\nTRIP TYPE: ONE WAY TRIP:
 
