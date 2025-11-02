@@ -95,9 +95,14 @@ WSGI_APPLICATION = 'taxi.wsgi.application'
     #}
 #}
 
+import dj_database_url
+
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgresql://kovaltaxi_db_user:M3uDHYw0tvlGFKHi8P5Ix6ZL3q6XHTq2@dpg-d3vpcsali9vc73csv7p0-a.oregon-postgres.render.com/kovaltaxi_db'),
+        default=os.environ.get(
+            'DATABASE_URL',
+            'postgresql://kovaltaxi_db_user:M3uDHYw0tvlGFKHi8P5Ix6ZL3q6XHTq2@dpg-d3vpcsali9vc73csv7p0-a.oregon-postgres.render.com/kovaltaxi_db'
+        ),
         conn_max_age=600,
         ssl_require=True
     )
@@ -160,10 +165,7 @@ EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True') == 'True'
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-import os, base64
-
-EMAIL_HOST_PASSWORD = base64.b64decode(os.getenv("EMAIL_HOST_PASSWORD")).decode()
-
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 
 
