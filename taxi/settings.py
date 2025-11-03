@@ -163,8 +163,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
-# Optional (debugging)
-SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-SENDGRID_ECHO_TO_STDOUT = True
+DEFAULT_FROM_EMAIL = "boominathanpoongavanam@gmail.com"  # ✅ verified sender email
 
-print("SendGrid API Key Found:", SENDGRID_API_KEY is not None)
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+SENDGRID_ECHO_TO_STDOUT = False
+
+

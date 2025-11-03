@@ -96,11 +96,13 @@ def homepage(request):
 
 import requests
 
+
 # Booking view
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
 import requests
+
 
 def booking(request):
     if request.method == 'POST':
@@ -198,7 +200,7 @@ Driver Bata: ₹{driverCharge}
 Total Fare: ₹{total}
 Car Type: {carType}
 """
-            telegram_bot_token = "7815945679:AAHNKfpFh_OpU0vQELrHCRcGqozz7AtHfes"
+            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
             telegram_chat_id = "1941956017"
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
@@ -215,8 +217,6 @@ Car Type: {carType}
             return redirect('homepage')
 
     return render(request, 'home.html')
-
-
 
 def round(request):
     return render(request,'round.html')
@@ -373,7 +373,7 @@ Car Type: {carType}
 Thank you for booking with us!"""
             recipient = email
             send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
-            
+            messages.success(request, "Booking successful! Confirmation sent to your email.")
             telegram_message = f"""New Booking\nTRIP TYPE: ROUND TRIP:
 
 Pickup: {pickup}
@@ -388,26 +388,21 @@ Driver Bata: ₹{driverCharge}
 Total Fare: ₹{total}
 Car Type: {carType}
 """
-            telegram_bot_token = ' 7815945679:AAHNKfpFh_OpU0vQELrHCRcGqozz7AtHfes'  # Replace with your bot's token
-            telegram_chat_id = '1941956017'  # Replace with your admin's chat ID
-            telegram_url = f'https://api.telegram.org/bot{telegram_bot_token}/sendMessage'
+            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
+            telegram_chat_id = "1941956017"
+            telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
-            payload = {
-                'chat_id': telegram_chat_id,
-                'text': telegram_message
-            }
-
-            # Send the Telegram message
+            payload = {"chat_id": telegram_chat_id, "text": telegram_message}
             response = requests.post(telegram_url, data=payload)
             if response.status_code != 200:
-                raise Exception(f"Telegram error: {response.text}")
+                print("Telegram Error:", response.text)
 
-            messages.success(request, "Booking successful! A confirmation message has been sent to your Email.")
-            return redirect('homepage')  # Adjust the redirection as per your URL configuration
+            return redirect('homepage')
 
         except Exception as e:
+            print("BOOKING ERROR:", e)
             messages.error(request, f"An error occurred: {e}")
-            return redirect('homepage')  # Stay on the same page and show the error
+            return redirect('homepage')
 
     # Render the booking form if it's a GET request
     return render(request, 'home.html')
