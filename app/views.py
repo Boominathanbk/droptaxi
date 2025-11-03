@@ -370,10 +370,30 @@ Driver Bata (per day): ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
 
+<<<<<<< HEAD
 Thank you for booking with us!"""
             recipient = email
             send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
             messages.success(request, "Booking successful! Confirmation sent to your email.")
+=======
+
+Thank you for booking with us!
+"""
+            try:
+                send_mail(
+                    subject,
+                    message,
+                    "boominathanpoongavanam@gmail.com",  # 👈 SendGrid verified sender email
+                    [email],
+                    fail_silently=False,
+                )
+                messages.success(request, "Booking successful! Confirmation sent to your email.")
+            except Exception as e:
+                print("SENDGRID EMAIL ERROR:", e)
+                messages.warning(request, f"Booking saved, but email sending failed: {e}")
+
+            
+>>>>>>> efcc90d (Fixed booking and email issues)
             telegram_message = f"""New Booking\nTRIP TYPE: ROUND TRIP:
 
 Pickup: {pickup}
@@ -393,11 +413,24 @@ Car Type: {carType}
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
             payload = {"chat_id": telegram_chat_id, "text": telegram_message}
+<<<<<<< HEAD
+=======
             response = requests.post(telegram_url, data=payload)
             if response.status_code != 200:
                 print("Telegram Error:", response.text)
 
+            # Send the Telegram message
+>>>>>>> efcc90d (Fixed booking and email issues)
+            response = requests.post(telegram_url, data=payload)
+            if response.status_code != 200:
+                print("Telegram Error:", response.text)
+
+<<<<<<< HEAD
             return redirect('homepage')
+=======
+           
+            return redirect('homepage')  # Adjust the redirection as per your URL configuration
+>>>>>>> efcc90d (Fixed booking and email issues)
 
         except Exception as e:
             print("BOOKING ERROR:", e)
