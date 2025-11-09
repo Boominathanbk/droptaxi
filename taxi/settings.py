@@ -11,10 +11,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url 
-from dotenv import load_dotenv 
+import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -42,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    
+   
 ]
 
 MIDDLEWARE = [
@@ -156,10 +161,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ✅ SENDGRID EMAIL CONFIGURATION
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")  # <-- இதை .env file-லிருந்து பெறும்
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+
+DEFAULT_FROM_EMAIL = "boominathanpoongavanam@gmail.com"  # ✅ verified sender email
 
 # Optional (debugging)
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-SENDGRID_ECHO_TO_STDOUT = True
+SENDGRID_ECHO_TO_STDOUT = False
+
+
 
 print("SendGrid API Key Found:", SENDGRID_API_KEY is not None)

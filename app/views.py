@@ -16,6 +16,7 @@ import geopandas as gpd
 from shapely.geometry import Point
 from twilio.rest import Client
 from django.core.mail import send_mail
+from datetime import datetime
 
 
 def homepage(request):
@@ -120,13 +121,13 @@ def booking(request):
         distance = request.POST['distance']
         carType = request.POST['carType']
 
-        # Validation
-        if not pickup or not drop or not name or not phone or not email or not date or not time:
+         # ✅ Validation
+        if not pickup or not drop or not name or not phone or not date or not time:
             messages.error(request, "All fields are required.")
-            return redirect('login')
+            return redirect('homepage')
 
         try:
-            # Save booking data
+            # ✅ Save booking
             booking = Booking.objects.create(
                 pickup=pickup,
                 drop=drop,
@@ -143,7 +144,9 @@ def booking(request):
             )
             booking.save()
 
-            # ✅ Email section - SendGrid
+            # ✅ Format date & time (DD-MM-YYYY & 12-hour format)
+            formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
+            formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")                                                        
             subject = "Booking Confirmed ✅"
             message = f"""
 Your booking is confirmed successfully!
@@ -155,19 +158,15 @@ Name: {name}
 Phone: {phone}
 Email: {email}
 Distance: {distance} km (approx)
-Date: {date}
-Time: {time}
+Date: {formatted_date}
+Time: {formatted_time}
 Fare: ₹{fare}
 Driver Bata: ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
 
 📝 Note:
-Toll, Permit, Hills Package = ₹300
-Cleaning = ₹300
-Carrier Charge = ₹300
-Extra Luggage = ₹300
-(Charges applicable)
+
 
 Thank you for booking with us!
 """
@@ -188,20 +187,26 @@ Thank you for booking with us!
             telegram_message = f"""
 📩 New Booking - ONE WAY TRIP
 
-Pickup: {pickup}
-Drop: {drop}
-Name: {name}
-Phone: {phone}
-Email: {email}
-Date: {date}
-Time: {time}
-Fare: ₹{fare}
-Driver Bata: ₹{driverCharge}
-Total Fare: ₹{total}
-Car Type: {carType}
+📍 Pickup: {pickup}
+📍 Drop: {drop}
+
+👤 Name: {name}
+📱 Phone: +91 {phone}
+✉️ Email: {email}
+
+🗓️ Date: {formatted_date}
+⏰ Time: {formatted_time}
+
+💰 Fare: ₹{fare}
+🚗 Car Type: {carType}
+🧾 Driver Bata: ₹{driverCharge}
+🔖 Total Fare: ₹{total}
 """
-            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
-            telegram_chat_id = "1941956017"
+
+    # Inline buttons (Call & View)
+             
+            telegram_bot_token = "7841345963:AAFWf6bAYTdnnHYEimeHAMSH6t5fIhBCNqo"
+            telegram_chat_id = "7589406730"
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
             payload = {"chat_id": telegram_chat_id, "text": telegram_message}
@@ -311,7 +316,6 @@ def login_data(request):
         return redirect("login")  
     
 
-
 def round_booking(request):
     if request.method == 'POST':
         # Get data from the form
@@ -329,14 +333,14 @@ def round_booking(request):
         carType = request.POST['carType']
         number_of_days = request.POST['number_of_days']
 
-        # Validate the data (you can add more validations here)
-        if not pickup or not drop or not name or not phone or not email or not date or not number_of_days :
+        # Validate required fields
+        if not pickup or not drop or not name or not phone  or not date or not number_of_days:
             messages.error(request, "All fields are required.")
-            return redirect('login')  # Stay on the same page if fields are missing
+            return redirect('round')
 
         try:
             # Create a booking instance
-            round = RoundTrip.objects.create(
+            round_trip = RoundTrip.objects.create(
                 pickup=pickup,
                 drop=drop,
                 name=name,
@@ -351,34 +355,45 @@ def round_booking(request):
                 carType=carType,
                 number_of_days=number_of_days,
             )
-            round.save()
+            round_trip.save()
 
-            # Success message and redirect to the homepage or success page
+            # Email content
             subject = "Booking Completed"
-            message = f"""\nYour Booking confirmed.\nTRIP TYPE\n ROUND TRIP
-
-Pickup: {pickup}-->{drop}-->{pickup},
-Dear: {name}
-Phone: {phone}
+            message = f"""
+Your booking is confirmed.
+TRIP TYPE: ROUND TRIP
+Pickup: {pickup} --> {drop} --> {pickup}
+Name: {name}
+Phone: +91{phone}
 Email: {email}
-
 Date: {date}
 Time: {time}
-Number_of_days: {number_of_days}
-Fare (minimum fare 250 km):
+Number of Days: {number_of_days}
+Fare (minimum fare 250 km)
 Driver Bata (per day): ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
 
-<<<<<<< HEAD
-Thank you for booking with us!"""
-            recipient = email
-            send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
-            messages.success(request, "Booking successful! Confirmation sent to your email.")
-=======
-
 Thank you for booking with us!
-"""
+            """
+
+            # Always prepare Telegram message
+            telegram_message = f"""New Booking
+TRIP TYPE: ROUND TRIP
+Pickup: {pickup}
+Drop: {drop}
+Name: {name}
+Phone: {phone}
+Email: {email}
+Date: {date}
+Time: {time}
+Number of Days: {number_of_days}
+Driver Bata: ₹{driverCharge}
+Total Fare: ₹{total}
+Car Type: {carType}
+            """
+
+            # Try sending email
             try:
                 send_mail(
                     subject,
@@ -392,53 +407,33 @@ Thank you for booking with us!
                 print("SENDGRID EMAIL ERROR:", e)
                 messages.warning(request, f"Booking saved, but email sending failed: {e}")
 
-            
->>>>>>> efcc90d (Fixed booking and email issues)
-            telegram_message = f"""New Booking\nTRIP TYPE: ROUND TRIP:
+            # Always send Telegram notification
+            try:
+                telegram_bot_token = "7841345963:AAFWf6bAYTdnnHYEimeHAMSH6t5fIhBCNqo"
+                telegram_chat_id = "7589406730"
+                telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
-Pickup: {pickup}
-Drop: {drop}
-Name: {name}
-Phone: {phone}
-Email: {email}
-Date: {date}
-Time: {time}
-Number_of_days: {number_of_days}
-Driver Bata: ₹{driverCharge}
-Total Fare: ₹{total}
-Car Type: {carType}
-"""
-            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
-            telegram_chat_id = "1941956017"
-            telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+                payload = {"chat_id": telegram_chat_id, "text": telegram_message}
+                response = requests.post(telegram_url, data=payload)
+                if response.status_code != 200:
+                    print("Telegram Error:", response.text)
+                else:
+                    print("Telegram message sent successfully!")
 
-            payload = {"chat_id": telegram_chat_id, "text": telegram_message}
-<<<<<<< HEAD
-=======
-            response = requests.post(telegram_url, data=payload)
-            if response.status_code != 200:
-                print("Telegram Error:", response.text)
+            except Exception as te:
+                print("TELEGRAM ERROR:", te)
 
-            # Send the Telegram message
->>>>>>> efcc90d (Fixed booking and email issues)
-            response = requests.post(telegram_url, data=payload)
-            if response.status_code != 200:
-                print("Telegram Error:", response.text)
-
-<<<<<<< HEAD
             return redirect('homepage')
-=======
-           
-            return redirect('homepage')  # Adjust the redirection as per your URL configuration
->>>>>>> efcc90d (Fixed booking and email issues)
 
         except Exception as e:
             print("BOOKING ERROR:", e)
             messages.error(request, f"An error occurred: {e}")
             return redirect('homepage')
 
-    # Render the booking form if it's a GET request
-    return render(request, 'home.html')
+    # If not POST
+    return redirect('homepage')
+
+
 
 def roundtrip(request):
     bookings = Booking.objects.all()

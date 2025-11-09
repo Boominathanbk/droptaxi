@@ -144,6 +144,190 @@
   color: white;
 }
 
+/* 3D Input effect for Pickup and Drop */
+.input-container.pickup-drop input {
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  background: linear-gradient(145deg, #f0f8ff, #d1e0ff);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2),
+              -5px -5px 15px rgba(255,255,255,0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease;
+}
+
+/* Pickup Focus (Green) */
+#pickup:focus {
+  border-color: #21ea06;
+  box-shadow: 8px 8px 15px rgba(33,234,6,0.3),
+              -8px -8px 15px rgba(200,255,200,0.7);
+  transform: translateY(-2px);
+}
+
+/* Drop Focus (Red) */
+#drop:focus {
+  border-color: #c90505;
+  box-shadow: 8px 8px 15px rgba(201,5,5,0.3),
+              -8px -8px 15px rgba(255,200,200,0.7);
+  transform: translateY(-2px);
+}
+
+/* Mobile: stack inputs */
+@media (max-width: 768px) {
+  .pickup-drop-wrapper {
+    flex-direction: column; /* stack vertically */
+  }
+  .pickup-drop-container {
+    flex: 1 1 100%; /* full width */
+  }
+}
+/* === Fare Summary Box === */
+.border.col-md-12.p-3.fs-6 {
+  background: linear-gradient(135deg, #212324ff, #c8bedaff, #9b6685ff);
+  border: none !important;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.border.col-md-12.p-3.fs-6:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* === Headings & Text === */
+#total {
+  color: #ffeb3b;
+  font-size: 18px;
+}
+#fare {
+  color: #fff176;
+  font-size: 16px;
+}
+#selectedCarType {
+  color: #ffcc80;
+  font-weight: 600;
+}
+#pickupLocationDisplay {
+  color: #f40303ff !important;
+}
+#dropLocationDisplay {
+  color: #4caf50 !important;
+}
+#pickupLocationDisplays {
+  color: #5bf403d8 !important;
+}
+
+
+/* === Additional Charges Note === */
+#additionalCharges {
+  background: rgba(238, 199, 82, 0.2);
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 10px;
+  display: inline-block;
+  color: #ffeb3b !important;
+}
+
+/* === Small Text Styling === */
+.border.col-md-12.p-3.fs-6 small {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* === Animation === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.border.col-md-12.p-3.fs-6 {
+  animation: fadeInUp 0.7s ease-in-out;
+}
+
+/* === Car Buttons Common Design === */
+.btn.btn-success.text-light.shadow-lg {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  box-shadow: 0 6px 0 #004a99, 0 8px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transform: perspective(500px) translateZ(0);
+}
+
+/* === 3D Lift Effect on Hover === */
+.btn.btn-success.text-light.shadow-lg:hover {
+  transform: perspective(500px) translateY(-4px) translateZ(5px);
+  box-shadow: 0 8px 0 #004a99, 0 12px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #3cd3ad, #4cb8c4);
+}
+
+/* === Click (Press Down) Effect === */
+.btn.btn-success.text-light.shadow-lg:active {
+  transform: perspective(400px) translateY(4px);
+  box-shadow: 0 2px 0 #003f7f, 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* === Sedan Button (Blue Gradient) === */
+.col:first-child .btn.btn-success.text-light.shadow-lg {
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  box-shadow: 0 6px 0 #005f7f, 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === SUV Button (Orange Gradient) === */
+.col.mb-3 .btn.btn-success.text-light.shadow-lg {
+  background: linear-gradient(135deg, #ff8c00, #ff5f6d);
+  box-shadow: 0 6px 0 #c63d2f, 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === Hover Effects for Each === */
+.col:first-child .btn.btn-success.text-light.shadow-lg:hover {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+.col.mb-3 .btn.btn-success.text-light.shadow-lg:hover {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+/* === Glow Animation on Hover === */
+.btn.btn-success.text-light.shadow-lg:hover small {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+.btn.btn-success.text-light.shadow-lg small {
+  transition: text-shadow 0.3s ease;
+}
+
+/* === Car Check Icon Style === */
+.bi-check-circle-fill {
+  color: #fff;
+  margin-left: 5px;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+#sedan-check {
+  color: #00ff66 !important; /* Bright Green */
+  display: none;
+  margin-left: 6px;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 102, 0.7));
+  transition: all 0.3s ease-in-out;
+}
+
+/* When visible, give small pop animation */
+#sedan-check[style*="inline"] {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.9));
+}
+
+
+
 
 
 
@@ -232,29 +416,38 @@
         <input type="hidden" id="selectedCarTypeField" name="carType" value="sedan">
         <div class=" container text-center  mx-auto   p-2 shadow-lg  bg-opacity-75 rounded " style="display: block; place-items: center;">
           <div class="d-flex">
-            <!-- Pickup Location -->
-            <div class="d-flex align-items-center p-3">
-              <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i>
-              <div class="input-container">
-                <input type="text" id="pickup" class="rounded border border-success form-control border-2" name="pickup" placeholder="Pickup Location" oninput="showSuggestions(this)"  required>
-                <div id="pickupsuggestions" class="suggestions-container"></div>
-              </div>
-            </div>
-            <!-- Drop Location -->
-            <div class="d-flex align-items-center p-3">
-              <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #c90505;"></i>
-              <div class="input-container">
-                <input type="text" id="drop" class="rounded border border-success form-control border-2" name="drop" placeholder="Drop Location" oninput="showSuggestions(this)"  required>
-                <div id="dropsuggestions" class="suggestions-container"></div>
-              </div>
-            </div>
-          </div><br>
-          <div id="errorMessage" style="color: red; display: none;"></div>
-          <button type="button" onclick="validateLocations();" class="btn btn-primary">Booking</button>
-          <div id="please-wait" style="display: none;">
-            <p class='text-success'>Please wait...</p>
-          </div>
-          <div id="errorMessage" style="color: red; display: none;"></div>
+            
+   
+  <!-- Pickup Location -->
+  <div class="d-flex align-items-center p-3 pickup-drop-container">
+    <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i>
+    <div class="input-container pickup-drop">
+      <label for="pickup" class="form-label fw-bold">Pickup Location</label>
+      <input type="text" id="pickup" class="form-control" name="pickup" placeholder="Pickup Location" required>
+      <small id="pickupError" style="color:red; display:none;"></small>
+      <div id="pickupsuggestions" class="suggestions-container"></div>
+    </div>
+  </div>
+ 
+  <!-- Drop Location -->
+  <div class="d-flex align-items-center p-3 pickup-drop-container">
+    <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #c90505;"></i>
+    <div class="input-container pickup-drop">
+      <label for="drop" class="form-label fw-bold">Drop Location</label>
+      <input type="text" id="drop" class="form-control" name="drop" placeholder="Drop Location" required>
+      <small id="dropError" style="color:red; display:none;"></small>
+      <div id="dropsuggestions" class="suggestions-container"></div>
+    </div>
+  </div>
+</div>
+<br>
+      <div id="errorMessage" style="color: red; display: none;"></div>
+      <!--<button type="button" onclick="validateLocations()" class="btn btn-primary">Booking</button> -->
+
+      <div id="please-wait" style="display: none;">
+        <p class='text-success'>Please wait...</p>
+      </div>
+      <div id="errorMessage" style="color: red; display: none;"></div>
 
           <div class='container col-12 col-md-6' id="bookingDetails" style='display: none'>
             <div class="container">
@@ -279,7 +472,7 @@
                 <div class="container text-center d-flex flex-column align-items-center p-2">
                     <div class="d-flex align-items-center justify-content-center w-100">
                       <label class='form-label mx-auto me-2 fw-bold'>Email:</label>
-                        <input type="email" id="email" class=" mx-auto rounded form-control border border-success border-2" name="email" placeholder="Enter Email" required style="max-width: 400px;">
+                        <input type="email" id="email" class=" mx-auto rounded form-control border border-success border-2" name="email" placeholder="Enter Email" style="max-width: 400px;">
                     </div>
                 </div>
 
@@ -322,7 +515,7 @@
         <div class=" text-center"  id="resultContainer" style='display: none;'><br>
           <div class='border col-md-12 p-3 fs-6'>
             <small style='display:none;'>The distance between the locations is: <strong><div id="distance"></div></strong></small>
-            <small id="fare" class="text-center" style='display:none;' ></small><br>
+            <small id="fare" class="text-center" style='display:none;' ></small>
 
             <small  >Driver Bata(per day) : ₹400</small><br>
             <small id='total' class='fw-bold' >Total Amount is : </small><br>
@@ -672,517 +865,128 @@
     </div>
   </div>
 </section>
-</body>
-</html>
+    <div id="map"></div>
+
+    <!-- Google Maps JS API with 2025 compliant Places support -->
+    <!-- Load Google Maps API -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCG1ItjUjunhrraCP762YXprXJIOtl5Q9M&libraries=places&callback=initAutocomplete"
+  async defer>
+</script>
+
 <script>
+let pickupAutocomplete, dropAutocomplete;
+let selectedCarType = 'sedan';
+const driverChargePerDay = 400;
+const distancePerDay = 250; // Max 250 km/day (minimum base)
 
-   // Predefined Tamil Nadu locations (this is a sample, add more locations as needed)
-const tamilNaduLocations = [
-"Chennai", "Chennai Central", "Chennai Airport", "Coimbatore", "Madurai",
-"Trichy", "Salem", "Tirunelveli", "Vellore", "Erode", "Thanjavur",
-"Theni", "Kanchipuram", "Dharmapuri", "Villupuram", "Nagapattinam",
-"Pudukkottai", "Tiruppur", "Cuddalore", "Karur", "Virudhunagar", "Kallakurichi", "George Town", "​Parry's Corner",
-"Broadway", "Purasaiwalkam","Perambur", "Royapuram", "Vyasarpadi", "Tondiarpet", "Chintadripet", "Mannady", "Royapettah",
-"Thousand Lights", "Triplicane", "Mylapore", "Nungambakkam", "Egmore", "Chetpet", "Nandanam", "Teynampet", "West Mambalam",
-"Mambalam", "Adyar", "Besant Nagar", "Ekkatuthangal", "Ashok Nagar", "K.K. Nagar","Vadapalani","Saligramam","Virugambakkam",
-"Kodambakkam", "Valasaravakkam", "Porur", "Mogappair", "Pallikaranai", "Perungudi","Sholinganallur","Thoraipakkam","Velachery",
-"Madipakkam","Medavakkam","Tambaram","Chromepet","Pammal","Pallavaram","Saidapet","Nanganallur","Keelkattalai","Kovilambakkam",
-"Thiruvanmiyur","Kottivakkam","Neelankarai","Injambakkam","Shenoy Nagar","Aminjikarai","Kotturpuram","Nolambur","Mugalivakkam",
-"Perumbakkam","Perungalathur","Thiruvallur","Puzhal","Puzhuthivakkam","Ullagaram","Vandalur","Thirumazhisai","Thirumullaivayal",
-"Thiruninravur","Thiruverkadu","Triplicane","Peravallur","Peramboor","Kodungaiyoor","Erukkanjery",
-"Perambur","Peramboor","Ayanpuram","Konnoor","Amaindhakarai","Mallikaichcheri","Mallikaicheri","Chinna Sembarambakkam",
-"Siruvallur","Peravalloor","Thirukoilur","Thiruvannamalai","ooty",'Kodaikanal'
+function initAutocomplete() {
+    const options = { componentRestrictions: { country: "in" } };
+    pickupAutocomplete = new google.maps.places.Autocomplete(document.getElementById("pickup"), options);
+    dropAutocomplete = new google.maps.places.Autocomplete(document.getElementById("drop"), options);
 
-];
-// Function to handle input and show suggestions
-function showSuggestions(inputField) {
-  const query = inputField.value.trim().toLowerCase();
-  const suggestionsContainer = document.getElementById(inputField.id + 'suggestions');
-
-  // Hide others when typing
-  hideAllSuggestions();
-
-  if (query.length < 3) {
-    suggestionsContainer.innerHTML = '';
-    suggestionsContainer.style.display = 'none';
-    return;
-  }
-  if (!inputField.dataset.listenerAdded) {
-  inputField.addEventListener('input', function () {
-    delete inputField.dataset.selectedLocation;
-  });
-  inputField.dataset.listenerAdded = "true";
+    pickupAutocomplete.addListener("place_changed", handleLocationChange);
+    dropAutocomplete.addListener("place_changed", handleLocationChange);
 }
 
-
-  const filteredLocations = tamilNaduLocations.filter(location => location.toLowerCase().startsWith(query));
-
-  if (filteredLocations.length > 0) {
-    showFilteredSuggestions(filteredLocations, inputField);
-  } else {
-    getLocationSuggestions(query, (data) => {
-      suggestionsContainer.innerHTML = '';
-      suggestionsContainer.style.display = 'block';
-
-      if (data.length) {
-        data.forEach(item => {
-          const suggestion = document.createElement('div');
-          suggestion.className = 'suggestion-item';
-          suggestion.textContent = item.display_name;
-          suggestion.onclick = () => selectSuggestion(item, inputField);
-          suggestionsContainer.appendChild(suggestion);
-        });
-      }
-    });
-  }
-}
-
-
-// Function to display filtered Tamil Nadu locations
-function showFilteredSuggestions(filteredLocations, inputField) {
-  const suggestionsContainer = document.getElementById(inputField.id + 'suggestions');
-  suggestionsContainer.innerHTML = '';
-  suggestionsContainer.style.display = 'block';
-
-  filteredLocations.forEach(location => {
-    const suggestion = document.createElement('div');
-    suggestion.className = 'suggestion-item';
-    suggestion.textContent = location;
-    suggestion.onclick = () => {
-      selectSuggestion({ display_name: location }, inputField);
-    };
-    suggestionsContainer.appendChild(suggestion);
-  });
-}
-// Function to get location suggestions from the Nominatim API
-function getLocationSuggestions(query, callback) {
-  const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=5&countrycodes=IN`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      // Filter the results to only include the desired states
-      const filteredResults = data.filter(location => {
-        const state = location.address && location.address.state;
-        return ['Tamil Nadu', 'Andhra Pradesh', 'Kerala', 'Karnataka', 'Telangana', 'Puducherry'].includes(state);
-      });
-
-      // Clean up each location's display_name
-      const cleanedResults = filteredResults.map(item => {
-        let displayName = item.display_name;
-
-        // Remove pincode (assuming pincode is a 6-digit number)
-        displayName = displayName.replace(/\s*\d{6,}\s*/g, '').trim();
-
-        // Remove "India" from anywhere in the address
-        displayName = displayName.replace(/\s*india\s*/gi, '').trim();  // Added global case-insensitive flag
-
-        // Remove any extra commas and spaces (e.g., ,,)
-        displayName = displayName.replace(/,\s*,+/g, ',').trim();  // Replace multiple commas with one comma
-
-        // Remove comma at the end (if any)
-        displayName = displayName.replace(/,\s*$/, '').trim();  // Remove trailing comma
-
-        // Optionally, remove state names at the end (if present)
-        const statePattern = /,\s*(Tamil Nadu|Andhra Pradesh|Kerala|Karnataka|Telangana|Puducherry)\s*$/;
-        displayName = displayName.replace(statePattern, '').trim();
-
-        return {
-          ...item, // Keep other properties of the location
-          display_name: displayName // Replace the display_name with the cleaned version
-        };
-      });
-
-      // Pass cleaned data to the callback
-      callback(cleanedResults);
-    })
-    .catch(error => console.error('Error:', error));
-}
-
-function selectSuggestion(item, inputField) {
-  inputField.value = item.display_name;
-
-  // Save selected place info
-  inputField.dataset.selectedLocation = item.display_name;
-  inputField.dataset.selectedState = item.address.state || '';
-
-  // Hide suggestions
-  const suggestionBox = document.getElementById(inputField.id + 'suggestions');
-  suggestionBox.innerHTML = '';
-  suggestionBox.style.display = 'none';
-
-  // Validate
-  if (isValidLocation(inputField)) {
-    document.getElementById('errorMessage').style.display = 'none';
-  } else {
-    document.getElementById('errorMessage').innerText = 'Invalid location. Please select a valid location.';
-    document.getElementById('errorMessage').style.display = 'block';
-  }
-  getDistance();
-}
-
-
-const allowedStates = [
-  "Tamil Nadu",
-  "Andhra Pradesh",
-  "Kerala",
-  "Karnataka",
-  "Telangana",
-  "Puducherry"
-];
-
-function isValidLocation(inputField) {
-  const selected = inputField.dataset.selectedLocation;
-  const state = inputField.dataset.selectedState;
-
-  if (!selected || !state) return false;
-
-  // Check if state is in the allowed list
-  return allowedStates.includes(state.trim());
-}
-
-
-function hideAllSuggestions() {
-  const containers = document.querySelectorAll('.suggestions-container');
-  containers.forEach(c => {
-    c.innerHTML = '';
-    c.style.display = 'none';
-  });
-}
-
-
-// Sample function to simulate location normalization
-function normalizeLocation(location) {
-  // Normalize by trimming spaces and formatting
-  let normalizedLocation = location.trim().toLowerCase();
-
-  // Remove postal codes (numbers) - assuming postal codes are numeric and appear at the end of the string
-  normalizedLocation = normalizedLocation.replace(/\s*\d{6,}\s*/g, '').trim();  // Assumes postal codes are 6 digits
-
-  // Remove country name "India" and any extra spaces at the end of the string
-  normalizedLocation = normalizedLocation.replace(/,\s*india$/, '').trim();
-
-  // Normalize commas by removing extra spaces after commas
-  normalizedLocation = normalizedLocation.replace(/,\s+/g, ',').trim();
-
-  return normalizedLocation;
-}
-
-// Function to validate pickup and drop locations
-function validateLocations() {
-  // Get the input values and trim them
-  let pickupLocation = document.getElementById('pickup').value.trim();
-  let dropLocation = document.getElementById('drop').value.trim();
-
-  // Normalize the locations to remove postal codes and "India"
-  pickupLocation = normalizeLocation(pickupLocation);
-  dropLocation = normalizeLocation(dropLocation);
-
-  let errorMessages = [];
-
-  // Validate pickup location
-  if (!pickupLocation || (!isLocationInTamilNadu(pickupLocation) && !isLocationInSuggestions(pickupLocation))) {
-    errorMessages.push('Invalid pickup location. Please select a valid location.');
-  }
-
-  // Validate drop location
-  if (!dropLocation || (!isLocationInTamilNadu(dropLocation) && !isLocationInSuggestions(dropLocation))) {
-    errorMessages.push('Invalid drop location. Please select a valid location.');
-  }
-
-  // If there are error messages, display them
-  if (errorMessages.length > 0) {
-    showInvalidLocationErrorMessage(errorMessages.join(' '));
-    return;  // Stop further processing if there's an error
-  }
-
-  // If everything is valid, hide the error message and proceed
-  document.getElementById('errorMessage').style.display = 'none';
-  hideAllSuggestions();
-  getDistance();  // Call the next function to calculate distance
-}
-
-// Function to check if a location is in Tamil Nadu predefined list
-function isLocationInTamilNadu(location) {
-  const normalizedLocation = normalizeLocation(location);
-  return tamilNaduLocations.some(loc => normalizeLocation(loc) === normalizedLocation);
-
-}
-
-// Function to check if a location is in the suggestions container
-function isLocationInSuggestions(location) {
-  const pickupSuggestions = document.getElementById('pickupsuggestions').getElementsByTagName('div');
-  const dropSuggestions = document.getElementById('dropsuggestions').getElementsByTagName('div');
-  const allSuggestions = [...pickupSuggestions, ...dropSuggestions];
-
-  // Normalize the location for comparison (trim spaces and convert to lowercase)
-  const normalizedLocation = normalizeLocation(location);
-
-  // Check if the location exists in the suggestions list
-  for (let suggestion of allSuggestions) {
-    const suggestionText = suggestion.textContent.trim().toLowerCase();
-    const normalizedSuggestionText = normalizeLocation(suggestionText);
-
-    // Match either exactly or partially (for cases like "Udhagamandalam, Tamil Nadu")
-    if (normalizedSuggestionText === normalizedLocation || normalizedSuggestionText.includes(normalizedLocation)) {
-      return true;
-    }
-  }
-
-  return false;  // No valid suggestion found
-}
-
-// Function to show a generic error message
-function showInvalidLocationErrorMessage(message) {
-  const errorMessageElement = document.getElementById('errorMessage');
-  errorMessageElement.innerText = message;
-  errorMessageElement.style.display = 'block';  // Show the error message
-}
-
-// Function to hide error message when the user starts typing
-function hideErrorMessage() {
-  document.getElementById('errorMessage').style.display = 'none';
-}
-
-
-
-  // Function to calculate the distance and fare using Haversine formula
-  function getDistance() {
-    const pickupLocation = document.getElementById('pickup').value;
-    document.getElementById('pickupLocationDisplay').textContent = pickupLocation;
-    document.getElementById('pickupLocationDisplays').textContent = pickupLocation;
-    const dropLocation = document.getElementById('drop').value;
-    document.getElementById('dropLocationDisplay').textContent = dropLocation;
-
-     // Hide the error message when the user starts typing in the pickup field
-    document.getElementById('pickup').addEventListener('input', hideErrorMessage);
-
-   // Validation to check if both pickup and drop locations are entered
-  if (!pickupLocation.trim() || !dropLocation.trim()) {
-  // Show an error message inside an HTML element
-    document.getElementById('errorMessage').innerHTML = 'Please enter both pickup and drop locations.';
-    document.getElementById('errorMessage').style.display = 'block'; // Make sure error message is visible
-    return;  // Stops further execution if either field is empty
-  }
-    // Hide the button and show "Please wait" once both locations are entered
-
-  hideButton();
-    // Get pickup and drop location coordinates using Nominatim API
-    Promise.all([
-      getLocationCoordinates(pickupLocation),
-      getLocationCoordinates(dropLocation)
-    ])
-      .then(results => {
-        const pickupCoords = results[0];
-        const dropCoords = results[1];
-
-        if (pickupCoords && dropCoords) {
-          // Calculate the distance between the two coordinates using Haversine formula
-          const distance = haversine(pickupCoords.lat, pickupCoords.lon, dropCoords.lat, dropCoords.lon);
-          document.getElementById('distance').innerText = `Distance: ${distance.toFixed(0)} KM (Approximate)`;
-
-          // Calculate fare using the selected car type
-          const fare = calculateFare(distance);
-           document.getElementById('fare').style.display = 'block' .innerText = ` Base Fare for up to 130 km:  ₹${total.toFixed(0)}`;
-           document.getElementById('fare').style.display = 'block' .innerText = `Estimated Fare:  ₹${total.toFixed(0)}`;
-           document.getElementById("additionalCharges").style.display = 'block';
-
-
-              // Set the values for hidden inputs
-            document.getElementById('distanceField').value = distance.toFixed(0);  // Update the hidden distance field
-
-            document.getElementById('selectedCarTypeField').value = selectedCarType;
-            document.getElementById('fareField').value = total.toFixed(0);          // Update the fare field
-            document.getElementById('totalFareField').value = total.toFixed(0);
-
-             // Show the result container
-           document.getElementById('resultContainer').style.display = "block";
-
-          // Show booking details section
-           document.getElementById('bookingDetails').style.display = "block";
-
-
-
-        } else {
-          document.getElementById('distance').innerText = 'Invalid locations entered.';
-          document.getElementById('fare').innerText = '';
+function handleLocationChange() {
+    const pickupPlace = pickupAutocomplete.getPlace();
+    const dropPlace = dropAutocomplete.getPlace();
+
+    if (!pickupPlace || !dropPlace) return;
+
+    const pickupLatLng = pickupPlace.geometry.location;
+    const dropLatLng = dropPlace.geometry.location;
+
+    // Google DistanceMatrix to get real driving distance
+    const service = new google.maps.DistanceMatrixService();
+    document.getElementById("please-wait").style.display = "block";
+
+    service.getDistanceMatrix(
+        {
+            origins: [pickupLatLng],
+            destinations: [dropLatLng],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC,
+        },
+        (response, status) => {
+            document.getElementById("please-wait").style.display = "none";
+            if (status !== "OK") {
+                console.error("DistanceMatrix failed:", status);
+                return;
+            }
+
+            const element = response.rows[0].elements[0];
+            if (element.status !== "OK") return;
+
+            let oneWayKm = element.distance.value / 1000;
+            let roundTripKm = oneWayKm * 2; // Round trip (up & down)
+
+            document.getElementById("pickupLocationDisplay").innerText = pickupPlace.name;
+            document.getElementById("dropLocationDisplay").innerText = dropPlace.name;
+            document.getElementById("pickupLocationDisplays").innerText = pickupPlace.name;
+
+            showResult(roundTripKm);
+            calculateFare(roundTripKm);
         }
+    );
+}
 
+// --- Main Fare Calculation ---
+function calculateFare(distanceKm) {
+    const days = parseInt(document.getElementById("days").value) || 1;
+    const ratePerKm = selectedCarType === "suv" ? 18 : 13;
+    const baseKm = days * distancePerDay; // e.g. 2 days = 500 km
 
+    let chargeableKm;
+    let totalFare;
 
-      })
-      .catch(error => {
-        console.error('Error calculating distance:', error);
-        document.getElementById('distance').innerText = 'Error calculating distance.';
-        document.getElementById('fare').innerText = '';
-      });
+    const beta = days * driverChargePerDay;
 
-      function hideButton() {
-        document.querySelector('.btn').style.display = 'none';
-        document.getElementById('please-wait').style.display = 'block';
-    }
-    setTimeout(function() {
-      // Hide the "Please wait" message
-      document.getElementById('please-wait').style.display = 'none';
-       // Show the user details
-      document.getElementById('user-details').style.display = 'block';
-
-    },5000)
-  }
-
-  function hideErrorMessage() {
-    // This function will hide the error message as soon as the user starts typing
-    document.getElementById('errorMessage').style.display = 'none';
-  }
-
-  // Function to get the coordinates (latitude and longitude) of a location using Nominatim
-  function getLocationCoordinates(location) {
-    return new Promise((resolve, reject) => {
-      getLocationSuggestions(location, (data) => {
-        if (data && data.length > 0) {
-          const { lat, lon } = data[0];
-          resolve({ lat: parseFloat(lat), lon: parseFloat(lon) });
-        } else {
-          resolve(null);  // If no data found, return null
-        }
-      });
-    });
-  }
-
-
-
-  let selectedCarType = 'sedan'; // Default car type is Sedan
-
-  function calculateFare(distance) {
-    // Set rate per kilometer based on the selected car type
-    let days = parseInt(document.getElementById('days').value);
-    let ratePerKm = 0;
-
-
-    // Check car type and assign corresponding rate
-    if (selectedCarType === 'sedan') {
-      ratePerKm = 13; // ₹14 per km for Sedan
-    } else if (selectedCarType === 'suv') {
-      ratePerKm = 18; // ₹18 per km for SUV
+    // If actual km < base, charge base; else actual
+    if (distanceKm <= baseKm) {
+        chargeableKm = baseKm;
+    } else {
+        chargeableKm = distanceKm;
     }
 
-    let totalFare = 0;
-    let distancePerDay = 250; // Max 250 km/day (as per your earlier input)
-  // Calculate total distance for the number of days
-    let totalDistance = days * distancePerDay;
-    let dis =0<250;
-    let disd= 0>250;
-      // If the distance is less than or equal to 130 km
-    if (distance <=dis) {
-      let beta = days *400;
-      total = 250 * ratePerKm + beta;
-      totalFare = total;
+    totalFare = (chargeableKm * ratePerKm) + beta;
 
-      total *= days;
-      let maxTotalFare = totalDistance * ratePerKm + beta;
-      if (totalFare < maxTotalFare) {
+    // Display result
+    document.getElementById("fare").innerText = `Base Fare (${chargeableKm} km): ₹${(chargeableKm * ratePerKm).toFixed(0)}`;
+    document.getElementById("total").innerText = 
+        `Driver Bata (${days} day${days > 1 ? 's' : ''}): ₹${beta}<br>Total Amount: ₹${totalFare.toFixed(0)}`;
+    document.getElementById("selectedCarType").innerText = `Selected Car: ${selectedCarType.toUpperCase()}`;
 
-        totalFare = maxTotalFare;
-      }
+    // Hidden field values (for form submit)
+    document.getElementById("distanceField").value = chargeableKm;
+    document.getElementById("fareField").value = (chargeableKm * ratePerKm).toFixed(0);
+    document.getElementById("totalFareField").value = totalFare.toFixed(0);
+    document.getElementById("selectedCarTypeField").value = selectedCarType;
 
-      document.getElementById('fare').innerText = `Base Fare 250 km: ₹${totalFare.toFixed(0)}`;
-      document.getElementById('total').innerText = `Total Amount: ₹${totalFare.toFixed(0)}`;
+    return totalFare;
+}
 
-    }
-    else if (distance > disd) {
-        let beta = days *400;
-        tot=distance *2
-        totalFare = tot * ratePerKm + beta;
-        total = totalFare;
-        total *= days;
-
-        let maxTotalFare = totalDistance * ratePerKm + beta;
-        if (totalFare < maxTotalFare) {
-         totalFare = maxTotalFare;
-        }
-        document.getElementById('fare').innerText = `Base Fare 250 km: ₹${totalFare.toFixed(0)}`;
-        document.getElementById('total').innerText = `Total Amount: ₹${totalFare.toFixed(0)}`;
-      }
-      return totalFare;
-    }
-
-
-
-window.onload = function () {
-    selectCar(selectedCarType); // Now it will work
-};
-
+// --- Car Selection ---
 function selectCar(carType) {
     selectedCarType = carType;
-    console.log('Selected Car:', selectedCarType);
+    document.getElementById("sedan-check").style.display = carType === "sedan" ? "inline" : "none";
+    document.getElementById("suv-check").style.display = carType === "suv" ? "inline" : "none";
 
-    const sedanCheck = document.getElementById('sedan-check');
-    const suvCheck = document.getElementById('suv-check');
-
-    if (sedanCheck && suvCheck) {
-        if (carType === 'sedan') {
-            sedanCheck.style.display = 'inline';
-            suvCheck.style.display = 'none';
-        } else if (carType === 'suv') {
-            sedanCheck.style.display = 'none';
-            suvCheck.style.display = 'inline';
-        }
-    }
-
-
-  // Update the displayed selected car type on the page
-  document.getElementById('selectedCarType').innerText = `Selected Car: ${selectedCarType.charAt(0).toUpperCase() + selectedCarType.slice(1)}`;
-
-  document.getElementById('selectedCarTypeField').value = selectedCarType;
-
-
-
-
-// Optionally, you can update the displayed fare when a car is selected
-const distanceText = document.getElementById('distance').innerText;
-if (distanceText) {
-  const distance = parseFloat(distanceText.replace('Distance: ', '').replace(' km', ''));
-
-  if (!isNaN(distance)) {
-    const fare = calculateFare(distance);
-    document.getElementById('fare').style.display = 'block' .innerText = ` Base Fare for up to 130 km:  ₹${fare.toFixed(0)}`;
-    document.getElementById('fare').style.display = 'block' .innerText = `Estimated Fare:  ₹${fare.toFixed(0)}`;
-
-
-    // Optionally, you can also add tollgate or any additional charges here
-    document.getElementById('additionalCharges').style.display = 'block';
-
-    // Update the hidden input fields with the calculated values
-    document.getElementById('fareField').value = fare.toFixed(0); // Update fare field
-    document.getElementById('totalFareField').value = fare.toFixed(0); // Add driver charge (₹400) to the total fare
-
-    document.getElementById('getDistance').innerText = `Tollgate`;
-  }
+    const distanceText = document.getElementById("distance").innerText;
+    const distanceKm = parseFloat(distanceText) || distancePerDay;
+    calculateFare(distanceKm);
 }
 
+// --- Show result section ---
+function showResult(distanceKm) {
+    document.getElementById("resultContainer").style.display = "block";
+    document.getElementById("distance").innerText = distanceKm.toFixed(2) + " KM";
+    selectCar(selectedCarType);
+    document.getElementById("bookingDetails").style.display = "block";
 }
 
-
-
-
-
-  // Haversine formula to calculate the distance between two lat/lon points in km
-  function haversine(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius of the Earth in km
-    const φ1 = Math.radians(lat1);
-    const φ2 = Math.radians(lat2);
-    const Δφ = Math.radians(lat2 - lat1);
-    const Δλ = Math.radians(lon2 - lon1);
-
-    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-              Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-    return R * c; // Distance in km
-  }
-
-  // Convert degrees to radians
-  Math.radians = function(degrees) {
-    return degrees * Math.PI / 160;
-  }
+window.onload = initAutocomplete;
 </script>
+</body>
+</html>
