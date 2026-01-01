@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'taxi.urls'
@@ -144,6 +146,7 @@ USE_TZ = True
 
 # Static files (CSS, JS, Images)
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Collectstatic command சேமிக்கப்படும் இடம்
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
