@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Koval Taxi</title>
+    <title>DROP TAXI ONE</title>
 </head>
 <style>
     input{
@@ -64,7 +64,7 @@ color: #c90505;
 
 </style>
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top bg-warning">
+  <nav class="navbar navbar-expand-lg fixed-top bg-dark">
     <div class="container-fluid">
       {% load static %}
 <a class="navbar-brand" style="color: red; font-family: Audiowide;" href="#">
@@ -72,11 +72,11 @@ color: #c90505;
        style="width: 40px; height: 40px; border-radius: 50px;"
        src="https://th.bing.com/th/id/OIP.1YfkxxUUITwga6Ady4PNuQHaHa?pid=ImgDet&w=182&h=182&c=7"
        alt="">
-  Koval-Taxi
+  DROP TAXI ONE
 </a>
 
 <small id="time">
-  <img src="{% static 'image/31542765-removebg-preview.png' %}" width="50px" alt="Time Icon">
+  
 </small>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -84,23 +84,23 @@ color: #c90505;
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
           <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: red;" href="https://wa.me/9080521388"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"> </i> 9080521388</a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/8778604136"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"> </i> 877860436</a>
           </li>
           <li class="nav-item d-sm-block d-none" style="margin-right: ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: red;" href="tel:+917373581581"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 9080521388 </a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+918778604136"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 8778604136 </a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+            <a class="nav-link active text-light" aria-current="page" href="{% url 'homepage' %}">Home</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="{% url 'homepage' %}">About</a>
+            <a class="nav-link active text-light" href="{% url 'homepage' %}">About</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="#service">Service</a>
+            <a class="nav-link active text-light" href="#service">Service</a>
           </li>
           
           <li class="nav-item me-3">
-            <a class="nav-link active" href="{% url 'login' %}">Login</a>
+            <a class="nav-link active text-light" href="{% url 'login' %}">Login</a>
           </li>
         </ul>
       </div>
@@ -124,20 +124,12 @@ color: #c90505;
               <img id="animated-image" class="img-fluid" src="https://suritours.in/nimg/taxi-service-in-delhi.jpg" alt="">
            </div>
            <div class="imges col-md-6 text-center img-fluid" id="form" ><br><br>
-            <form action="{% url 'login_data' %}" method="POST">
-                {% csrf_token %} 
-                <h2 class="text-info">Admin Login</h2><br>
-                <div>
-                    <input class="" type="text" name="username" placeholder="Enter your name"><br><br>
-                    <input class="" type="password" name="password" id="" placeholder="Password"><br><br>
-                    <button class="btn btn-primary">submit</button><br>
-                </div><br>
-            </form>    
+              
           </div>
         </div>
       </div><br><br>
     <footer style="background-color: #212529; color: white;">
-      <p class="text-center" style="width: 100%; ">2025 &copy; Koval-Taxi. All Rights Reserved.</p>
+      <p class="text-center" style="width: 100%; ">2026 &copy; DROP TAXI ONE. All Rights Reserved.</p>
      <p class="text-center" style="width: 100%;"> Boominathan developer.</p>
      <div class='container text-center'>
        <i class="fa-brands fa-square-facebook fa-2xl m-5" style="color: #058af0;"></i> 
