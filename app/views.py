@@ -5,12 +5,12 @@ from django.conf import settings
 import requests
 from geopy.distance import geodesic
 from shapely import get_coordinates
-from .models import Booking, RoundTrip
+
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.models import User,auth
+
 from django.http import JsonResponse
-from .models import sedancar
+
 from shapely.geometry import Point, LineString, Polygon
 import geopandas as gpd
 from shapely.geometry import Point
@@ -20,8 +20,8 @@ from datetime import datetime
 
 
 def homepage(request):
-    car = sedancar.objects.all()
-    return render(request,'home.html',{'car':car})
+   
+    return render(request,'home.html')
  
 
 # # Booking view
@@ -107,49 +107,33 @@ import requests
 
 def booking(request):
     if request.method == 'POST':
-        # Get data from the form
-        pickup = request.POST['pickup']
-        drop = request.POST['drop']
-        name = request.POST['name']
-        phone = request.POST['phone']
-        email = request.POST['email']
-        date = request.POST['date']
-        time = request.POST['time']
-        fare = request.POST['fare']
-        driverCharge = request.POST['driverCharge']
-        total = request.POST['totalFare']
-        distance = request.POST['distance']
-        carType = request.POST['carType']
-
-         # ✅ Validation
-        if not pickup or not drop or not name or not phone or not date or not time:
-            messages.error(request, "All fields are required.")
-            return redirect('homepage')
-
         try:
-            # ✅ Save booking
-            booking = Booking.objects.create(
-                pickup=pickup,
-                drop=drop,
-                name=name,
-                phone=phone,
-                email=email,
-                date=date,
-                time=time,
-                fare=fare,
-                total=total,
-                driverCharge=driverCharge,
-                distance=distance,
-                carType=carType
-            )
-            booking.save()
+            pickup = request.POST.get('pickup')
+            drop = request.POST.get('drop')
+            name = request.POST.get('name')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+            date = request.POST.get('date')
+            time = request.POST.get('time')
+            fare = request.POST.get('fare')
+            driverCharge = request.POST.get('driverCharge')
+            total = request.POST.get('totalFare')
+            distance = request.POST.get('distance')
+            carType = request.POST.get('carType')
 
-            # ✅ Format date & time (DD-MM-YYYY & 12-hour format)
+            # ✅ Validation
+            if not all([pickup, drop, name, phone, date, time]):
+                messages.error(request, "All fields are required.")
+                return redirect('homepage')
+
+            # ✅ Format date & time
             formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
-            formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")                                                        
+            formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")
+
+            # ✅ EMAIL (Only)
             subject = "Booking Confirmed ✅"
             message = f"""
-Your booking is confirmed successfully!
+Your booking is confirmed!
 
 🚗 **TRIP DETAILS:**
 Pickup: {pickup}
@@ -164,26 +148,16 @@ Fare: ₹{fare}
 Driver Bata: ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
-
-📝 Note:
-
-
-Thank you for booking with us!
 """
-            try:
-                send_mail(
-                    subject,
-                    message,
-                    "boominathanpoongavanam@gmail.com",  # 👈 SendGrid verified sender email
-                    [email],
-                    fail_silently=False,
-                )
-                messages.success(request, "Booking successful! Confirmation sent to your email.")
-            except Exception as e:
-                print("SENDGRID EMAIL ERROR:", e)
-                messages.warning(request, f"Booking saved, but email sending failed: {e}")
+            send_mail(
+                subject,
+                message,
+                "boominathanpoongavanam@gmail.com",
+                [email],
+                fail_silently=False,
+            )
 
-            # ✅ Telegram notification
+            # ✅ TELEGRAM (Only)
             telegram_message = f"""
 📩 New Booking - ONE WAY TRIP
 
@@ -203,94 +177,102 @@ Thank you for booking with us!
 🔖 Total Fare: ₹{total}
 """
 
-    # Inline buttons (Call & View)
-             
-            telegram_bot_token = "7841345963:AAFWf6bAYTdnnHYEimeHAMSH6t5fIhBCNqo"
-            telegram_chat_id = "7589406730"
+            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
+            telegram_chat_id = "1941956017"
+
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+            requests.post(telegram_url, data={
+                "chat_id": telegram_chat_id,
+                "text": telegram_message
+            })
 
-            payload = {"chat_id": telegram_chat_id, "text": telegram_message}
-            response = requests.post(telegram_url, data=payload)
-            if response.status_code != 200:
-                print("Telegram Error:", response.text)
-
+            messages.success(request, "Booking successful! Email & notification sent.")
             return redirect('homepage')
 
         except Exception as e:
             print("BOOKING ERROR:", e)
-            messages.error(request, f"An error occurred: {e}")
+            messages.error(request, "Something went wrong.")
             return redirect('homepage')
 
     return render(request, 'home.html')
+import json
+import requests
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt   # 🔥 IMPORTANT
+def enquries(request):
+    if request.method == "POST":
+        try:
+            # ✅ Decode body properly
+            data = json.loads(request.body.decode("utf-8"))
+
+            pickup = data.get("pickup")
+            drop = data.get("drop")
+            name = data.get("name")
+            phone = data.get("phone")
+            email = data.get("email")
+            date = data.get("date")
+            time = data.get("time")
+            fare = data.get('fare')
+            driverCharge = data.get('driverCharge')
+            total = data.get('totalFare')
+            distance = data.get('distance')
+            carType = data.get('carType')
+
+            if not pickup or not drop or not name or not phone or not date or not time:
+                return JsonResponse({
+                    "status": "error",
+                    "message": "All fields are required"
+                })
+
+            admin_message = f"""
+📩 NEW ENQUIRY
+
+👤 Name: {name}
+📱 Phone: {phone}
+✉️ Email: {email}
+
+📍 Pickup: {pickup}
+📍 Drop: {drop}
+
+🗓 Date: {date}
+⏰ Time: {time}
+"""
+
+            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
+            telegram_chat_id = "1941956017"
+            telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+
+            response = requests.post(telegram_url, data={
+                "chat_id": telegram_chat_id,
+                "text": admin_message
+            })
+
+            if response.status_code != 200:
+                return JsonResponse({
+                    "status": "error",
+                    "message": "Telegram failed"
+                })
+
+            return JsonResponse({
+                "status": "success",
+                "message": "Enquiry sent to admin"
+            })
+
+        except Exception as e:
+            return JsonResponse({
+                "status": "error",
+                "message": str(e)
+            })
+
+    return JsonResponse({"status": "invalid request"})
+
 
 def round(request):
     return render(request,'round.html')
 
-def admin_page(request):
-    if request.user.is_superuser:
-        round = RoundTrip.objects.all()
-        new_bookings = Booking.objects.filter(is_active=True) 
-        pending_count = new_bookings.count()
-        
-        round_bookings = RoundTrip.objects.filter(is_active=True)  # Assuming is_active=False indicates new or pending bookings          
-        pending_round = round_bookings.count()
-        
-        return render(request, 'admin.html', {'new_bookings': new_bookings, 'pending_count': pending_count,'round':round, 'pending_round':pending_round})
-    else:
-        return redirect('homepage')
 
-
-def approve_booking(request, pk):
-    try:
-        booking = Booking.objects.get(id=pk)
-        booking.is_active = False  
-
-        booking.save()
-        messages.success(request, f'Booking has been confirm.')
-
-    except Booking.DoesNotExist:
-        messages.error(request, 'Booking not found.')
-    return redirect('admin_page')
-
-
-def approve_round(request, pk):
-    try:
-        round = RoundTrip.objects.get(id=pk)
-        round.is_active = False  
-
-        round.save()
-        messages.success(request, f'Booking has been confirm.')
-
-    except Booking.DoesNotExist:
-        messages.error(request, 'Booking not found.')
-    return redirect('admin_page')
-    
-    
-
-
-def booking_details(request):
-    # Get all bookings, you can filter this if needed
-    bookings = Booking.objects.all()
-    new_bookings = Booking.objects.filter(is_active=True)  # Assuming is_active=False indicates new or pending bookings
-        
-        # Count the number of new/pending bookings
-    pending_count = new_bookings.count()
-    round_bookings = RoundTrip.objects.filter(is_active=True)  # Assuming is_active=False indicates new or pending bookings          
-    pending_round = round_bookings.count()
-    # Pass the bookings to the template
-    return render(request, 'booking_details.html', {'bookings': bookings,'pending_count':pending_count,'pending_round':pending_round})
-
-def Delete(request,pk):
-    delete=Booking.objects.get(id=pk)
-    delete.delete()
-    messages.success(request,"deleted successfully")
-    return redirect("booking_details")
-
-def Delete_round(request,pk):
-    delete=RoundTrip.objects.get(id=pk)
-    delete.delete()
-    messages.success(request,"deleted successfully")
-    return redirect("roundtrip")
 
 def login(request):
     return render(request,'login.html')
@@ -315,110 +297,98 @@ def login_data(request):
     else:
         return redirect("login")  
     
-
 def round_booking(request):
     if request.method == 'POST':
-        # Get data from the form
-        pickup = request.POST['pickup']
-        drop = request.POST['drop']
-        name = request.POST['name']
-        phone = request.POST['phone']
-        email = request.POST['email']
-        date = request.POST['date']
-        time = request.POST['time']
-        fare = request.POST['fare']
-        driverCharge = request.POST['driverCharge']
-        total = request.POST['totalFare']
-        distance = request.POST['distance']
-        carType = request.POST['carType']
-        number_of_days = request.POST['number_of_days']
-
-        # Validate required fields
-        if not pickup or not drop or not name or not phone  or not date or not number_of_days:
-            messages.error(request, "All fields are required.")
-            return redirect('round')
-
         try:
-            # Create a booking instance
-            round_trip = RoundTrip.objects.create(
-                pickup=pickup,
-                drop=drop,
-                name=name,
-                phone=phone,
-                email=email,
-                date=date,
-                time=time,
-                fare=fare,
-                total=total,
-                driverCharge=driverCharge,
-                distance=distance,
-                carType=carType,
-                number_of_days=number_of_days,
-            )
-            round_trip.save()
+            # Get data
+            pickup = request.POST.get('pickup')
+            drop = request.POST.get('drop')
+            name = request.POST.get('name')
+            phone = request.POST.get('phone')
+            email = request.POST.get('email')
+            date = request.POST.get('date')
+            time = request.POST.get('time')
+            fare = request.POST.get('fare')
+            driverCharge = request.POST.get('driverCharge')
+            total = request.POST.get('totalFare')
+            distance = request.POST.get('distance')
+            carType = request.POST.get('carType')
+            number_of_days = request.POST.get('number_of_days')
 
-            # Email content
-            subject = "Booking Completed"
+            # ✅ Validation
+            if not all([pickup, drop, name, phone, date, number_of_days]):
+                messages.error(request, "All fields are required.")
+                return redirect('round')
+
+            # ✅ EMAIL
+            subject = "Booking Completed ✅"
             message = f"""
 Your booking is confirmed.
+
 TRIP TYPE: ROUND TRIP
-Pickup: {pickup} --> {drop} --> {pickup}
+Pickup: {pickup} → {drop} → {pickup}
+
 Name: {name}
-Phone: +91{phone}
+Phone: +91 {phone}
 Email: {email}
+
 Date: {date}
 Time: {time}
 Number of Days: {number_of_days}
-Fare (minimum fare 250 km)
-Driver Bata (per day): ₹{driverCharge}
+
+Fare (Minimum 250 km)
+Driver Bata (Per Day): ₹{driverCharge}
 Total Amount: ₹{total}
+
 Car Type: {carType}
 
 Thank you for booking with us!
-            """
+"""
 
-            # Always prepare Telegram message
-            telegram_message = f"""New Booking
-TRIP TYPE: ROUND TRIP
-Pickup: {pickup}
-Drop: {drop}
-Name: {name}
-Phone: {phone}
-Email: {email}
-Date: {date}
-Time: {time}
-Number of Days: {number_of_days}
-Driver Bata: ₹{driverCharge}
-Total Fare: ₹{total}
-Car Type: {carType}
-            """
-
-            # Try sending email
             try:
                 send_mail(
                     subject,
                     message,
-                    "boominathanpoongavanam@gmail.com",  # 👈 SendGrid verified sender email
+                    "boominathanpoongavanam@gmail.com",
                     [email],
                     fail_silently=False,
                 )
-                messages.success(request, "Booking successful! Confirmation sent to your email.")
+                messages.success(request, "Round trip booking successful! Email sent.")
             except Exception as e:
-                print("SENDGRID EMAIL ERROR:", e)
-                messages.warning(request, f"Booking saved, but email sending failed: {e}")
+                print("EMAIL ERROR:", e)
+                messages.warning(request, "Booking done, but email failed.")
 
-            # Always send Telegram notification
+            # ✅ TELEGRAM
+            telegram_message = f"""
+📩 NEW ROUND TRIP BOOKING
+
+📍 {pickup} → {drop} → {pickup}
+
+👤 Name: {name}
+📱 Phone: {phone}
+✉️ Email: {email}
+
+🗓 Date: {date}
+⏰ Time: {time}
+📆 Days: {number_of_days}
+
+🚗 Car Type: {carType}
+🧾 Driver Bata: ₹{driverCharge}
+💰 Total Fare: ₹{total}
+"""
+
             try:
-                telegram_bot_token = "7841345963:AAFWf6bAYTdnnHYEimeHAMSH6t5fIhBCNqo"
-                telegram_chat_id = "7589406730"
+                telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
+                telegram_chat_id = "1941956017"
                 telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
-                payload = {"chat_id": telegram_chat_id, "text": telegram_message}
-                response = requests.post(telegram_url, data=payload)
+                response = requests.post(telegram_url, data={
+                    "chat_id": telegram_chat_id,
+                    "text": telegram_message
+                })
+
                 if response.status_code != 200:
                     print("Telegram Error:", response.text)
-                else:
-                    print("Telegram message sent successfully!")
 
             except Exception as te:
                 print("TELEGRAM ERROR:", te)
@@ -426,11 +396,10 @@ Car Type: {carType}
             return redirect('homepage')
 
         except Exception as e:
-            print("BOOKING ERROR:", e)
-            messages.error(request, f"An error occurred: {e}")
-            return redirect('homepage')
+            print("ROUND BOOKING ERROR:", e)
+            messages.error(request, "Something went wrong.")
+            return redirect('round')
 
-    # If not POST
     return redirect('homepage')
 
 

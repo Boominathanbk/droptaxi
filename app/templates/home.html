@@ -5,7 +5,7 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Book a taxi near me instantly. Affordable taxi service near you, available 24/7. Find cabs near me and enjoy a smooth ride.">
     <meta name="keywords" content="taxi near me, near me taxi, taxi service, taxi service near me, taxi cab service near me, cabs near me">
-    <meta name="author" content="Koval-Taxi">
+    <meta name="author" content="DROP TAXI ONE">
 
     <link rel='shortcut icon' type='icon' href='https://th.bing.com/th/id/OIP.q1U7OV2wL9vM-1LMUyTmYwHaEN?rs=1&pid=ImgDetMain'><link>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places&callback=initAutocomplete" async defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
-  <title>Taxi Near Me | Book Cabs Nearby - Koval Taxi</title>
+  <title>DROP TAXI ONE</title>
 
 </head>
 <body>
@@ -175,10 +175,10 @@
 
 /* 3D Input effect for Pickup and Drop */
 .input-container.pickup-drop input {
-  border-radius: 12px;
+  border-radius: 5px;
   border: 2px solid #ccc;
-  padding: 12px;
-  width: 100%;
+  padding-right: 20px;
+  width: 108%;
   outline: none;
   background: linear-gradient(145deg, #f0f8ff, #d1e0ff);
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2),
@@ -211,6 +211,43 @@
     flex: 1 1 100%; /* full width */
   }
 }
+.drop-taxi-section {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  padding: 60px 0;
+  border-radius: 20px;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.tagline {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.feature-card {
+  padding: 25px;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.bg1 { background: linear-gradient(135deg, #36d1dc, #5b86e5); }
+.bg2 { background: linear-gradient(135deg, #ff512f, #dd2476); }
+.bg3 { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.bg4 { background: linear-gradient(135deg, #f7971e, #ffd200); }
+
 
 
 
@@ -218,19 +255,19 @@
 
 </style>
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top bg-warning">
+  <nav class="navbar navbar-expand-lg fixed-top bg-dark">
     <div class="container-fluid">
      {% load static %}
-<a class="navbar-brand" style="color: red; font-family: Audiowide;" href="#">
+<a class="navbar-brand" style="color: white; font-family: Sans-serif;" href="#">
   <img class="img-fluid bg-none"
        style="width: 40px; height: 40px; border-radius: 50px;"
        src="https://th.bing.com/th/id/OIP.1YfkxxUUITwga6Ady4PNuQHaHa?pid=ImgDet&w=182&h=182&c=7"
        alt="">
-  Koval-Taxi
+  DROP TAXI ONE
 </a>
 
 <small id="time">
-  <img src="{% static 'image/31542765-removebg-preview.png' %}" width="50px" alt="Time Icon">
+ 
 </small>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -238,23 +275,23 @@
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
           <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: red;" href="https://wa.me/9080521388"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"> </i> 9080521388</a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/8778604136"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 8778604136</a>
           </li>
           <li class="nav-item d-sm-block d-none" style="margin-right: ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: red;" href="tel:+917373581581"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 9080521388 </a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+918778604136"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 8778604136 </a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="#about">About</a>
+            <a class="nav-link active text-light" href="#about">About</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="#service">Service</a>
+            <a class="nav-link active text-light" href="#service">Service</a>
           </li>
 
           <li class="nav-item me-3">
-            <a class="nav-link active" href="{% url 'login' %}">Login</a>
+            <a class="nav-link active text-light" href="{% url 'login' %}">Login</a>
           </li>
         </ul>
       </div>
@@ -263,10 +300,49 @@
   <marquee behavior="left" direction="" style="color: orangered;">
     🚕 Book Taxi Online | 24/7 Cab Service | One-Way & Round Trips | Reliable & Affordable Rides – Koval Taxi 🚖
     </marquee>
-  <section class="container-fluid mt-5">
-    <h1 class='text-center' style='color:rgb(240, 56, 133);'>Koval Taxi-Best Taxi Service Near You </h1>
-    <p>Welcome to <strong>Koval Taxi</strong>, your go-to <strong>taxi service near me</strong> for reliable and fast rides. Whether you're searching for <strong>cabs near me</strong>, <strong>near me taxi</strong>, or a trustworthy <strong>taxi cab service near me</strong>, we’ve got you covered 24/7.</p>
-  </section>
+ <section class="container-fluid mt-5">
+  
+
+  <section class="container-fluid mt-5 drop-taxi-section">
+  <div class="container text-center">
+    <h1 class="main-title">🚕 DROP TAXI ONE</h1>
+    <p class="tagline">
+      Your Trusted <strong>Taxi Service Near You</strong> – Safe, Fast & Affordable
+    </p>
+
+    <div class="row mt-4">
+      <div class="col-md-3 col-6 mb-3">
+        <div class="feature-card bg1">
+          <h4>24/7 Service</h4>
+          <p>Anytime • Anywhere</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="feature-card bg2">
+          <h4>One Way Trips</h4>
+          <p>No Return Charges</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="feature-card bg3">
+          <h4>Round Trips</h4>
+          <p>Best Price Guarantee</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="feature-card bg4">
+          <h4>Airport Taxi</h4>
+          <p>On-Time Pickup</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   
   <div class="container">
         {% if messages %}
@@ -309,9 +385,17 @@
       <h1 class="text-center">Booking</h1>
     </div>
   </div>
-  <div class="container p-2 bg-opacity-75 rounded">
-    <div class="container bg-warning p-2 bg-opacity-75 rounded text-center" >
+  <div class=" d-flex container p-2 bg-opacity-75 rounded">
+    <div class="container  p-2 bg-opacity-75 rounded text-center" style='background-color: yellow;'>
       <a  class=" fs-5 mx-auto me-3 fw-bold" href="" style='color: red;' >Drop Trip</a>
+       <i id="dropTick" class="bi bi-check-circle-fill" style="display:none; color:green;"></i>
+      
+     
+
+    </div>
+    <div class="container  p-2 bg-opacity-75 rounded text-center" style='background-color: red;'>
+     
+      
       <a  href="{% url 'round' %}" class="text-decoration-none text-light fs-5 mx-auto me-3 "> Round Trip</a>
 
     </div>
@@ -328,40 +412,32 @@
     <div class=" container text-center mx-auto   p-2  bg-opacity-50 rounded " style="display: block; place-items: center;">
      <!-- Pickup Location -->
 
-      <div class="pickup-drop-wrapper">
+  <div class="pickup-drop-wrapper">
+            
+   
   <!-- Pickup Location -->
-  <div class="d-flex align-items-center p-3 pickup-drop-container">
+  <div class="d-flex align-items-center p-1 pickup-drop-container">
     <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i>
     <div class="input-container pickup-drop">
       <label for="pickup" class="form-label fw-bold">Pickup Location</label>
-      <input type="text" id="pickup" class="form-control" name="pickup" placeholder="Pickup Location" required>
+      <input type="text" id="pickup" class="rounded form-control  border-2" name="pickup" placeholder="Pickup Location"  required >
       <small id="pickupError" style="color:red; display:none;"></small>
       <div id="pickupsuggestions" class="suggestions-container"></div>
     </div>
   </div>
-
+ 
   <!-- Drop Location -->
-  <div class="d-flex align-items-center p-3 pickup-drop-container">
+  <div class="d-flex align-items-center p-1 pickup-drop-container">
     <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #c90505;"></i>
     <div class="input-container pickup-drop">
       <label for="drop" class="form-label fw-bold">Drop Location</label>
-      <input type="text" id="drop" class="form-control" name="drop" placeholder="Drop Location" required>
+      <input type="text" id="drop" class="form-control" name="drop" placeholder="Drop Location" style="max-width: 400px;" required>
       <small id="dropError" style="color:red; display:none;"></small>
       <div id="dropsuggestions" class="suggestions-container"></div>
     </div>
   </div>
 </div>
-<br>
-      <div id="errorMessage" style="color: red; display: none;"></div>
-      <!--<button type="button" onclick="validateLocations()" class="btn btn-primary">Booking</button> -->
-
-      <div id="please-wait" style="display: none;">
-        <p class='text-success'>Please wait...</p>
-      </div>
-      <div id="errorMessage" style="color: red; display: none;"></div>
-
-      <div class='container col-12 col-md-6' id="bookingDetails" style="display: none;">
-        <div class="container">
+  <div class="container">
 
             <!-- Name Input -->
             <div class="container text-center d-flex flex-column align-items-center p-2">
@@ -380,12 +456,21 @@
             </div>
 
             <!-- Email Input -->
-            <div class="container text-center d-flex flex-column align-items-center p-2">
-                <div class="d-flex align-items-center justify-content-center w-100">
-                    <i class="fa-solid fa-envelope fa-xl p-3" style="color: #f10404;"></i>
-                    <input type="email" id="email" class="rounded form-control border border-success border-2" name="email" placeholder="Enter Email"  style="max-width: 400px;">
-                </div>
-            </div>
+<div class="container text-center d-flex flex-column align-items-center p-2">
+  <div class="d-flex align-items-center justify-content-center w-100 ">
+    <i class="fa-solid fa-envelope fa-xl p-3" style="color: #f10404;"></i>
+    <input 
+      type="email" 
+      id="email" 
+      class="rounded form-control border border-success border-2"
+      name="email" 
+      placeholder="Enter Email (optional)"
+      style="max-width: 400px;">
+  </div>
+  
+</div>
+ 
+
 
             <!-- Date Input -->
             <div class="container text-center d-flex flex-column align-items-center p-2">
@@ -402,52 +487,69 @@
                     <input type="time" id="" class="rounded form-control border border-success border-2" name="time" required style="max-width: 400px;" placeholder='pickup time'>
                 </div>
             </div>
+            
 
         </div>
     </div>
+    <div class="container d-flex justify-content-center">
+  <div class="col-12 d-flex justify-content-center p-2 gap-3">
+
+    <button type="button"
+      class="rounded btn btn-success text-light shadow-lg"
+      onclick="selectCar('sedan')">
+      <small class="px-2 fw-bold text-light">
+        Sedan
+        <i id="sedan-check" class="bi bi-check-circle-fill" style="display:none;"></i>
+      </small><br>
+      ₹14 / perkm
+    </button>
+
+    <button type="button"
+      class="rounded btn btn-success text-light shadow-lg"
+      onclick="selectCar('suv')">
+      <small class="px-2 fw-bold text-light">
+        SUV
+        <i id="suv-check" class="bi bi-check-circle-fill" style="display:none;"></i>
+      </small><br>
+      ₹19 / perkm
+    </button>
+
+  </div>
+</div>
+<br><br>
+    <div class="text-center mt-3">
+  <button type="button"
+          id="getEnquiryBtn"
+          class="btn btn-primary px-4"
+          onclick="enquries()">
+    Get Enquiries
+  </button>
+</div>
+</div>
+<br>
+      <div id="errorMessage" style="color: red; display: none;"></div>
+      <!--<button type="button" onclick="validateLocations()" class="btn btn-primary">Booking</button> -->
+
+      <div id="please-wait" style="display: none;">
+        <p class='text-success text-center'>Please wait...</p>
+      </div>
+      <div id="errorMessage" style="color: red; display: none;"></div>
+
+      <div class='container col-12 col-md-6' id="bookingDetails" style="display: none;">
+        
     <div class=" text-center  " style="display: none;" id="resultContainer"><br>
       <div class='border bg-dark bg-opacity-50 rounded  col-md-12 p-3 fs-6 text-light'>
-        <small>The distance between the locations is: <strong><div id="distance"></div></strong></small>
+        <small>
+  The distance between the locations is:
+  <strong><span id="distance">--</span></strong>
+</small>
         <small id="fare" class="text-center" >  ₹0.00</small><br>
        
         <small id='total' class='fw-bold'>Total Amount is : </small><br>
         <small id="selectedCarType"  >Selected Car: </small><br>
         <p id="additionalCharges" style='display: none'><small style='color: red;'>Note : Toll & Permit Extra <br>Charges Applicable  </small></p>
-      </div>
-      <div class="container d-flex">
-            <!-- Sedan Button -->
-            <div class="col">
-              <button class="btn">
-                  <a class="text-decoration-none text-dark car-link d-flex flex-column align-items-center" onclick="selectCar('sedan')">
-                      <p class="px-4 text-primary fw-bold">
-                          <button class='rounded btn btn-success text-light shadow-lg'>
-                              <small class="px-2 fw-bold text-light">
-                                  Sedan
-                                  <i id="sedan-check" class="bi bi-check-circle-fill" style="display: none;"></i>
-                              </small><br>
-                                  ₹14/ perkm
-                           </button>
-                       </p>
-                  </a>
-              </button>
-            </div>
-            <!-- MUV Button -->
-            <div class="col mb-3">
-                <button class="btn">
-                    <a class="text-decoration-none text-dark car-link d-flex flex-column align-items-center" onclick="selectCar('suv')">
-                        <p class="px-4 text-primary fw-bold">
-                            <button class='rounded btn btn-success text-light shadow-lg'>
-                                <small class="px-2 fw-bold text-light">
-                                    SUV
-                                    <i id="suv-check" class="bi bi-check-circle-fill" style="display: none;"></i>
-                                </small><br>
-                                  ₹19/ perkm
-                            </button>
-                        </p>
-                    </a>
-                </button>
-            </div>
-      </div>
+      </div><br>
+      
       <div class="text-center">
         <button type="submit" class=" btn btn-outline-success text-center text-danger px-4" >Book Confirm</button>
       </div>
@@ -504,11 +606,11 @@
   <h1 class='text-center fw-bold 'style='font-family: "Bungee Tint", sans-serif;'>ABOUT US ! </h1>
   
   <p class='text-center'> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-half" style='color:green;'></i></p>
-  Use <strong>Koval Taxi</strong> for instant <strong>taxi booking near me</strong>. Whether you need a <strong>cab in Tamil Nadu</strong>, <strong>round trip taxi</strong>, or <strong>one-way ride</strong>, we’re here to serve you. Trusted by thousands for <strong>safe and fast rides</strong> in <strong>Chennai, Coimbatore, Trichy, Madurai</strong> and beyond!
+  Use <strong>DROP TAXI ONE</strong> for instant <strong>taxi booking near me</strong>. Whether you need a <strong>cab in Tamil Nadu</strong>, <strong>round trip taxi</strong>, or <strong>one-way ride</strong>, we’re here to serve you. Trusted by thousands for <strong>safe and fast rides</strong> in <strong>Chennai, Coimbatore, Trichy, Madurai</strong> and beyond!
   <div class='row'>
     <div class='col-md-6'>
       <p class="mt-4 fs-5 text-justify">
-        <i class="bi bi-heart-fill" style="color:rgb(234, 6, 6);"></i> Welcome to <strong>KOVAL TAXI</strong>, your trusted partner in reliable and affordable travel solutions across Tamil Nadu.
+        <i class="bi bi-heart-fill" style="color:rgb(234, 6, 6);"></i> Welcome to <strong>DROP TAXI ONE</strong>, your trusted partner in reliable and affordable travel solutions across Tamil Nadu.
         Whether you're planning a family trip, a business journey, or a one-way ride, we are here to ensure your journey is smooth, safe, and comfortable.
       </p>
 
@@ -523,10 +625,10 @@
       </p>
 
       <p class="fs-5 text-justify">
-        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> Thank you for choosing <strong>KOVAL TAXI</strong> – where every journey matters.
+        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> Thank you for choosing <strong>DROP TAXI ONE</strong> – where every journey matters.
       </p>
       <p class="fs-5 text-justify">
-        <i class="bi bi-telephone-fill" style='color: green;'></i> Any Enquiry Call This Number:  <strong><h4 class='text-danger'>9080521388</h4></strong>
+        <i class="bi bi-telephone-fill" style='color: green;'></i> Any Enquiry Call This Number:  <strong><h4 class='text-danger'>8778604136</h4></strong>
       </p>
 
     </div>
@@ -732,7 +834,7 @@
 
 </div><br><br>
  <footer style="background-color: #212529; color: white;">
-  <p class="text-center" style="width: 100%;">2025 &copy; Koval-Taxi. All Rights Reserved.</p>
+  <p class="text-center" style="width: 100%;">2026 &copy; DROP TAXI ONE. All Rights Reserved.</p>
   <p class="text-center" style="width: 100%;">Boominathan Developer.</p>
 
   <!-- Social Media Icons -->
@@ -751,14 +853,14 @@
   <div class="row fixed-bottom text-center d-md-none">
     <!-- Call Button -->
     <div class="col-6 rounded bg-primary py-2">
-      <a aria-label="Call Us" class="text-decoration-none" style="color: white;" href="tel:+917373581581">
+      <a aria-label="Call Us" class="text-decoration-none" style="color: white;" href="tel:+918778604136">
         <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> Call
       </a>
     </div>
 
     <!-- WhatsApp Button -->
     <div class="col-6 rounded bg-warning py-2">
-      <a aria-label="Chat on WhatsApp" class="text-decoration-none" style="color: white;" href="https://wa.me/7373581581">
+      <a aria-label="Chat on WhatsApp" class="text-decoration-none" style="color: white;" href="https://wa.me/8778604136">
         <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"></i> WhatsApp
       </a>
     </div>
@@ -772,34 +874,142 @@
         async
         defer
     ></script>
-
 <script>
+/* ===============================
+   EXISTING VARIABLES
+================================ */
 let pickupAutocomplete, dropAutocomplete;
-let selectedCar = 'sedan';
+let selectedCar = null
 const driverCharge = 400;
 const baseKm = 130;
-
+let actualDistanceKm = null;
+/* ===============================
+   GOOGLE AUTOCOMPLETE
+================================ */
 function initAutocomplete() {
     const options = { componentRestrictions: { country: "in" } };
-    pickupAutocomplete = new google.maps.places.Autocomplete(document.getElementById("pickup"), options);
-    dropAutocomplete = new google.maps.places.Autocomplete(document.getElementById("drop"), options);
 
+    pickupAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("pickup"),
+        options
+    );
+
+    dropAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("drop"),
+        options
+    );
+
+    // 🔥 ADD THESE TWO LINES
     pickupAutocomplete.addListener("place_changed", handleLocationChange);
     dropAutocomplete.addListener("place_changed", handleLocationChange);
 }
 
+/* ===============================
+   🔥 NEW FUNCTION (ADD THIS)
+   GET ENQUIRIES CLICK
+================================ */
+function enquries() {
+  if (!selectedCar) {
+        alert("Please select Sedan or SUV");
+        return;
+    }
+    // 1️⃣ Get user input
+    const pickup = document.getElementById("pickup").value;
+    const drop = document.getElementById("drop").value;
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+    const date = document.getElementById("date").value;
+    const time = document.querySelector("input[name='time']").value;
+
+    // 2️⃣ Simple validation
+    if (!pickup || !drop || !name || !phone || !date || !time) {
+        alert("All fields are required");
+        return;
+    }
+
+    // 3️⃣ Show "Please wait..." message
+    const waitMsg = document.getElementById("please-wait");
+    waitMsg.style.display = "block";
+
+    // 4️⃣ Hide Get Enquiries button
+    const btn = document.getElementById("getEnquiryBtn");
+    if (btn) btn.style.display = "none";
+
+    // 5️⃣ Send data to server
+    fetch("/enquries/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCSRFToken(),
+        },
+        body: JSON.stringify({ pickup, drop, name, phone, email, date, time })
+    })
+    .then(res => res.json())
+    .then(data => {
+        // Hide "Please wait..." message
+        waitMsg.style.display = "none";
+
+        if (data.status === "success") {
+            // ✅ Show booking details container
+            const bookingDetails = document.getElementById("bookingDetails");
+            const resultContainer = document.getElementById("resultContainer");
+            bookingDetails.style.display = "block";
+            resultContainer.style.display = "block";
+
+            
+
+            // ✅ Update fare (if distance already calculated, otherwise fallback to 130 km)
+            const distanceKm = actualDistanceKm ?? baseKm;
+            updateFare(distanceKm);
+
+        } else {
+            // If server returns error, show button again
+            if (btn) btn.style.display = "inline-block";
+            alert(data.message || "Failed to send enquiry");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        waitMsg.style.display = "none";
+        if (btn) btn.style.display = "inline-block";
+        alert("Server error occurred");
+    });
+}
+
+// Helper function to get CSRF token from cookie (Django)
+function getCSRFToken() {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.startsWith('csrftoken=')) {
+                cookieValue = cookie.substring('csrftoken='.length, cookie.length);
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+
+/* ===============================
+   DISTANCE CALCULATION
+================================ */
 function handleLocationChange() {
+
     const pickupPlace = pickupAutocomplete.getPlace();
     const dropPlace = dropAutocomplete.getPlace();
 
-    if (!pickupPlace || !dropPlace) return;
+    
 
     const pickupLatLng = pickupPlace.geometry.location;
     const dropLatLng = dropPlace.geometry.location;
 
-    // Same location → baseKm
     if (pickupLatLng.equals(dropLatLng)) {
-        showResult(baseKm);
+        
         return;
     }
 
@@ -807,6 +1017,7 @@ function handleLocationChange() {
 }
 
 function calculateDistance(pickupLatLng, dropLatLng) {
+
     const service = new google.maps.DistanceMatrixService();
     document.getElementById("please-wait").style.display = "block";
 
@@ -818,72 +1029,97 @@ function calculateDistance(pickupLatLng, dropLatLng) {
             unitSystem: google.maps.UnitSystem.METRIC,
         },
         (response, status) => {
+
             document.getElementById("please-wait").style.display = "none";
+            let distanceKm = baseKm;
 
-            let distanceKm = baseKm; // fallback
-            try {
-                if (
-                    status === "OK" &&
-                    response.rows[0].elements[0].status === "OK" &&
-                    response.rows[0].elements[0].distance
-                ) {
-                    distanceKm = response.rows[0].elements[0].distance.value / 1000; // meters → km
-                }
-            } catch (e) {
-                console.error("Distance fetch error:", e);
-                distanceKm = baseKm;
-            }
+            if (
+    status === "OK" &&
+    response.rows[0].elements[0].status === "OK"
+) {
+    actualDistanceKm = response.rows[0].elements[0].distance.value / 1000;
+} else {
+    actualDistanceKm = baseKm;
+}
 
-            // Use baseKm if distance < baseKm
-            const kmToUse = distanceKm < baseKm ? baseKm : distanceKm;
-            showResult(kmToUse);
+showResult(actualDistanceKm);
         }
     );
 }
 
+/* ===============================
+   SHOW RESULT
+================================ */
 function showResult(distanceKm) {
-    document.getElementById("resultContainer").style.display = "block";
-    document.getElementById("distance").innerText = `${distanceKm.toFixed(2)} KM`;
 
-    // Default car selection
-    selectedCar = 'sedan';
-    document.getElementById("sedan-check").style.display = "inline";
-    document.getElementById("suv-check").style.display = "none";
+    actualDistanceKm = distanceKm; // ✅ store globally
+
+  
+
+    document.getElementById("distance").innerText =
+        `${distanceKm.toFixed(2)} KM`;
 
     updateFare(distanceKm);
-    document.getElementById("bookingDetails").style.display = "block";
 }
 
+/* ===============================
+   FARE CALCULATION
+================================ */
 function updateFare(distanceKm) {
-    const ratePerKm = selectedCar === 'suv' ? 19 : 14;
 
-    // Base fare logic
+    if (!selectedCar) return;
+
+    const ratePerKm = selectedCar === "suv" ? 19 : 14;
+
+    // ✅ APPLY BASE KM RULE HERE
     const kmToCharge = distanceKm < baseKm ? baseKm : distanceKm;
+
     const fare = kmToCharge * ratePerKm;
     const total = fare + driverCharge;
 
-    document.getElementById("fare").innerHTML = `Base Fare (${kmToCharge.toFixed(2)} km): ₹${fare.toFixed(0)}`;
-    document.getElementById("total").innerHTML = `Driver Bata: ₹${driverCharge}<br>Total Amount: ₹${total.toFixed(0)}`;
-    document.getElementById("selectedCarType").innerText = `Selected Car: ${selectedCar.toUpperCase()}`;
+    document.getElementById("fare").innerHTML =
+        `Base Fare (${kmToCharge.toFixed(2)} km): ₹${fare.toFixed(0)}`;
 
-    document.getElementById("fareField").value = fare.toFixed(0);
-    document.getElementById("totalFareField").value = total.toFixed(0);
+    document.getElementById("total").innerHTML =
+        `Driver Bata: ₹${driverCharge}<br>Total Amount: ₹${total.toFixed(0)}`;
+
+    document.getElementById("selectedCarType").innerText =
+        `Selected Car: ${selectedCar.toUpperCase()}`;
+
+    // Hidden fields
+    document.getElementById("fareField").value = fare;
+    document.getElementById("totalFareField").value = total;
     document.getElementById("selectedCarTypeField").value = selectedCar;
 }
 
+/* ===============================
+   CAR SELECTION
+================================ */
 function selectCar(carType) {
-    selectedCar = carType;
-    document.getElementById("sedan-check").style.display = carType === 'sedan' ? 'inline' : 'none';
-    document.getElementById("suv-check").style.display = carType === 'suv' ? 'inline' : 'none';
 
-    const distanceText = document.getElementById("distance").innerText;
-    const distanceKm = parseFloat(distanceText) || baseKm;
+    selectedCar = carType;
+
+    document.getElementById("sedan-check").style.display =
+        carType === "sedan" ? "inline" : "none";
+
+    document.getElementById("suv-check").style.display =
+        carType === "suv" ? "inline" : "none";
+
+    const btn = document.getElementById("getEnquiryBtn");
+    btn.disabled = false;
+    btn.style.opacity = "1";
+
+    const distanceKm = actualDistanceKm ?? baseKm;
+    updateFare(distanceKm);
+
     updateFare(distanceKm);
 }
 
+/* ===============================
+   INIT
+================================ */
 window.onload = initAutocomplete;
-
-
 </script>
+
 </body>
 </html>

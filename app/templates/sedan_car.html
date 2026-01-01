@@ -1,68 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand fs-5" style="color: rgb(255, 136, 0); font-family: Audiowide;" href="#"><img class="img-fluid bg-none" style="width: 100px; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIEBmVar2aJfNDM6NOcVd_sTeFEMt2u8_Y4Q&s" alt=""> Koval-Taxi</a>
-         
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarNav">
-            <ul class="navbar-nav mx-auto me-5 fs-5" style="font-family: Faculty;">
-               
-              <li class="nav-item" style="margin-right: 150px;">
-                <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none fs-5 " style="color: orangered;" href="https://wa.me/7373581581"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"> </i> 7373581581</a>
-              </li>
-              <li class="nav-item" style="margin-right: 50px;">
-                <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none fs-5 d-sm-none d-md-block" style="color: orangered;" href="tel:+7373581581"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 7373581581</a>
-              </li>
-              <li class="nav-item me-3">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item me-3">
-                <a class="nav-link active" href="">sedan car</a>
-              </li>
-              <li class="nav-item me-3">
-                <a class="nav-link active" href="{% url 'car_Deatils' %}">sedan view</a>
-              </li>
-              <li class="nav-item me-3">
-                <a class="nav-link active" href="#">Register</a>
-              </li>
-              <li class="nav-item me-3">
-                <a class="nav-link active" href="{% url 'login' %}">Login</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="container">
-        <h1 class="text-center">ADD CAR DETAILS</h1>
-        <div>
-            <form action="{% url 'add_car' %}" method="POST">
-                {% csrf_token %}
-                <div>
-                    <input type="text" name="carname" class="form-control" placeholder="Enter your car name"><br>
-                    <input type="text" name="price" class="form-control" placeholder="price"><br>
-                </div><br>
-                <div>
-                    <a href="" class="text-decoration-none"><button class="btn btn-primary">submit</button></a>
-                </div>
-            </form>
-        </div>
 
-      </div>
-    
-</body>
-</html>
+def booking(request):
+    if request.method == 'POST':
+        # Get data from the form
+        pickup = request.POST['pickup']
+        drop = request.POST['drop']
+        name = request.POST['name']
+        phone = request.POST['phone']
+        email = request.POST['email']
+        date = request.POST['date']
+        time = request.POST['time']
+        fare = request.POST['fare']
+        driverCharge = request.POST['driverCharge']
+        total = request.POST['totalFare']
+        distance = request.POST['distance']
+        carType = request.POST['carType']
+
+         # ✅ Validation
+        if not pickup or not drop or not name or not phone or not date or not time:
+            messages.error(request, "All fields are required.")
+            return redirect('homepage')
+
+       
+
+            # ✅ Format date & time (DD-MM-YYYY & 12-hour format)
+            formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
+            formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")                                                        
+            subject = "Booking Confirmed ✅"
+            message = f"""
+Your booking is confirmed successfully!
+
+🚗 **TRIP DETAILS:**
+Pickup: {pickup}
+Drop: {drop}
+Name: {name}
+Phone: {phone}
+Email: {email}
+Distance: {distance} km (approx)
+Date: {formatted_date}
+Time: {formatted_time}
+Fare: ₹{fare}
+Driver Bata: ₹{driverCharge}
+Total Amount: ₹{total}
+Car Type: {carType}
+
+📝 Note:
+
+
+Thank you for booking with us!
+"""
+            try:
+                send_mail(
+                    subject,
+                    message,
+                    "boominathanpoongavanam@gmail.com",  # 👈 SendGrid verified sender email
+                    [email],
+                    fail_silently=False,
+                )
+                messages.success(request, "Booking successful! Confirmation sent to your email.")
+            except Exception as e:
+                print("SENDGRID EMAIL ERROR:", e)
+                messages.warning(request, f"Booking saved, but email sending failed: {e}")
+
+            # ✅ Telegram notification
+            telegram_message = f"""
+📩 New Booking - ONE WAY TRIP
+
+📍 Pickup: {pickup}
+📍 Drop: {drop}
+
+👤 Name: {name}
+📱 Phone: +91 {phone}
+✉️ Email: {email}
+
+🗓️ Date: {formatted_date}
+⏰ Time: {formatted_time}
+
+💰 Fare: ₹{fare}
+🚗 Car Type: {carType}
+🧾 Driver Bata: ₹{driverCharge}
+🔖 Total Fare: ₹{total}
+"""
+
+    # Inline buttons (Call & View)
+             
+            telegram_bot_token = "7841345963:AAFWf6bAYTdnnHYEimeHAMSH6t5fIhBCNqo"
+            telegram_chat_id = "7589406730"
+            telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+
+            payload = {"chat_id": telegram_chat_id, "text": telegram_message}
+            response = requests.post(telegram_url, data=payload)
+            if response.status_code != 200:
+                print("Telegram Error:", response.text)
+
+            return redirect('homepage')
+
+        except Exception as e:
+            print("BOOKING ERROR:", e)
+            messages.error(request, f"An error occurred: {e}")
+            return redirect('homepage')
+
+    return render(request, 'home.html')

@@ -7,7 +7,7 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Book a taxi near me instantly. Affordable taxi service near you, available 24/7. Find cabs near me and enjoy a smooth ride.">
     <meta name="keywords" content="taxi near me, near me taxi, taxi service, taxi service near me, taxi cab service near me, cabs near me">
-    <meta name="author" content="Koval-Taxi">
+    <meta name="author" content="DROP TAXI ONE">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,13 +19,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
-<title>Taxi Near Me | Book Cabs Nearby - Koval Taxi</title>
+<title>DROP TAXI ONE</title>
 
 </head>
 <style>
 .navbar {
-    background-color: #fff;  /* Light navbar */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #e90909ff;  /* Light navbar */
+    box-shadow: 0 4px 6px rgba(238, 229, 229, 0.1); /* Subtle shadow */
   }
   .back {
     background: url('https://wallpapers.com/images/high/full-moon-red-thar-4k-hfk5vbgrykgzw2xc.webp');
@@ -325,7 +325,22 @@
   transform: scale(1.3);
   filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.9));
 }
+#resultContainer .btn small {
+  font-size: 0.9rem;
+}
 
+#resultContainer .btn {
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+#resultContainer .text-success {
+  color: #00b300 !important;
+}
+
+#resultContainer .text-primary {
+  color: #007bff !important;
+}
 
 
 
@@ -333,32 +348,32 @@
 
 </style>
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top bg-warning">
+  <nav class="navbar navbar-expand-lg fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand " style="color: red; font-family: Audiowide;" href="#"><img class="img-fluid bg-none" style="width: 40px; height: 40px; border-radius: 50px;" src="https://th.bing.com/th/id/OIP.1YfkxxUUITwga6Ady4PNuQHaHa?pid=ImgDet&w=182&h=182&c=7" alt=""> Koval-Taxi</a><small id='time'><img src='static\image\31542765-removebg-preview.png' width='50px'></small>
+      <a class="navbar-brand " style="color: white; font-family: Audiowide;" href="#"><img class="img-fluid bg-none" style="width: 40px; height: 40px; border-radius: 50px;" src="https://th.bing.com/th/id/OIP.1YfkxxUUITwga6Ady4PNuQHaHa?pid=ImgDet&w=182&h=182&c=7" alt=""> DROP TAXI ONE</a><small id='time'></small>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
           <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: orangered;" href="https://wa.me/9080521388"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"> </i> 9080521388</a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/8778604136"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 8778604136</a>
           </li>
           <li class="nav-item d-sm-block d-none" style="margin-right: ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: orangered;" href="tel:+919080521388"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 9080521388 </a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+918778604136"> <i class="fa-solid fa-phone" style="color: #5ffa05ff;"></i> 8778604136 </a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="#about">About</a>
+            <a class="nav-link active text-light" href="#about">About</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="#service">Service</a>
+            <a class="nav-link active text-light" href="#service">Service</a>
           </li>
 
           <li class="nav-item me-3">
-            <a class="nav-link active" href="{% url 'login' %}">Login</a>
+            <a class="nav-link active text-light" href="{% url 'login' %}">Login</a>
           </li>
         </ul>
       </div>
@@ -400,10 +415,15 @@
           <h1 class="text-center">Booking</h1>
         </div>
       </div>
-      <div class="container bg-warning p-2 bg-opacity-75 rounded">
-        <div class="container trip text-center" >
-          <a  class="text-decoration-none fs-5 text-dark mx-auto me-3" href="{% url 'homepage' %}" >Drop Trip</a>
-          <a  href="" class="e text-danger fs-5 mx-auto me-3 fw-bold "> Round Trip</a>
+       <div class=" d-flex container  p-2 bg-opacity-75 rounded">
+        <div class="container  p-2 bg-opacity-75 rounded text-center" style='background-color: yellow;'>
+          <a class='text-danger text-decoration-none'  href="{% url 'homepage' %}" >Drop Trip</a>
+         
+
+        </div>
+          <div class="container  p-2 bg-opacity-75 rounded text-center" style='background-color: red;'>
+          
+          <a  href="" class="text-light fs-5 mx-auto me-3 fw-bold"> Round Trip</a>
 
         </div>
       </div>
@@ -415,7 +435,7 @@
         <input type="hidden" id="driverChargeField" name="driverCharge" value="400">
         <input type="hidden" id="selectedCarTypeField" name="carType" value="sedan">
         <div class=" container text-center  mx-auto   p-2 shadow-lg  bg-opacity-75 rounded " style="display: block; place-items: center;">
-          <div class="d-flex">
+          <div class="pickup-drop-wrapper">
             
    
   <!-- Pickup Location -->
@@ -472,7 +492,8 @@
                 <div class="container text-center d-flex flex-column align-items-center p-2">
                     <div class="d-flex align-items-center justify-content-center w-100">
                       <label class='form-label mx-auto me-2 fw-bold'>Email:</label>
-                        <input type="email" id="email" class=" mx-auto rounded form-control border border-success border-2" name="email" placeholder="Enter Email" style="max-width: 400px;">
+                        <input type="email" id="email" class=" mx-auto rounded form-control border border-success border-2" name="email" placeholder="Enter Email (optional)" style="max-width: 400px;"><br>
+                        
                     </div>
                 </div>
 
@@ -517,9 +538,9 @@
             <small style='display:none;'>The distance between the locations is: <strong><div id="distance"></div></strong></small>
             <small id="fare" class="text-center" style='display:none;' ></small>
 
-            <small  >Driver Bata(per day) : ₹400</small><br>
-            <small id='total' class='fw-bold' >Total Amount is : </small><br>
-            <small id="selectedCarType"  >Selected Car: </small><br>
+            <small>Driver Bata (per day): ₹400</small><br>
+            <small id='total' class='fw-bold'>Total Amount: ₹3650</small><br>
+            <small id='selectedCarType'>Selected Car: SEDAN</small><br>
 
 
            <small id="pickupLocationDisplay" class='fw-bold text-primary'></small>---><small class='fw-bold text-success' id="dropLocationDisplay"></small>---><small class='fw-bold text-primary' id="pickupLocationDisplays"></small>
@@ -528,40 +549,26 @@
             <p id="additionalCharges" style='display: none'><small class='text-danger'>Note* : Toll & Permit
               <br> Charges Applicable </small></p>
           </div>
-          <div class="container d-flex">
-            <!-- Sedan Button -->
-            <div class="col">
-              <button class="btn">
-                  <a class="text-decoration-none text-dark car-link d-flex flex-column align-items-center" onclick="selectCar('sedan')">
-                      <p class="px-4 text-primary fw-bold">
-                          <button class='rounded btn btn-success text-light shadow-lg'>
-                              <small class="px-2 fw-bold text-light">
-                                  Sedan
-                                  <i id="sedan-check" class="bi bi-check-circle-fill" style="display: none;"></i>
-                              </small><br>
-                                  ₹13/ perkm
-                           </button>
-                       </p>
-                  </a>
-              </button>
-            </div>
-            <!-- MUV Button -->
-            <div class="col mb-3">
-                <button class="btn">
-                    <a class="text-decoration-none text-dark car-link d-flex flex-column align-items-center" onclick="selectCar('suv')">
-                        <p class="px-4 text-primary fw-bold">
-                            <button class='rounded btn btn-success text-light shadow-lg'>
-                                <small class="px-2 fw-bold text-light">
-                                    SUV
-                                    <i id="suv-check" class="bi bi-check-circle-fill" style="display: none;"></i>
-                                </small><br>
-                                  ₹18/ perkm
-                            </button>
-                        </p>
-                    </a>
-                </button>
-            </div>
-          </div>
+          <div class="container d-flex justify-content-center gap-3 flex-wrap my-3">
+  <!-- Sedan Button -->
+  <button type="button"  class="btn btn-success text-light shadow-lg px-4 py-2 rounded" onclick="selectCar('sedan')">
+    <small class="fw-bold">
+      Sedan
+      <i id="sedan-check" class="bi bi-check-circle-fill" style="display: none;"></i>
+    </small><br>
+    ₹13 / km
+  </button>
+
+  <!-- SUV Button -->
+  <button type="button"  class="btn btn-success text-light shadow-lg px-4 py-2 rounded" onclick="selectCar('suv')">
+    <small class="fw-bold">
+      SUV
+      <i id="suv-check" class="bi bi-check-circle-fill" style="display: none;"></i>
+    </small><br>
+    ₹18 / km
+  </button>
+</div>
+
           <div class="text-center">
             <button type="submit" class="btn btn-primary text-center text-light px-4" onclick="confirmBooking()">Book Confirm</button>
           </div>
@@ -611,7 +618,7 @@
   <div class='row'>
     <div class='col-md-6'>
       <p class="mt-4 fs-5 text-justify">
-        <i class="bi bi-heart-fill" style="color:rgb(234, 6, 6);"></i> Welcome to <strong>KOVAL TAXI</strong>, your trusted partner in reliable and affordable travel solutions across Tamil Nadu.
+        <i class="bi bi-heart-fill" style="color:rgb(234, 6, 6);"></i> Welcome to <strong>DROP TAXI ONE</strong>, your trusted partner in reliable and affordable travel solutions across Tamil Nadu.
         Whether you're planning a family trip, a business journey, or a one-way ride, we are here to ensure your journey is smooth, safe, and comfortable.
       </p>
 
@@ -626,10 +633,10 @@
       </p>
 
       <p class="fs-5 text-justify">
-        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> Thank you for choosing <strong>KOVAL TAXI</strong> – where every journey matters.
+        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> Thank you for choosing <strong>DROP TAXI ONE</strong> – where every journey matters.
       </p>
       <p class="fs-5 text-justify">
-        <i class="bi bi-telephone-fill" style='color: green;'></i> Any Enquiry Call This Number:  <strong><h4 class='text-danger'>9080521388</h4></strong>
+        <i class="bi bi-telephone-fill" style='color: green;'></i> Any Enquiry Call This Number:  <strong><h4 class='text-danger'>8778604136</h4></strong>
       </p>
 
     </div>
@@ -833,7 +840,7 @@
 
 </div><br><br>
  <footer style="background-color: #212529; color: white;">
-  <p class="text-center" style="width: 100%;">2025 &copy; Koval-Taxi. All Rights Reserved.</p>
+  <p class="text-center" style="width: 100%;">2026 &copy; DROP TAXI ONE. All Rights Reserved.</p>
   <p class="text-center" style="width: 100%;">Boominathan Developer.</p>
 
   <!-- Social Media Icons -->
@@ -952,11 +959,15 @@ function calculateFare(distanceKm) {
 
     totalFare = (chargeableKm * ratePerKm) + beta;
 
-    // Display result
-    document.getElementById("fare").innerText = `Base Fare (${chargeableKm} km): ₹${(chargeableKm * ratePerKm).toFixed(0)}`;
-    document.getElementById("total").innerText = 
-        `Driver Bata (${days} day${days > 1 ? 's' : ''}): ₹${beta}<br>Total Amount: ₹${totalFare.toFixed(0)}`;
-    document.getElementById("selectedCarType").innerText = `Selected Car: ${selectedCarType.toUpperCase()}`;
+   document.getElementById("fare").innerText = 
+  `Base Fare (${chargeableKm} km): ₹${(chargeableKm * ratePerKm).toFixed(0)}`;
+
+document.getElementById("total").innerHTML = 
+  `Driver Bata (${days} day${days > 1 ? 's' : ''}): ₹${beta}<br>
+  Total Amount: ₹${totalFare.toFixed(0)}`;
+
+document.getElementById("selectedCarType").innerText = 
+  `Selected Car: ${selectedCarType.toUpperCase()}`;
 
     // Hidden field values (for form submit)
     document.getElementById("distanceField").value = chargeableKm;
