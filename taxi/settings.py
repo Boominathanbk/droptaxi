@@ -30,10 +30,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-d942o)!gea*x@+o66yy%7=8n26*0^*6ozafkfb3%8*hv@al3@#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = ['16.16.68.81','*' ,'www.droptaxione.in', 'droptaxione.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = ['16.16.68.81','*' ,'www.droptaxione.in','droptaxione.in' 'droptaxione.onrender.com','127.0.0.1']
 
 
 
