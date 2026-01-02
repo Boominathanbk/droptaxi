@@ -175,9 +175,3 @@ SENDGRID_ECHO_TO_STDOUT = False
 
 
 
-#Setting Email
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True                            #Transport Layer Security
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'boominathanpoongavanam@gmail.com'  #from email id
-EMAIL_HOST_PASSWORD = 'ytkv ixpj nxjl xzuz'        #App Password
