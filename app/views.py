@@ -248,7 +248,7 @@ def enquries(request):
 
 Fare: {fare}
 Drivercharge: {driverCharge}
-Total: {totalFare}
+Total: {total}
 Distance: {distance}
 Cartype: {carType}
 """
