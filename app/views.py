@@ -149,13 +149,16 @@ Driver Bata: ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
 """
-            send_mail(
-                subject,
-                message,
-                "boominathanpoongavanam@gmail.com",
-                [email],
-                fail_silently=False,
-            )
+            try:
+               send_mail(
+                  subject,
+                  message,
+                  DEFAULT_FROM_EMAIL,
+                  [email],
+                  fail_silently=False,
+               )
+            except Exception as e:
+                 print("EMAIL FAILED:", e)
 
             # ✅ TELEGRAM (Only)
             telegram_message = f"""
