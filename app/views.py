@@ -107,35 +107,39 @@ import requests
 
 def booking(request):
     if request.method == 'POST':
+        pickup = request.POST.get('pickup')
+        drop = request.POST.get('drop')
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        fare = request.POST.get('fare')
+        driverCharge = request.POST.get('driverCharge')
+        total = request.POST.get('totalFare')
+        distance = request.POST.get('distance')
+        carType = request.POST.get('carType')
+
+        # ✅ Validation
+        if not all([pickup, drop, name, phone, date, time]):
+            messages.error(request, "All fields are required.")
+            return redirect('homepage')
+
+        # ✅ Format date & time
         try:
-            pickup = request.POST.get('pickup')
-            drop = request.POST.get('drop')
-            name = request.POST.get('name')
-            phone = request.POST.get('phone')
-            email = request.POST.get('email')
-            date = request.POST.get('date')
-            time = request.POST.get('time')
-            fare = request.POST.get('fare')
-            driverCharge = request.POST.get('driverCharge')
-            total = request.POST.get('totalFare')
-            distance = request.POST.get('distance')
-            carType = request.POST.get('carType')
-
-            # ✅ Validation
-            if not all([pickup, drop, name, phone, date, time]):
-                messages.error(request, "All fields are required.")
-                return redirect('homepage')
-
-            # ✅ Format date & time
             formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
             formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")
+        except Exception as e:
+            messages.error(request, "Invalid date or time format.")
+            print("DATE/TIME ERROR:", e)
+            return redirect('homepage')
 
-            # ✅ EMAIL (Only)
-            subject = "Booking Confirmed ✅"
-            message = f"""
+        # ✅ EMAIL (Brevo SMTP)
+        subject = "Booking Confirmed ✅"
+        message = f"""
 Your booking is confirmed!
 
-🚗 **TRIP DETAILS:**
+🚗 TRIP DETAILS:
 Pickup: {pickup}
 Drop: {drop}
 Name: {name}
@@ -149,19 +153,20 @@ Driver Bata: ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
 """
-            try:
-               send_mail(
-                  subject,
-                  message,
-                  DEFAULT_FROM_EMAIL,
-                  [email],
-                  fail_silently=False,
-               )
-            except Exception as e:
-                 print("EMAIL FAILED:", e)
+        try:
+            send_mail(
+                subject,
+                message,
+                os.getenv("DEFAULT_FROM_EMAIL"),
+                [email],
+                fail_silently=False,
+            )
+            print(f"Email sent to {email}")
+        except Exception as e:
+            print("EMAIL FAILED:", e)
 
-            # ✅ TELEGRAM (Only)
-            telegram_message = f"""
+        # ✅ TELEGRAM (Only)
+        telegram_message = f"""
 📩 New Booking - ONE WAY TRIP
 
 📍 Pickup: {pickup}
@@ -179,23 +184,21 @@ Car Type: {carType}
 🧾 Driver Bata: ₹{driverCharge}
 🔖 Total Fare: ₹{total}
 """
-
-            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
-            telegram_chat_id = "1941956017"
+        try:
+            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
+            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "1941956017"
 
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
-            requests.post(telegram_url, data={
+            response = requests.post(telegram_url, data={
                 "chat_id": telegram_chat_id,
                 "text": telegram_message
             })
-
-            messages.success(request, "Booking successful! Email & notification sent.")
-            return redirect('homepage')
-
+            print("Telegram status:", response.status_code, response.text)
         except Exception as e:
-            print("BOOKING ERROR:", e)
-            messages.error(request, "Something went wrong.")
-            return redirect('homepage')
+            print("TELEGRAM FAILED:", e)
+
+        messages.success(request, "Booking successful! Email & notification sent.")
+        return redirect('homepage')
 
     return render(request, 'home.html')
 import json
