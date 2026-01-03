@@ -245,6 +245,12 @@ def enquries(request):
 
 🗓 Date: {date}
 ⏰ Time: {time}
+
+Fare: {fare}
+Drivercharge: {drivercharge}
+Total: {totalFare}
+Distance: {distance}
+Cartype: {carType}
 """
 
             telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
