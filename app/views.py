@@ -207,13 +207,14 @@ import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-@csrf_exempt   # 🔥 IMPORTANT
-def enquries(request):
+@csrf_exempt  # 🔥 IMPORTANT
+def enquiries(request):
     if request.method == "POST":
         try:
             # ✅ Decode body properly
             data = json.loads(request.body.decode("utf-8"))
 
+            # ✅ Required fields
             pickup = data.get("pickup")
             drop = data.get("drop")
             name = data.get("name")
@@ -221,18 +222,21 @@ def enquries(request):
             email = data.get("email")
             date = data.get("date")
             time = data.get("time")
-            fare = data.get('fare')
-            driverCharge = data.get('driverCharge')
-            total = data.get('totalFare')
-            distance = data.get('distance')
-            carType = data.get('carType')
 
-            if not pickup or not drop or not name or not phone or not date or not time:
+            if not all([pickup, drop, name, phone, date, time]):
                 return JsonResponse({
                     "status": "error",
-                    "message": "All fields are required"
+                    "message": "All required fields are required"
                 })
 
+            # ✅ Optional fields with defaults
+            fare = data.get("fare", "0")
+            driverCharge = data.get("driverCharge", "0")
+            total = data.get("totalFare", "0")
+            distance = data.get("distance", "0")
+            carType = data.get("carType", "Not specified")
+
+            # ✅ Prepare Telegram message
             admin_message = f"""
 📩 NEW ENQUIRY
 
@@ -246,13 +250,14 @@ def enquries(request):
 🗓 Date: {date}
 ⏰ Time: {time}
 
-Fare: {fare}
-Drivercharge: {driverCharge}
-Total: {total}
-Distance: {distance}
-Cartype: {carType}
+💰 Fare: {fare}
+🧾 Drivercharge: {driverCharge}
+🔖 Total: {total}
+📏 Distance: {distance}
+🚗 Car Type: {carType}
 """
 
+            # ✅ Send Telegram
             telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
             telegram_chat_id = "1941956017"
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
@@ -265,7 +270,7 @@ Cartype: {carType}
             if response.status_code != 200:
                 return JsonResponse({
                     "status": "error",
-                    "message": "Telegram failed"
+                    "message": f"Telegram failed: {response.text}"
                 })
 
             return JsonResponse({
@@ -273,6 +278,11 @@ Cartype: {carType}
                 "message": "Enquiry sent to admin"
             })
 
+        except json.JSONDecodeError:
+            return JsonResponse({
+                "status": "error",
+                "message": "Invalid JSON format"
+            })
         except Exception as e:
             return JsonResponse({
                 "status": "error",
