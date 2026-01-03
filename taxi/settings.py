@@ -163,15 +163,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# ✅ SENDGRID EMAIL CONFIGURATION
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
-DEFAULT_FROM_EMAIL = "boominathanpoongavanam@gmail.com"  # ✅ verified sender email
 
-# Optional (debugging)
-SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-SENDGRID_ECHO_TO_STDOUT = False
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-relay.brevo.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+EMAIL_HOST_USER = '9f39dc001@smtp-brevo.com'   # your Brevo SMTP login
+EMAIL_HOST_PASSWORD = '2CI8JS1AcGTMKsLE'       # your SMTP password / key
+
+DEFAULT_FROM_EMAIL = 'boominathanpoongavanam@gmail.com'  # verified sender
+
+
+EMAIL_HOST_USER = os.getenv("BREVO_USER")
+EMAIL_HOST_PASSWORD = os.getenv("BREVO_PASSWORD")
 
 
 
