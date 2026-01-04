@@ -19,6 +19,16 @@ from django.urls import path,include
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap
 
+from django.http import HttpResponse
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Disallow:",
+        "Sitemap: https://droptaxione.in/sitemap.xml"
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
+
 sitemaps = {
     'static': StaticViewSitemap,
 }
@@ -27,4 +37,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('app.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django-sitemap'),
+    path("robots.txt", robots_txt),
 ]
