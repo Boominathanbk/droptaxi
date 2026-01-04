@@ -38,6 +38,34 @@
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-17851216191/bookingID'});
 </script>
+    <!-- Event snippet for Purchase conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17851216191/ZaIMCPSystwbEL_ij8BC',
+      'value': 1.0,
+      'currency': 'INR',
+      'transaction_id': ''
+  });
+</script>
+<!-- Event snippet for Click to call conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17851216191/UnDyCPeystwbEL_ij8BC',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 </head>    
 
 </head>
