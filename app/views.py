@@ -186,8 +186,8 @@ Car Type: {carType}
 🔖 Total Fare: ₹{total}
 """
         try:
-            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
-            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "1941956017"
+            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
+            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "1313402845"
 
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
             response = requests.post(telegram_url, data={
@@ -258,8 +258,8 @@ def enquries(request):
 """
 
             # ✅ Send Telegram
-            telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
-            telegram_chat_id = "1941956017"
+            telegram_bot_token = "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
+            telegram_chat_id = "1313402845"
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
             response = requests.post(telegram_url, data={
@@ -401,8 +401,8 @@ Thank you for booking with us!
 """
 
             try:
-                telegram_bot_token = "7815945679:AAFDuQXazdZCxz2mk0r2UW_w3GZKXHUIelI"
-                telegram_chat_id = "1941956017"
+                telegram_bot_token = "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
+                telegram_chat_id = "1313402845"
                 telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
                 response = requests.post(telegram_url, data={
