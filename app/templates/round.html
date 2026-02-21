@@ -1,4 +1,543 @@
-<div class="row justify-content-center p-3">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='shortcut icon' type='icon' href='https://th.bing.com/th/id/OIP.q1U7OV2wL9vM-1LMUyTmYwHaEN?rs=1&pid=ImgDetMain'><link>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book a taxi near me instantly. Affordable taxi service near you, available 24/7. Find cabs near me and enjoy a smooth ride.">
+    <meta name="keywords" content="taxi near me, near me taxi, taxi service, taxi service near me, taxi cab service near me, cabs near me">
+    <meta name="author" content="DROP TAXI ONE">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+<title>DROP TAXI ONE</title>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851216191"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17851216191');
+</script>
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-17851216191/bookingID'});
+</script>
+        <!-- Event snippet for Purchase conversion page -->
+
+
+<!-- Event snippet for Click to call conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17851216191/UnDyCPeystwbEL_ij8BC',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+</head>
+
+</head>
+<style>
+.navbar {
+    background-color: #e90909ff;  /* Light navbar */
+    box-shadow: 0 4px 6px rgba(238, 229, 229, 0.1); /* Subtle shadow */
+  }
+.navbar-toggler {
+     border-color: #ffffff;   /* border color */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+  .back {
+    background: url('https://wallpapers.com/images/high/full-moon-red-thar-4k-hfk5vbgrykgzw2xc.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+    .nav-link.nav-link:hover{
+        color: orangered;
+    }
+    .trip a:hover{
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: large;
+      color: #c90505;
+
+    }
+
+
+.car img:hover {
+  color:rgb(17, 212, 60);
+
+}
+
+.car p:hover {
+
+    font-size: larger;
+    color: #0c0c0c;
+}
+
+
+
+
+
+#pickupsuggestions, #dropsuggestions {
+      /* border: 1px solid #ccc; */
+      max-width: 200px;
+      overflow-y: auto;
+      background-color: white;
+      position: absolute;
+      width: 100%;  /* Match the width of the input box */
+      z-index: 10;
+    }
+
+    /* Style for each suggestion item */
+    #pickupsuggestions div, #dropsuggestions div {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* Hover effect on suggestion items */
+    #pickupsuggestions div:hover, #dropsuggestions div:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Prevents input box overlap with suggestion box */
+    .input-container {
+      position: relative;
+      /* width: 300px;  */
+      /* margin-bottom: 20px; */
+    }
+    #time {
+      animation: blinkAnimation 1s infinite;
+  }
+
+  @keyframes blinkAnimation {
+      0% {
+          opacity: 1;
+      }
+      50% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+  .row h1{
+    font-family: Audiowide;
+    color: rgb(249, 252, 249);
+    animation: row 10s infinite;
+
+  }
+  @keyframes row{
+    0%{color: rgb(250, 250, 252);}
+    10%{color: springgreen;}
+    20%{color: rgb(255, 0, 149);}
+    30%{color: rgb(255, 8, 0);}
+    40%{color: rgb(255, 0, 170);}
+    50%{color: rgb(0, 255, 234);}
+    60%{color: rgb(25, 0, 255);}
+    70%{color: rgb(255, 123, 0);}
+    80%{color: rgb(255, 0, 128);}
+    90%{color: springgreen;}
+    100%{color: yellow;}
+  }
+
+.suggestions-container {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  max-height: 100px;
+  overflow-y: auto;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: blue !important;
+  color: white;
+}
+
+/* 3D Input effect for Pickup and Drop */
+.input-container.pickup-drop input {
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  background: linear-gradient(145deg, #f0f8ff, #d1e0ff);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2),
+              -5px -5px 15px rgba(255,255,255,0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.3s ease;
+}
+
+/* Pickup Focus (Green) */
+#pickup:focus {
+  border-color: #21ea06;
+  box-shadow: 8px 8px 15px rgba(33,234,6,0.3),
+              -8px -8px 15px rgba(200,255,200,0.7);
+  transform: translateY(-2px);
+}
+
+/* Drop Focus (Red) */
+#drop:focus {
+  border-color: #c90505;
+  box-shadow: 8px 8px 15px rgba(201,5,5,0.3),
+              -8px -8px 15px rgba(255,200,200,0.7);
+  transform: translateY(-2px);
+}
+
+/* Mobile: stack inputs */
+@media (max-width: 768px) {
+  .pickup-drop-wrapper {
+    flex-direction: column; /* stack vertically */
+  }
+  .pickup-drop-container {
+    flex: 1 1 100%; /* full width */
+  }
+}
+/* === Fare Summary Box === */
+.border.col-md-12.p-3.fs-6 {
+  background: linear-gradient(135deg, #212324ff, #c8bedaff, #9b6685ff);
+  border: none !important;
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.border.col-md-12.p-3.fs-6:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* === Headings & Text === */
+#total {
+  color: #ffeb3b;
+  font-size: 18px;
+}
+#fare {
+  color: #fff176;
+  font-size: 16px;
+}
+#selectedCarType {
+  color: #ffcc80;
+  font-weight: 600;
+}
+#pickupLocationDisplay {
+  color: #f40303ff !important;
+}
+#dropLocationDisplay {
+  color: #4caf50 !important;
+}
+#pickupLocationDisplays {
+  color: #5bf403d8 !important;
+}
+
+
+/* === Additional Charges Note === */
+#additionalCharges {
+  background: rgba(238, 199, 82, 0.2);
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 10px;
+  display: inline-block;
+  color: #ffeb3b !important;
+}
+
+/* === Small Text Styling === */
+.border.col-md-12.p-3.fs-6 small {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* === Animation === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.border.col-md-12.p-3.fs-6 {
+  animation: fadeInUp 0.7s ease-in-out;
+}
+
+/* === Car Buttons Common Design === */
+.btn.btn-success.text-light.shadow-lg {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border: none;
+  box-shadow: 0 6px 0 #004a99, 0 8px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transform: perspective(500px) translateZ(0);
+}
+
+/* === 3D Lift Effect on Hover === */
+.btn.btn-success.text-light.shadow-lg:hover {
+  transform: perspective(500px) translateY(-4px) translateZ(5px);
+  box-shadow: 0 8px 0 #004a99, 0 12px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #3cd3ad, #4cb8c4);
+}
+
+/* === Click (Press Down) Effect === */
+.btn.btn-success.text-light.shadow-lg:active {
+  transform: perspective(400px) translateY(4px);
+  box-shadow: 0 2px 0 #003f7f, 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* === Sedan Button (Blue Gradient) === */
+.col:first-child .btn.btn-success.text-light.shadow-lg {
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  box-shadow: 0 6px 0 #005f7f, 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === SUV Button (Orange Gradient) === */
+.col.mb-3 .btn.btn-success.text-light.shadow-lg {
+  background: linear-gradient(135deg, #ff8c00, #ff5f6d);
+  box-shadow: 0 6px 0 #c63d2f, 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === Hover Effects for Each === */
+.col:first-child .btn.btn-success.text-light.shadow-lg:hover {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+}
+.col.mb-3 .btn.btn-success.text-light.shadow-lg:hover {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+/* === Glow Animation on Hover === */
+.btn.btn-success.text-light.shadow-lg:hover small {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+.btn.btn-success.text-light.shadow-lg small {
+  transition: text-shadow 0.3s ease;
+}
+
+/* === Car Check Icon Style === */
+.bi-check-circle-fill {
+  color: #fff;
+  margin-left: 5px;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+#sedan-check {
+  color: #00ff66 !important; /* Bright Green */
+  display: none;
+  margin-left: 6px;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 102, 0.7));
+  transition: all 0.3s ease-in-out;
+}
+
+/* When visible, give small pop animation */
+#sedan-check[style*="inline"] {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.9));
+}
+#resultContainer .btn small {
+  font-size: 0.9rem;
+}
+
+#resultContainer .btn {
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+#resultContainer .text-success {
+  color: #00b300 !important;
+}
+
+#resultContainer .text-primary {
+  color: #007bff !important;
+
+}
+.pickup-highlight {
+    border: 2px solid #21ea06 !important;
+    box-shadow: 0 0 8px rgba(33, 234, 6, 0.4);
+}
+
+.drop-highlight {
+    border: 2px solid #c90505 !important;
+    box-shadow: 0 0 8px rgba(201, 5, 5, 0.4);
+}
+
+.pickup-drop-container {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.pickup-drop-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.pickup-highlight {
+    border: 2px solid #21ea06 !important;
+    box-shadow: 0 0 6px rgba(33, 234, 6, 0.3);
+}
+
+.drop-highlight {
+    border: 2px solid #c90505 !important;
+    box-shadow: 0 0 6px rgba(201, 5, 5, 0.3);
+}
+.active-trip {
+    background: linear-gradient(135deg,#ff416c,#ff4b2b);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.active-trip a {
+    color: white !important;
+}
+
+
+
+
+
+
+</style>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand " style="color: white; font-family: Audiowide;" href="#"><img class="img-fluid bg-none" style="width: 40px; height: 40px; border-radius: 50px;" src="https://th.bing.com/th/id/OIP.1YfkxxUUITwga6Ady4PNuQHaHa?pid=ImgDet&w=182&h=182&c=7" alt=""> DROP TAXI ONE</a><small id='time'></small>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
+          <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/+919629753043"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 9629753043</a>
+          </li>
+          <li class="nav-item d-sm-block d-none" >
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+919629753043"> <i class="fa-solid fa-phone" style="color: #5ffa05ff;"></i> 9629753043</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" href="#about">About</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" href="#service">Service</a>
+          </li>
+
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" href="{% url 'login' %}">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><br><br><br>
+  <marquee behavior="left" direction="" style="color: orangered;">
+    🚕 Book Taxi Online | 24/7 Cab Service | One-Way & Round Trips | Reliable & Affordable Rides – Drop Taxi One Taxi 🚖
+    </marquee>
+      
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://png.pngtree.com/thumb_back/fh260/background/20231006/pngtree-taxi-cab-with-vibrant-3d-rendered-yellow-taxi-sign-image_13509776.png" class="d-block w-100" style="height: 500px;" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://t3.ftcdn.net/jpg/04/32/29/64/360_F_432296462_0rRBBm2f4u22BFa7tvls5d04AApxL8IC.jpg" class="d-block w-100" style="height: 500px;" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://4.imimg.com/data4/DW/VI/IMOB-7818118/taxi_png16-png-500x500.png" class="d-block w-100" style="height: 500px;" alt="...">
+
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <p></p>
+          <h1 class="text-center">Booking</h1>
+        </div>
+      </div>
+       <div class="d-flex justify-content-center p-2">
+
+  <!-- Drop Trip -->
+  <div class="p-3 rounded text-center me-3 
+       {% if request.resolver_match.url_name == 'drop' %}
+       active-trip
+       {% endif %}">
+       
+    <a href="{% url 'homepage' %}"
+       class="fs-5 fw-bold text-decoration-none">
+      Drop Trip
+    </a>
+  </div>
+
+  <!-- Round Trip -->
+  <div class="p-3 rounded text-center 
+       {% if request.resolver_match.url_name == 'round' %}
+       active-trip
+       {% endif %}">
+       
+    <a href=""
+       class="fs-5 fw-bold text-decoration-none">
+      Round Trip
+    </a>
+  </div>
+
+</div>
+      <form id="bookingForm" action="{% url 'round_booking' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" id="distanceField" name="distance" value="0">
+        <input type="hidden" id="fareField" name="fare" value="0">
+        <input type="hidden" id="totalFareField" name="totalFare" value="0">
+        <input type="hidden" id="driverChargeField" name="driverCharge" value="400">
+        <input type="hidden" id="selectedCarTypeField" name="carType" value="sedan">
+        <div class=" container text-center  mx-auto   p-2 shadow-lg  bg-opacity-75 rounded " style="display: block; place-items: center;">
+          <div class="pickup-drop-wrapper">
+            
+  <div class="row justify-content-center p-3">
 
   <!-- Pickup -->
   <div class="col-12 col-md-6 d-flex justify-content-center mb-3">
@@ -35,3 +574,710 @@
   </div>
 
 </div>
+<div class="d-flex justify-content-center">
+  <div style="width:100%; max-width:400px;">
+
+    <!-- Name -->
+    <div class="mb-3">
+      <input type="text"
+             id="name"
+             class="form-control border border-success border-2 rounded"
+             name="name"
+             placeholder="Enter Name"
+             required>
+    </div>
+
+    <!-- Phone -->
+    <div class="mb-3">
+      <input type="text"
+             id="phone"
+             class="form-control border border-success border-2 rounded"
+             name="phone"
+             placeholder="Mobile Number"
+             maxlength="10"
+             required>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <input type="email"
+             id="email"
+             class="form-control border border-success border-2 rounded"
+             name="email"
+             placeholder="Enter Email (optional)">
+    </div>
+
+    <!-- Date -->
+    <div class="mb-3">
+      <input type="date"
+             id="date"
+             class="form-control border border-success border-2 rounded"
+             name="date"
+             required>
+    </div>
+
+    <!-- Days -->
+    <div class="mb-3">
+      <select id="days"
+              name="number_of_days"
+              class="form-control border border-success border-2 rounded">
+        <option value="1" selected>1 Day</option>
+        <option value="2">2 Days</option>
+        <option value="3">3 Days</option>
+        <option value="4">4 Days</option>
+        <option value="5">5 Days</option>
+        <option value="6">6 Days</option>
+        <option value="7">7 Days</option>
+        <option value="8">8 Days</option>
+        <option value="9">9 Days</option>
+        <option value="10">10 Days</option>
+        <option value="11">11 Days</option>
+      </select>
+    </div>
+
+    <!-- Time -->
+    <div class="mb-3">
+      <input type="time"
+             name="time"
+             step="60"
+             class="form-control border border-success border-2 rounded"
+             required>
+    </div>
+
+  </div>
+</div>
+
+</div>
+                <div class="container d-flex justify-content-center gap-3 flex-wrap my-3">
+
+  <!-- Hidden input to store selected car -->
+  <input type="hidden" id="carType">
+
+  <!-- Sedan Button -->
+  <button type="button"
+          class="btn btn-success text-light shadow-lg px-4 py-2 rounded"
+          onclick="selectCar('Sedan')">
+    <small class="fw-bold">
+      Sedan
+      <i id="sedan-check" class="bi bi-check-circle-fill" style="display: none;"></i>
+    </small><br>
+    ₹13 / km
+  </button>
+
+  <!-- SUV Button -->
+  <button type="button"
+          class="btn btn-success text-light shadow-lg px-4 py-2 rounded"
+          onclick="selectCar('SUV')">
+    <small class="fw-bold">
+      SUV
+      <i id="suv-check" class="bi bi-check-circle-fill" style="display: none;"></i>
+    </small><br>
+    ₹18 / km
+  </button>
+
+</div>
+<button type="button"
+        id="getEnquiryBtn"
+        class="btn btn-warning"
+        onclick="handleEnquiry()">
+    Get Enquiry
+</button>
+</div>
+
+      <div id="errorMessage" style="color: red; display: none;"></div>
+      <!--<button type="button" onclick="validateLocations()" class="btn btn-primary">Booking</button> -->
+
+      <div id="please-wait" style="display: none;">
+        <p class='text-success'>Please wait...</p>
+      </div>
+      <div id="errorMessage" style="color: red; display: none;"></div>
+
+          <div class='container col-12 col-md-6' id="bookingDetails" style='display: none'>
+            <div class="container">
+
+
+                
+
+            </div>
+        </div>
+        <div class=" text-center"  id="resultContainer" style='display: none;'><br>
+          <div class='border col-md-12 p-3 fs-6'>
+            <small style='display:none;'>The distance between the locations is: <strong><div id="distance"></div></strong></small>
+            <small id="fare" class="text-center" style='display:none;' ></small>
+
+            <small>Driver Bata (per day): ₹400</small><br>
+            <small id='total' class='fw-bold'>Total Amount: ₹3650</small><br>
+            <small id='selectedCarType'>Selected Car: SEDAN</small><br>
+
+
+           <small id="pickupLocationDisplay" class='fw-bold text-primary'></small>---><small class='fw-bold text-success' id="dropLocationDisplay"></small>---><small class='fw-bold text-primary' id="pickupLocationDisplays"></small>
+
+
+            <p id="additionalCharges" style='display: none'><small class='text-danger'>Note* : Toll & Permit
+              <br> Charges Applicable </small></p>
+          </div><br>
+         
+
+          <div class="text-center">
+            <button type="button"
+        class="btn btn-primary px-4"
+        onclick="submitBooking()">
+    Book Confirm
+</button>
+          </div>
+       
+
+        </div>
+        <br>
+
+      </div>
+    </form><br>
+    
+    <br>
+<div class='container'>
+  <div class='row p-3'>
+    <div class='col-md-6 text-center' id='ads'>
+
+        <img class='img-fluid' src='static\image\wp9332439.jpg' alt='' width='325px'>
+      <div class='adds car-name border rounded shadow-lg p-2' style="background-color: #20B2AA;">
+        <div class='text-center text-danger fw-bold'>SEDAN</div>
+        <div class=''>
+          <div>One Way: <b class='text-light'>Rs 14</b> Per Km</div>
+          <div class='p-1'>Round Trip: <b class='text-light'>Rs 13 </b>Per Km</div>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6 text-center' id='ads'>
+      <img class='img-fluid m-3' src='static\image\innova.png' alt=''width='305px'>
+      <div class='adds rounded shadow-lg p-2' style='margin: 30px; background-color: #20B2AA'>
+        <div class='car-name text-center text-danger fw-bold'>SUV</div>
+        <div class=''>
+          <div>One Way: <b class='text-light'>Rs 19 </b>Per Km</div>
+          <div>Round Trip: <b class='text-light'> Rs 18 </b>Per Km</div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div><br>
+
+</div>
+
+
+<div class='container' id='about'>
+  <h1 class='text-center fw-bold 'style='font-family: "Bungee Tint", sans-serif;'>ABOUT US ! </h1>
+  <p class='text-center'> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-half" style='color:green;'></i></p>
+  <div class='row'>
+    <div class='col-md-6'>
+      <p class="mt-4 fs-5 text-justify">
+        <i class="bi bi-heart-fill" style="color:rgb(234, 6, 6);"></i> Welcome to <strong>DROP TAXI ONE</strong>, your trusted partner in reliable and affordable travel solutions across Tamil Nadu.
+        Whether you're planning a family trip, a business journey, or a one-way ride, we are here to ensure your journey is smooth, safe, and comfortable.
+      </p>
+
+      <p class="fs-5 text-justify">
+        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> With a fleet of well-maintained vehicles ranging from Sedans to SUVs, and a professional team of drivers, we are committed to providing a premium experience at a pocket-friendly price.
+        Our transparent pricing, punctual service, and customer-first approach make us the preferred choice for thousands of happy customers.
+      </p>
+
+      <p class="fs-5 text-justify">
+        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> From Chennai to Coimbatore, Trichy to Thanjavur, and all across Tamil Nadu, Andhra Pradesh, Kerala, Karnataka, Telangana, Puducherry we proudly serve in more than 6+ states and towns.
+        Let us take the wheel while you sit back and enjoy the ride!
+      </p>
+
+      <p class="fs-5 text-justify">
+        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> Thank you for choosing <strong>DROP TAXI ONE</strong> – where every journey matters.
+      </p>
+      <p class="fs-5 text-justify">
+        <i class="bi bi-telephone-fill" style='color: green;'></i> Any Enquiry Call This Number:  <strong><h4 class='text-danger'>9629753043</h4></strong>
+      </p>
+
+    </div>
+    <div class='col-md-6'>
+      <img class='img-fluid' src='static\image\taxicar.jpeg' width='70%'>
+
+    </div>
+  </div>
+</div>
+<div class='container-fluid fw-bold  text-primary bg-dark bg-opacity-25 p-3' style='font-family: "Oswald", sans-serif;' id='service'>
+  <h1 class='text-center fw-bold' style='color: orange;'>Our Service Location</h1><br>
+      <div class='row '>
+    <div class='col-md-2 'style='color:red;'>
+      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i> Tamil Nadu</h5>
+
+    </div>
+    <div class='col-md-2'style='color:red;'>
+      <h5><i class="bi bi-car-front-fill" style='color: #800080'v></i> Puducherry </h5>
+
+    </div>
+    <div class='col-md-2'style='color:red;'>
+      <h5 ><i class="bi bi-car-front-fill" style='color: #800080'></i> Kerala</h5>
+
+    </div>
+    <div class='col-md-2'style='color:red;'>
+      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i>  Karnataka</h5>
+
+    </div>
+    <div class='col-md-2'style='color:red;'>
+      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i> Telangana</h5>
+
+    </div>
+    <div class='col-md-2'style='color:red;'>
+      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i>  Andhra Pradesh   </h5>
+
+    </div>
+
+  </div><br>
+  <div class='row '>
+    <div class='col-md-2 '>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Chennai</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Trichy</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Ariyalur</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p> <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Nagappattinam</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Perambalur</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Pudukkottai</p>
+
+    </div>
+
+  </div>
+  <div class='row '>
+    <div class='col-md-2'>
+      <p> <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Thanjavur</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Thiruvallur</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Mayiladuthurai</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Dharmapuri</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Coimbatore</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Erode</p>
+
+    </div>
+
+  </div>
+  <div class='row'>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Krishnagiri</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Namakkal</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Nilgiris</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Salem</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tiruppur</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Dindigul</p>
+
+    </div>
+
+  </div>
+  <div class='row'>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Kanyakumari</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Madurai</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Ramanathapuram</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Sivagangai</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Theni</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Thoothukudi</p>
+
+    </div>
+
+  </div>
+  <div class='row'>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tirunelveli</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Virudhunagar</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tenkasi</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Coddalore</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Kanchipuram</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Chengalpattu</p>
+
+    </div>
+
+  </div>
+  <div class='row'>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tiruvallur</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tiruvannamalai</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Vellore</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Villupuram</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Kallakurichi</p>
+
+    </div>
+    <div class='col-md-2'>
+      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Ranipet</p>
+
+    </div>
+
+  </div>
+
+</div><br><br>
+ <footer style="background-color: #212529; color: white;">
+  <p class="text-center" style="width: 100%;">2026 &copy; DROP TAXI ONE. All Rights Reserved.</p>
+  <p class="text-center" style="width: 100%;">Boominathan Developer.</p>
+
+  <!-- Social Media Icons -->
+  <div class="container  text-center">
+    <div class="col-md-12">
+      <i class="fa-brands fa-square-facebook fa-2xl m-2" style="color: #058af0;"></i>
+      <i class="fa-brands fa-square-instagram fa-2xl m-2" style="color: #ea0b77;"></i>
+      <i class="fa-brands fa-square-x-twitter fa-2xl m-2" style="color: #045df6;"></i>
+      <i class="fa-brands fa-youtube fa-2xl m-2" style="color: #fa1900;"></i>
+    </div>
+  </div><br><br>
+</footer>
+
+<!-- Bottom Section for mobile -->
+<section>
+  <div class="row fixed-bottom text-center d-md-none">
+    <!-- Call Button -->
+    <div class="col-6 rounded bg-primary py-2">
+      <a aria-label="Call Us" class="text-decoration-none" style="color: white;" href="tel:+919629753043">
+        <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> Call
+      </a>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="col-6 rounded bg-warning py-2">
+      <a aria-label="Chat on WhatsApp" class="text-decoration-none" style="color: white;" href="https://wa.me/+919629753043">
+        <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+    <div id="map"></div>
+
+    <!-- Google Maps JS API with 2025 compliant Places support -->
+    <!-- Load Google Maps API -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC04JLmWVo64DhY99RugsBSF7WQ8jXahi8&callback=initAutocomplete&libraries=places"
+        async
+        defer
+    ></script>
+<script>
+
+let pickupAutocomplete, dropAutocomplete;
+let selectedCarType = "";
+let globalDistance = 0;
+
+const driverChargePerDay = 400;
+const distancePerDay = 250;
+
+
+// ------------------ GOOGLE AUTOCOMPLETE ------------------
+
+function initAutocomplete() {
+
+    const options = { componentRestrictions: { country: "in" } };
+
+    pickupAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("pickup"), options
+    );
+
+    dropAutocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("drop"), options
+    );
+
+    pickupAutocomplete.addListener("place_changed", handleLocationChange);
+    dropAutocomplete.addListener("place_changed", handleLocationChange);
+}
+
+
+// ------------------ DISTANCE CALCULATION ------------------
+
+function handleLocationChange() {
+
+    const pickupPlace = pickupAutocomplete.getPlace();
+    const dropPlace = dropAutocomplete.getPlace();
+
+    if (!pickupPlace || !dropPlace) return;
+    if (!pickupPlace.geometry || !dropPlace.geometry) return;
+
+    const service = new google.maps.DistanceMatrixService();
+
+    document.getElementById("please-wait").style.display = "block";
+
+    service.getDistanceMatrix({
+        origins: [pickupPlace.geometry.location],
+        destinations: [dropPlace.geometry.location],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+    },
+    function (response, status) {
+
+        document.getElementById("please-wait").style.display = "none";
+
+        if (status !== "OK") {
+            alert("Distance calculation failed");
+            return;
+        }
+
+        const element = response.rows[0].elements[0];
+        if (element.status !== "OK") {
+            alert("Route not found");
+            return;
+        }
+
+        let oneWayKm = element.distance.value / 1000;
+
+        // Round Trip Calculation
+        if (oneWayKm <= 0) {
+            globalDistance = 0;
+        } else {
+            globalDistance = oneWayKm * 2;
+        }
+
+        if (selectedCarType) {
+            calculateFare(globalDistance);
+        }
+        document.getElementById("pickupLocationDisplay").innerText = pickupPlace.name;
+        document.getElementById("dropLocationDisplay").innerText = dropPlace.name;
+        document.getElementById("pickupLocationDisplays").innerText = pickupPlace.name;
+
+    });
+}function handleEnquiry() {
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const pickup = document.getElementById("pickup").value.trim();
+    const drop = document.getElementById("drop").value.trim();
+    const date = document.getElementById("date").value.trim();
+    const days = document.getElementById("days").value;
+    const time = document.querySelector("input[name='time']").value;
+
+    document.getElementById("errorMessage").style.display = "none";
+
+    if (!pickup) return showError("Please enter pickup location");
+    if (!drop) return showError("Please enter drop location");
+    if (!name) return showError("Please enter your name");
+    if (!phone) return showError("Please enter mobile number");
+    if (!/^[6-9]\d{9}$/.test(phone)) return showError("Enter valid 10 digit mobile number");
+    if (!date) return showError("Please select pickup date");
+    if (!time) return showError("Please select pickup time");
+    if (!selectedCarType) return showError("Please select car type");
+    if (!globalDistance || globalDistance <= 0) return showError("Please wait for distance calculation");
+
+    calculateFare();
+
+    // 🔥 SEND TO DJANGO HERE
+    fetch("/enquries/", {
+        method: "POST",
+        body: new FormData(document.getElementById("bookingForm"))
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+          
+            document.getElementById("resultContainer").style.display = "block";
+            document.getElementById("getEnquiryBtn").style.display = "none";
+        } else {
+            showError(data.message);
+        }
+    })
+    .catch(error => {
+        console.log("Error:", error);
+        showError("Something went wrong");
+    });
+}
+
+
+// ------------------ CAR SELECTION ------------------
+
+function selectCar(type) {
+
+    selectedCarType = type.toLowerCase();
+
+    document.getElementById("selectedCarTypeField").value = selectedCarType;
+
+    document.getElementById("sedan-check").style.display = "none";
+    document.getElementById("suv-check").style.display = "none";
+
+    if (selectedCarType === "sedan") {
+        document.getElementById("sedan-check").style.display = "inline";
+    } 
+    else if (selectedCarType === "suv") {
+        document.getElementById("suv-check").style.display = "inline";
+    }
+
+    document.getElementById("selectedCarType").innerText =
+        "Selected Car: " + selectedCarType.toUpperCase();
+
+    calculateFare(globalDistance);
+}
+
+
+// ------------------ FARE CALCULATION ------------------
+function calculateFare() {
+
+    if (!selectedCarType) {
+        alert("Please select a car type!");
+        return;
+    }
+
+    const pickup = document.getElementById("pickup").value;
+    const drop = document.getElementById("drop").value;
+    const days = parseInt(document.getElementById("days").value) || 1;
+
+    if (!pickup || !drop) {
+        alert("Please select pickup and drop location!");
+        return;
+    }
+
+    const distanceKm = globalDistance || 0;
+
+    const ratePerKm = selectedCarType === "suv" ? 18 : 13;
+    const minimumKm = days * distancePerDay;
+    const driverBata = days * driverChargePerDay;
+
+    let chargeableKm = distanceKm < minimumKm ? minimumKm : distanceKm;
+
+    const baseFare = Math.round(chargeableKm * ratePerKm);
+    const totalFare = Math.round(baseFare + driverBata);
+
+    document.getElementById("fare").style.display = "block";
+    document.getElementById("fare").innerText =
+        "Base Fare (" + chargeableKm + " km): ₹" + baseFare;
+
+    document.getElementById("total").innerHTML =
+        "Driver Bata (" + days + " day): ₹" + driverBata +
+        "<br><strong>Total Amount: ₹" + totalFare + "</strong>";
+
+    // Hidden fields
+    document.getElementById("distanceField").value = chargeableKm;
+    document.getElementById("totalFareField").value = totalFare;
+
+   
+}
+
+
+
+function validateAndSubmit() {
+
+    // Car type check
+    if (!selectedCarType) {
+        alert("Please select a car type!");
+        return;
+    }
+
+    // Pickup check
+    const pickup = document.getElementById("pickup").value;
+    const drop = document.getElementById("drop").value;
+
+    if (!pickup || !drop) {
+        alert("Please select pickup and drop location!");
+        return;
+    }
+
+}
+
+// ------------------ PAGE LOAD ------------------
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Days change → Fare update
+    document.getElementById("days").addEventListener("input", function() {
+        calculateFare(globalDistance);
+    });
+
+
+});
+function submitBooking() {
+
+    if (!selectedCarType) {
+        alert("Please select car type!");
+        return;
+    }
+
+    document.getElementById("please-wait").style.display = "block";
+    document.getElementById("bookingForm").submit();
+}
+function showError(message) {
+    const errorDiv = document.getElementById("errorMessage");
+    errorDiv.innerText = message;
+    errorDiv.style.display = "block";
+}
+
+</script>
+</body>
+</html>
