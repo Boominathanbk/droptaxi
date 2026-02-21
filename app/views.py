@@ -208,7 +208,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt  # 🔥 IMPORTANT
-def enquries(request):
+def enqurie(request):
     if request.method == "POST":
         try:
             # ✅ Decode body properly
