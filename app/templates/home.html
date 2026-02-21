@@ -326,9 +326,9 @@ function gtag_report_conversion(url) {
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
           <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/+919629753043"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i>9629753043</a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/+919629753043"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 9629753043</a>
           </li>
-          <li class="nav-item d-sm-block d-none" style="margin-right: ;">
+          <li class="nav-item d-sm-block d-none">
             <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+919629753043"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 9629753043 </a>
           </li>
           <li class="nav-item me-3">
@@ -436,21 +436,46 @@ function gtag_report_conversion(url) {
       <h1 class="text-center">Booking</h1>
     </div>
   </div>
-  <div class=" d-flex container p-2 bg-opacity-75 rounded">
-    <div class="container  p-2 bg-opacity-75 rounded text-center" style='background-color: yellow;'>
-      <a  class=" fs-5 mx-auto me-3 fw-bold" href="" style='color: red;' >Drop Trip</a>
-       <i id="dropTick" class="bi bi-check-circle-fill" style="display:none; color:green;"></i>
-      
-     
+ <div class="d-flex justify-content-center p-2">
 
-    </div>
-    <div class="container  p-2 bg-opacity-75 rounded text-center" style='background-color: red;'>
-     
-      
-      <a  href="{% url 'round' %}" class="text-decoration-none text-light fs-5 mx-auto me-3 "> Round Trip</a>
-
-    </div>
+  <!-- Drop Trip -->
+  <div class="p-3 rounded text-center me-3"
+       style="background-color: #fff3cd; min-width:150px;">
+       
+    <a class="fs-5 fw-bold text-danger text-decoration-none" href="">
+      Drop Trip
+    </a>
+    <i id="dropTick" class="bi bi-check-circle-fill"
+       style="display:none; color:green;"></i>
   </div>
+
+  <!-- Round Trip (Highlighted) -->
+  <div class="p-3 rounded text-center position-relative"
+       style="background: linear-gradient(135deg,#ff416c,#ff4b2b);
+              min-width:170px;
+              box-shadow:0 6px 15px rgba(0,0,0,0.2);">
+
+    <a href="{% url 'round' %}"
+       class="text-decoration-none text-white fs-5 fw-bold">
+       🔥 Round Trip
+    </a>
+
+    <!-- Highlight Badge -->
+    <span style="
+        position:absolute;
+        top:-10px;
+        right:-10px;
+        background:#28a745;
+        color:white;
+        font-size:12px;
+        padding:4px 8px;
+        border-radius:20px;">
+        Popular
+    </span>
+
+  </div>
+
+</div>
   
   <form id='fom' action="{% url 'booking' %}" method="POST"><br>
     <p class='text-center text-success fw-bold fs-5'>BOOKING YOUR RIDE</p>
@@ -624,7 +649,7 @@ function gtag_report_conversion(url) {
         <div class='text-center text-danger fw-bold'>SEDAN</div>
         <div class=''>
           <div>One Way: <b class='text-light'>Rs 14</b> Per Km</div>
-          <div class='p-1'>Round Trip: <b class='text-light' style='color:;'>Rs 13 </b>Per Km</div>
+          <div class='p-1'>Round Trip: <b class='text-light'>Rs 13 </b>Per Km</div>
         </div>
       </div>
     </div>
@@ -637,8 +662,8 @@ function gtag_report_conversion(url) {
       <div class='adds rounded shadow-lg p-2' style='margin: 30px; background-color: #20B2AA'>
         <div class='car-name text-center text-danger fw-bold'>SUV</div>
         <div class=''>
-          <div>One Way: <b class='text-light' style='color:;'>Rs 19 </b>Per Km</div>
-          <div>Round Trip: <b class='text-light' style='color:;'> Rs 18 </b>Per Km</div>
+          <div>One Way: <b class='text-light' >Rs 19 </b>Per Km</div>
+          <div>Round Trip: <b class='text-light' > Rs 18 </b>Per Km</div>
         </div>
 
       </div>
