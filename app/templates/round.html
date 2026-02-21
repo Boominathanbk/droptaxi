@@ -578,71 +578,101 @@ function gtag_report_conversion(url) {
   <div style="width:100%; max-width:400px;">
 
     <!-- Name -->
-    <div class="mb-3">
-      <input type="text"
-             id="name"
-             class="form-control border border-success border-2 rounded"
-             name="name"
-             placeholder="Enter Name"
-             required>
-    </div>
+<div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa-solid fa-user" style="color:#0910ec;"></i>
+    </span>
+    <input type="text"
+           id="name"
+           class="form-control border border-success border-2"
+           name="name"
+           placeholder="Enter Name"
+           required>
+  </div>
+</div>
 
-    <!-- Phone -->
-    <div class="mb-3">
-      <input type="text"
-             id="phone"
-             class="form-control border border-success border-2 rounded"
-             name="phone"
-             placeholder="Mobile Number"
-             maxlength="10"
-             required>
-    </div>
+<!-- Phone -->
+<div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa-solid fa-phone" style="color:#56df0c;"></i>
+    </span>
+    <input type="text"
+           id="phone"
+           class="form-control border border-success border-2"
+           name="phone"
+           placeholder="Mobile Number"
+           maxlength="10"
+           required>
+  </div>
+</div>
 
-    <!-- Email -->
-    <div class="mb-3">
-      <input type="email"
-             id="email"
-             class="form-control border border-success border-2 rounded"
-             name="email"
-             placeholder="Enter Email (optional)">
-    </div>
+<!-- Email -->
+<div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa-solid fa-envelope" style="color:#f10404;"></i>
+    </span>
+    <input type="email"
+           id="email"
+           class="form-control border border-success border-2"
+           name="email"
+           placeholder="Enter Email (optional)">
+  </div>
+</div>
 
-    <!-- Date -->
-    <div class="mb-3">
-      <input type="date"
-             id="date"
-             class="form-control border border-success border-2 rounded"
-             name="date"
-             required>
-    </div>
+<!-- Date -->
+<div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa-regular fa-calendar-days" style="color:#c706ad;"></i>
+    </span>
+    <input type="date"
+           id="date"
+           class="form-control border border-success border-2"
+           name="date"
+           required>
+  </div>
+</div>
 
-    <!-- Days -->
-    <div class="mb-3">
-      <select id="days"
-              name="number_of_days"
-              class="form-control border border-success border-2 rounded">
-        <option value="1" selected>1 Day</option>
-        <option value="2">2 Days</option>
-        <option value="3">3 Days</option>
-        <option value="4">4 Days</option>
-        <option value="5">5 Days</option>
-        <option value="6">6 Days</option>
-        <option value="7">7 Days</option>
-        <option value="8">8 Days</option>
-        <option value="9">9 Days</option>
-        <option value="10">10 Days</option>
-        <option value="11">11 Days</option>
-      </select>
-    </div>
+<!-- Days (Icon Added) -->
+<div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa-solid fa-calendar-check" style="color:#ff9800;"></i>
+    </span>
+    <select id="days"
+            name="number_of_days"
+            class="form-control border border-success border-2">
+      <option value="1" selected>1 Day</option>
+      <option value="2">2 Days</option>
+      <option value="3">3 Days</option>
+      <option value="4">4 Days</option>
+      <option value="5">5 Days</option>
+      <option value="6">6 Days</option>
+      <option value="7">7 Days</option>
+      <option value="8">8 Days</option>
+      <option value="9">9 Days</option>
+      <option value="10">10 Days</option>
+      <option value="11">11 Days</option>
+    </select>
+  </div>
+</div>
 
-    <!-- Time -->
-    <div class="mb-3">
-      <input type="time"
-             name="time"
-             step="60"
-             class="form-control border border-success border-2 rounded"
-             required>
-    </div>
+<!-- Time -->
+<div class="mb-3">
+  <div class="input-group">
+    <span class="input-group-text bg-white">
+      <i class="fa-regular fa-clock" style="color:#20e811;"></i>
+    </span>
+    <input type="time"
+           name="time"
+           step="60"
+           class="form-control border border-success border-2"
+           required>
+  </div>
+</div>
 
   </div>
 </div>
