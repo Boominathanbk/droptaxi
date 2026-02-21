@@ -424,6 +424,108 @@ Thank you for booking with us!
             return redirect('round')
 
     return redirect('homepage')
+import requests
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+def enquries(request):
+
+    if request.method != "POST":
+        return JsonResponse({
+            "status": "error",
+            "message": "Invalid request method"
+        })
+
+    # ------------------ GET DATA ------------------
+    name = request.POST.get("name", "").strip()
+    phone = request.POST.get("phone", "").strip()
+    pickup = request.POST.get("pickup", "").strip()
+    drop = request.POST.get("drop", "").strip()
+    date = request.POST.get("date", "").strip()
+    time = request.POST.get("time", "").strip()
+
+    number_of_days = request.POST.get('number_of_days',"").strip()
+    car_type = request.POST.get("car_type", "").strip()
+    distance = request.POST.get("distance", "").strip()
+    total_fare = request.POST.get("total_fare", "").strip()
+
+    # ------------------ REQUIRED VALIDATION ------------------
+    if not all([name, phone, pickup, drop, date, time, number_of_days]):
+        return JsonResponse({
+            "status": "error",
+            "message": "All required fields must be filled."
+        })
+
+    if not phone.isdigit() or len(phone) != 10:
+        return JsonResponse({
+            "status": "error",
+            "message": "Enter valid 10 digit phone number."
+        })
+
+    try:
+        days = int(number_of_days)
+        if days <= 0:
+            raise ValueError
+    except ValueError:
+        return JsonResponse({
+            "status": "error",
+            "message": "Invalid number of days."
+        })
+
+    # ------------------ TELEGRAM MESSAGE ------------------
+    message = f"""
+🚗 NEW BOOKING ENQUIRY
+
+👤 Name: {name}
+📞 Phone: {phone}
+
+📍 Pickup: {pickup}
+📍 Drop: {drop}
+
+📅 Date: {date}
+⏰ Time: {time}
+🗓 Days: {number_of_days}
+
+🚘 Car Type: {car_type}
+📏 Distance: {distance} KM
+💰 Total Fare: ₹{total_fare}
+"""
+
+    telegram_bot_token = "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
+    telegram_chat_id = "1313402845"
+    telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
+
+    try:
+        response = requests.post(
+            telegram_url,
+            data={
+                "chat_id": telegram_chat_id,   # ✅ FIXED HERE
+                "text": message
+            },
+            timeout=10
+        )
+
+        print(response.text)  # 🔥 DEBUG
+
+        if response.status_code != 200:
+            return JsonResponse({
+                "status": "error",
+                "message": "Telegram sending failed"
+            })
+
+    except requests.exceptions.RequestException as e:
+        print("Telegram Error:", e)
+        return JsonResponse({
+            "status": "error",
+            "message": "Server error while sending enquiry"
+        })
+
+    return JsonResponse({
+        "status": "success",
+        "message": "Enquiry sent successfully"
+    })
 
 
 
