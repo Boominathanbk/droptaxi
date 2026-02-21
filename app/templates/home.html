@@ -597,7 +597,7 @@ function gtag_report_conversion(url) {
   <button type="button"
           id="getEnquiryBtn"
           class="btn btn-primary px-4"
-          onclick="enquries()">
+          onclick="enqurie()">
     Get Enquiries
   </button>
 </div>
@@ -984,7 +984,7 @@ function initAutocomplete() {
    🔥 NEW FUNCTION (ADD THIS)
    GET ENQUIRIES CLICK
 ================================ */
-function enquries() {
+function enqurie() {
   if (!selectedCar) {
         alert("Please select Sedan or SUV");
         return;
@@ -1013,7 +1013,7 @@ function enquries() {
     if (btn) btn.style.display = "none";
 
     // 5️⃣ Send data to server
-    fetch("/enquries/", {
+    fetch("/enqurie/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
