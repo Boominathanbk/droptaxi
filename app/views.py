@@ -255,7 +255,7 @@ def enqurie(request):
 💰 Fare: {fare}
 🧾 Drivercharge: {driverCharge}
 🔖 Total: {total}
-📏 Distance: {distance}
+📏 Distance: {distance} Km
 🚗 Car Type: {carType}
 """
 
