@@ -106,6 +106,7 @@ import requests
 import os
 
 
+
 def booking(request):
     if request.method == 'POST':
         pickup = request.POST.get('pickup')
@@ -153,8 +154,10 @@ Fare: ₹{fare}
 Driver Bata: ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
+
 Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
-Thank you for booking with us!
+
+Thank you for booking with us! DROP TAXI ONE..!
 """
         try:
             send_mail(
@@ -252,11 +255,14 @@ def enqurie(request):
 🗓 Date: {date}
 ⏰ Time: {time}
 
-💰 Fare: {fare}
-🧾 Drivercharge: {driverCharge}
-🔖 Total: {total}
+💰 Fare: ₹ ₹{fare}
+🧾 Drivercharge: ₹ {driverCharge}
+🔖 Total:₹ {total}
 📏 Distance: {distance} Km
 🚗 Car Type: {carType}
+
+
+Thank you for booking with us!
 """
 
             # ✅ Send Telegram
@@ -320,7 +326,8 @@ def login_data(request):
             messages.info(request,"Invalid username and password")
             return redirect("login")
     else:
-        return redirect("login")  
+        return redirect("login") 
+
     
 def round_booking(request):
     if request.method == 'POST':
@@ -361,13 +368,15 @@ Date: {date}
 Time: {time}
 Number of Days: {number_of_days}
 
-Fare (Minimum 250 km)
+
 Driver Bata (Per Day): ₹{driverCharge}
 Total Amount: ₹{total}
-
 Car Type: {carType}
+
+
 Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
-Thank you for booking with us!
+
+Thank you for booking with us! DROP TAXI ONE..!
 """
 
             try:
@@ -478,7 +487,7 @@ def enquries(request):
 
     # ------------------ TELEGRAM MESSAGE ------------------
     message = f"""
-🚗 NEW BOOKING ENQUIRY
+🚗 NEW BOOKING Round Trip ENQUIRY
 
 👤 Name: {name}
 📞 Phone: {phone}
