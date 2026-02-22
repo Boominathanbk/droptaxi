@@ -241,15 +241,15 @@ function gtag_report_conversion(url) {
 
 /* === Headings & Text === */
 #total {
-  color: #ffeb3b;
+  color: #fcfdfd;
   font-size: 18px;
 }
 #fare {
-  color: #fff176;
+  color: white;
   font-size: 16px;
 }
 #selectedCarType {
-  color: #ffcc80;
+  color:whitesmoke;
   font-weight: 600;
 }
 #pickupLocationDisplay {
@@ -494,12 +494,7 @@ function gtag_report_conversion(url) {
         </button>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <p></p>
-          <h1 class="text-center">Booking</h1>
-        </div>
-      </div>
+      
        <div class="d-flex justify-content-center p-2">
 
   <!-- Drop Trip -->
@@ -525,8 +520,15 @@ function gtag_report_conversion(url) {
       Round Trip
     </a>
   </div>
+  
 
 </div>
+<div class="container">
+        <div class="row">
+          <p></p>
+          <h1 class="text-center">ROUND TRIP BOOKING</h1>
+        </div>
+      </div>
       <form id="bookingForm" action="{% url 'round_booking' %}" method="POST">
         {% csrf_token %}
         <input type="hidden" id="distanceField" name="distance" value="0">
@@ -714,13 +716,13 @@ function gtag_report_conversion(url) {
 </button>
 </div>
 
-      <div id="errorMessage" style="color: red; display: none;"></div>
+      <div id="errorMessage" class="text-danger text-center" style="color: red; display: none;"></div>
       <!--<button type="button" onclick="validateLocations()" class="btn btn-primary">Booking</button> -->
 
       <div id="please-wait" style="display: none;">
         <p class='text-success'>Please wait...</p>
       </div>
-      <div id="errorMessage" class="text-danger text-center" style="color: red; display: none;"></div>
+      <div id="errorMessage" style="color: red; display: none;"></div>
 
           <div class='container col-12 col-md-6' id="bookingDetails" style='display: none'>
             <div class="container">
@@ -735,7 +737,7 @@ function gtag_report_conversion(url) {
             <small style='display:none;'>The distance between the locations is: <strong><div id="distance"></div></strong></small>
             <small id="fare" class="text-center" style='display:none;' ></small>
 
-            <small>Driver Bata (per day): ₹400</small><br>
+           
             <small id='total' class='fw-bold'>Total Amount: ₹3650</small><br>
             <small id='selectedCarType'>Selected Car: SEDAN</small><br>
 
@@ -1131,16 +1133,17 @@ function handleLocationChange() {
 
         let oneWayKm = element.distance.value / 1000;
 
-        // Round Trip Calculation
-        if (oneWayKm <= 0) {
-            globalDistance = 0;
-        } else {
-            globalDistance = oneWayKm * 2;
-        }
+// Round Trip Calculation
+if (oneWayKm < 0) {
+    globalDistance = 0;
+} else {
+    globalDistance = oneWayKm * 2;  // even 0 allowed
+}
 
-        if (selectedCarType) {
-            calculateFare(globalDistance);
-        }
+// If car already selected → recalculate fare
+if (selectedCarType) {
+    calculateFare();
+}
         document.getElementById("pickupLocationDisplay").innerText = pickupPlace.name;
         document.getElementById("dropLocationDisplay").innerText = dropPlace.name;
         document.getElementById("pickupLocationDisplays").innerText = pickupPlace.name;
@@ -1166,7 +1169,7 @@ function handleLocationChange() {
     if (!date) return showError("Please select pickup date");
     if (!time) return showError("Please select pickup time");
     if (!selectedCarType) return showError("Please select car type");
-    if (!globalDistance || globalDistance <= 0) return showError("Please wait for distance calculation");
+    
 
     calculateFare();
 
@@ -1235,15 +1238,16 @@ function calculateFare() {
     }
 
     const distanceKm = globalDistance || 0;
-
     const ratePerKm = selectedCarType === "suv" ? 18 : 13;
     const minimumKm = days * distancePerDay;
     const driverBata = days * driverChargePerDay;
 
+    // Round km first
     let chargeableKm = distanceKm < minimumKm ? minimumKm : distanceKm;
+    chargeableKm = Math.round(chargeableKm);
 
-    const baseFare = Math.round(chargeableKm * ratePerKm);
-    const totalFare = Math.round(baseFare + driverBata);
+    const baseFare = chargeableKm * ratePerKm;
+    const totalFare = baseFare + driverBata;
 
     document.getElementById("fare").style.display = "block";
     document.getElementById("fare").innerText =
@@ -1256,8 +1260,6 @@ function calculateFare() {
     // Hidden fields
     document.getElementById("distanceField").value = chargeableKm;
     document.getElementById("totalFareField").value = totalFare;
-
-   
 }
 
 
