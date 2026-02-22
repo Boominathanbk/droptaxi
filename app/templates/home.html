@@ -1036,7 +1036,20 @@ function enqurie() {
             "Content-Type": "application/json",
             "X-CSRFToken": getCSRFToken(),
         },
-        body: JSON.stringify({ pickup, drop, name, phone, email, date, time })
+       body: JSON.stringify({ 
+        pickup,
+        drop,
+        name,
+        phone,
+        email,
+        date,
+        time,
+        fare: document.getElementById("fareField").value,
+        driverCharge: document.getElementById("driverChargeField").value,
+        totalFare: document.getElementById("totalFareField").value,
+        distance: document.getElementById("distanceField").value,
+        carType: document.getElementById("selectedCarTypeField").value
+    })
     })
     .then(res => res.json())
     .then(data => {
