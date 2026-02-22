@@ -186,6 +186,7 @@ Thank you for booking with us! DROP TAXI ONE..!
 ⏰ Time: {formatted_time}
 
 💰 Fare: ₹{fare}
+📏 Distance: {distance} Km
 🚗 Car Type: {carType}
 🧾 Driver Bata: ₹{driverCharge}
 🔖 Total Fare: ₹{total}
@@ -243,7 +244,7 @@ def enqurie(request):
 
             # ✅ Prepare Telegram message
             admin_message = f"""
-📩 NEW ENQUIRY
+📩ONE WAY NEW ENQUIRY 
 
 👤 Name: {name}
 📱 Phone: {phone}
