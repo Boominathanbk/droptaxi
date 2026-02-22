@@ -1163,8 +1163,9 @@ function updateFare(distanceKm) {
         `Selected Car: ${selectedCar.toUpperCase()}`;
 
     // Hidden fields
-    document.getElementById("fareField").value = fare;
-    document.getElementById("totalFareField").value = total;
+    document.getElementById("distanceField").value = Math.round(kmToCharge);
+    document.getElementById("fareField").value = Math.round(fare);
+    document.getElementById("totalFareField").value = Math.round(total);
     document.getElementById("selectedCarTypeField").value = selectedCar;
 }
 
