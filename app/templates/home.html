@@ -430,12 +430,7 @@ function gtag_report_conversion(url) {
     </button>
   </div> {% endcomment %}
 <section class='back'>
-  <div class="container">
-    <div class="row">
-      <p></p>
-      <h1 class="text-center">Booking</h1>
-    </div>
-  </div>
+  
  <div class="d-flex justify-content-center p-2">
 
   <!-- Drop Trip -->
@@ -476,9 +471,14 @@ function gtag_report_conversion(url) {
   </div>
 
 </div>
-  
+  <div class="container">
+    <div class="row">
+      <p></p>
+      <h1 class="text-center">ONE WAY BOOKING</h1>
+    </div>
+  </div>
   <form id='fom' action="{% url 'booking' %}" method="POST"><br>
-    <p class='text-center text-success fw-bold fs-5'>BOOKING YOUR RIDE</p>
+    
     {% csrf_token %}
     <input type="hidden" id="distanceField" name="distance" value="0">
     <input type="hidden" id="fareField" name="fare" value="0">
@@ -592,7 +592,7 @@ function gtag_report_conversion(url) {
 
   </div>
 </div>
-<br><br>
+
     <div class="text-center mt-3">
   <button type="button"
           id="getEnquiryBtn"
@@ -1154,7 +1154,7 @@ function updateFare(distanceKm) {
     const total = fare + driverCharge;
 
     document.getElementById("fare").innerHTML =
-        `Base Fare (${kmToCharge.toFixed(2)} km): ₹${fare.toFixed(0)}`;
+        `Base Fare (${kmToCharge.toFixed(0)} km): ₹${fare.toFixed(0)}`;
 
     document.getElementById("total").innerHTML =
         `Driver Bata: ₹${driverCharge}<br>Total Amount: ₹${total.toFixed(0)}`;
