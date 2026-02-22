@@ -348,7 +348,7 @@ def round_booking(request):
             # ✅ EMAIL
             subject = "Booking Completed ✅"
             message = f"""
-Your booking is confirmed.
+Your round booking is confirmed.
 
 TRIP TYPE: ROUND TRIP
 Pickup: {pickup} → {drop} → {pickup}
@@ -366,22 +366,22 @@ Driver Bata (Per Day): ₹{driverCharge}
 Total Amount: ₹{total}
 
 Car Type: {carType}
-
 Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
 Thank you for booking with us!
 """
 
             try:
-               send_mail(
-                  subject,
-                  message,
-                  os.getenv("DEFAULT_FROM_EMAIL"),
-                  [email],
-                  fail_silently=False,
-              )
-              print(f"Email sent to {email}")
-           except Exception as e:
-              print("EMAIL FAILED:", e)
+                send_mail(
+                    subject,
+                    message,
+                    os.getenv("DEFAULT_FROM_EMAIL"),
+                    [email],
+                    fail_silently=False,
+                )
+                print(f"Email sent to {email}")
+                messages.success(request, "Round trip booking successful! Email sent.")
+            except Exception as e:
+                print("EMAIL FAILED:", e)
 
             # ✅ TELEGRAM
             telegram_message = f"""
