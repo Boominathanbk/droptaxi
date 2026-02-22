@@ -153,6 +153,8 @@ Fare: ₹{fare}
 Driver Bata: ₹{driverCharge}
 Total Amount: ₹{total}
 Car Type: {carType}
+Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
+Thank you for booking with us!
 """
         try:
             send_mail(
@@ -365,21 +367,21 @@ Total Amount: ₹{total}
 
 Car Type: {carType}
 
+Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
 Thank you for booking with us!
 """
 
             try:
-                send_mail(
-                    subject,
-                    message,
-                    "boominathanpoongavanam@gmail.com",
-                    [email],
-                    fail_silently=False,
-                )
-                messages.success(request, "Round trip booking successful! Email sent.")
-            except Exception as e:
-                print("EMAIL ERROR:", e)
-                messages.warning(request, "Booking done, but email failed.")
+               send_mail(
+                  subject,
+                  message,
+                  os.getenv("DEFAULT_FROM_EMAIL"),
+                  [email],
+                  fail_silently=False,
+              )
+              print(f"Email sent to {email}")
+           except Exception as e:
+              print("EMAIL FAILED:", e)
 
             # ✅ TELEGRAM
             telegram_message = f"""
