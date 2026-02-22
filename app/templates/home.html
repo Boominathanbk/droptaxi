@@ -985,13 +985,14 @@ function initAutocomplete() {
    GET ENQUIRIES CLICK
 ================================ */
 function enqurie() {
-  if (!selectedCar) {
+    if (!selectedCar) {
         alert("Please select Sedan or SUV");
         return;
     }
+
     // 1️⃣ Get user input
     const pickup = document.getElementById("pickup").value;
-    const drop = document.getElementById("drop").value;
+    const drop = document.getElementById("drop").value; // ✅ added
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
     const email = document.getElementById("email").value;
@@ -1003,6 +1004,22 @@ function enqurie() {
         alert("All fields are required");
         return;
     }
+
+    // 2️⃣a Check if distance is calculated
+    if (actualDistanceKm === null) {
+        alert("Please wait while distance is being calculated.");
+        return;
+    }
+
+    // 2️⃣b Update hidden fields before submitting
+    const kmToCharge = actualDistanceKm < baseKm ? baseKm : actualDistanceKm;
+    const fare = kmToCharge * (selectedCar === "suv" ? 19 : 14);
+    const total = fare + driverCharge;
+
+    document.getElementById("distanceField").value = Math.round(kmToCharge);
+    document.getElementById("fareField").value = Math.round(fare);
+    document.getElementById("totalFareField").value = Math.round(total);
+    document.getElementById("selectedCarTypeField").value = selectedCar;
 
     // 3️⃣ Show "Please wait..." message
     const waitMsg = document.getElementById("please-wait");
@@ -1023,24 +1040,19 @@ function enqurie() {
     })
     .then(res => res.json())
     .then(data => {
-        // Hide "Please wait..." message
         waitMsg.style.display = "none";
 
         if (data.status === "success") {
-            // ✅ Show booking details container
             const bookingDetails = document.getElementById("bookingDetails");
             const resultContainer = document.getElementById("resultContainer");
             bookingDetails.style.display = "block";
             resultContainer.style.display = "block";
 
-            
-
-            // ✅ Update fare (if distance already calculated, otherwise fallback to 130 km)
+            // Update fare display
             const distanceKm = actualDistanceKm ?? baseKm;
             updateFare(distanceKm);
 
         } else {
-            // If server returns error, show button again
             if (btn) btn.style.display = "inline-block";
             alert(data.message || "Failed to send enquiry");
         }
@@ -1052,7 +1064,6 @@ function enqurie() {
         alert("Server error occurred");
     });
 }
-
 // Helper function to get CSRF token from cookie (Django)
 function getCSRFToken() {
     let cookieValue = null;
