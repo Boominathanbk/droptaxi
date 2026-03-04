@@ -1172,6 +1172,7 @@ if (selectedCarType) {
     
 
     calculateFare();
+    document.getElementById("please-wait").style.display = "block";
 
     // 🔥 SEND TO DJANGO HERE
     fetch("/enquries/", {
@@ -1301,7 +1302,7 @@ function submitBooking() {
         return;
     }
 
-    document.getElementById("please-wait").style.display = "block";
+    
     document.getElementById("bookingForm").submit();
 }
 function showError(message) {
