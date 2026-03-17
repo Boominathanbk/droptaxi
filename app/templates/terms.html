@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="taxi booking">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book a taxi near me instantly. Affordable taxi service near you, available 24/7. Find cabs near me and enjoy a smooth ride.">
+    <meta name="keywords" content="taxi near me, near me taxi, taxi service, taxi service near me, taxi cab service near me, cabs near me">
+    <meta name="author" content="DROP TAXI ONE">
+
+    <link rel='shortcut icon' type='icon' href='https://th.bing.com/th/id/OIP.q1U7OV2wL9vM-1LMUyTmYwHaEN?rs=1&pid=ImgDetMain'><link>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2FasXIMLUeQ9VpKDbbpaei9SEhozy0R0&libraries=places"></script> -->
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+  <title>DROP TAXI ONE</title>
+</head>
+
+<style>
+.terms-section {
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    padding: 60px 20px;
+    color: white;
+    min-height: 100vh;
+}
+
+.terms-box {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.terms-box h4 {
+    color: #ffc107;
+    margin-top: 25px;
+}
+
+.important-note {
+    background: rgba(255,0,0,0.15);
+    padding: 15px;
+    border-left: 5px solid red;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+/* Premium Footer */
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+.social-icon {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #ffc107 !important;
+}
+</style>
+<body>
+    
+<nav class="navbar navbar-expand-lg fixed-top bg-dark">
+    <div class="container-fluid">
+     {% load static %}
+<a class="navbar-brand" style="color: white; font-family: Sans-serif;" href="#">
+  <img class="img-fluid bg-none"
+       style="width: 40px; height: 40px; border-radius: 50px;"
+       src="{% static 'image/lo.jpg' %}"
+       alt="">
+  DROP TAXI ONE
+</a>
+
+<small id="time">
+ 
+</small>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
+          <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/+918778604136"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 8778604136 </a>
+          </li>
+          <li class="nav-item d-sm-block d-none">
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+918778604136"> <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> 8778604136 </a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" aria-current="page" href="{% url 'homepage' %}">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" href="#about">About</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" href="#service">Service</a>
+          </li>
+
+          <li class="nav-item me-3">
+            <a class="nav-link active text-light" href="">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav><br>
+<style>
+.terms-section {
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    padding: 60px 20px;
+    color: white;
+    min-height: 100vh;
+}
+
+.terms-box {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.terms-box h4 {
+    color: #ffc107;
+    margin-top: 25px;
+}
+
+.important-note {
+    background: rgba(255,0,0,0.15);
+    padding: 15px;
+    border-left: 5px solid red;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+/* Premium Footer */
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+.social-icon {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #ffc107 !important;
+}
+.navbar {
+    background-color: #fff;  /* Light navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  .navbar-toggler {
+    border-color: #ffffff;   /* border color */
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+  .back {
+    background: url('');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+    .nav-link.nav-link:hover{
+        color: orangered;
+    }
+    .trip a:hover{
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: large;
+      color: #c90505;
+
+    }
+
+</style>
+
+<div class="container terms-section">
+    <div class="terms-card"><br>
+
+        <h1 class="text-center terms-title mb-4">
+            DROP TAXI BOOKING – Terms of Use
+        </h1>
+
+        <p class="text-center mb-5">
+            By booking a ride through our platform, you agree to the following terms and conditions.
+        </p>
+
+        <h4>1. Booking & Travel Rules</h4>
+        <ul>
+            <li>Kilometers are calculated from actual pickup location.</li>
+            <li>AC may not function in hill areas or when vehicle is stationary.</li>
+            <li>Bookings operate on calendar day basis (12 AM – 11:59 PM).</li>
+            <li>Outstation rides cannot be converted to local trips after return.</li>
+            <li>
+    <strong>Calendar Day Basis:</strong> All bookings operate strictly on a calendar-day basis (12:00 AM to 11:59 PM). 
+    If a cab is booked at 3:00 PM on the 14th, the booking will expire at 11:59 PM on the 14th, 
+    and not 24 hours from the pickup time unless explicitly agreed otherwise.
+    </li>
+        </ul>
+
+        <h4>2. Luggage & Seating Capacity</h4>
+
+<p>
+The platform enforces strict limits based on vehicle type. 
+Exceeding the permitted passenger or luggage capacity may result in 
+additional charges at the driver's discretion or possible ride cancellation.
+</p>
+
+<div class="table-responsive">
+    <table class="table table-bordered text-center table-custom">
+        <thead>
+            <tr>
+                <th>Vehicle Type</th>
+                <th>Max Persons</th>
+                <th>Max Luggage (Standard 10kg bags)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hatchback</td>
+                <td>3</td>
+                <td>2 Suitcases</td>
+            </tr>
+            <tr>
+                <td>Sedan</td>
+                <td>4</td>
+                <td>3 Suitcases</td>
+            </tr>
+            <tr>
+                <td>SUV / MUV</td>
+                <td>6</td>
+                <td>5–6 Suitcases</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+        <h4>3. Payments & Cancellation</h4>
+        <ul>
+            <li>Payment is generally made directly to the driver.</li>
+            <li>₹300 cancellation charge if vehicle has reached pickup location.</li>
+            <li>Customer must pay tolls, parking, state taxes & night charges.</li>
+        </ul>
+
+        <h4>4. Delays & Modifications</h4>
+        <ul>
+            <li>Booking changes must be requested at least 10 hours before pickup.</li>
+            <li>Waiting charges apply after 15 minutes delay.</li>
+        </ul>
+
+        <h4>5. Liability Disclaimer</h4>
+        <p>
+            DROP TAXI BOOKING acts only as a vehicle arrangement platform. 
+            We do not own vehicles or employ drivers.
+        </p>
+
+        <div class="important-box">
+            <strong>Important:</strong> DROP TAXI BOOKING shall not be held liable for any accident, injury, baggage loss, delay, or damage occurring during the journey. Responsibility lies solely with the driver and passenger.
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<footer class="pt-4 pb-3" style="background-color: #212529; color: white;">
+
+  <div class="container text-center">
+
+    <!-- Company Name -->
+    <h5 class="fw-bold text-warning">KOVAL TAXI </h5>
+
+    <p>2026 &copy; All Rights Reserved.</p>
+    <p class="mb-3">Developed by Boominathan P</p>
+
+    <!-- Policy Links -->
+    <div class="mb-3">
+      <a href="{% url 'terms' %}" class="footer-link">Terms & Conditions</a> |
+      <a href="#" class="footer-link">Privacy Policy</a> |
+      <a href="#" class="footer-link">Cancellation Policy</a> |
+     <a href="{% url 'homepage' %}" class="footer-link">Home</a>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="mb-3">
+      <i class="fa-brands fa-square-facebook fa-xl m-2 social-icon"></i>
+      <i class="fa-brands fa-square-instagram fa-xl m-2 social-icon"></i>
+      <i class="fa-brands fa-square-x-twitter fa-xl m-2 social-icon"></i>
+      <i class="fa-brands fa-youtube fa-xl m-2 social-icon"></i>
+    </div>
+
+  </div>
+
+</footer>
+<br>
+<!-- Bottom Section for mobile -->
+<section>
+  <div class="row fixed-bottom text-center d-md-none">
+    <!-- Call Button -->
+    <div class="col-6 rounded bg-primary py-2">
+      <a aria-label="Call Us" class="text-decoration-none" style="color: white;" href="tel:+919677270347">
+        <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> Call
+      </a>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="col-6 rounded bg-warning py-2">
+      <a aria-label="Chat on WhatsApp" class="text-decoration-none" style="color: white;" href="https://wa.me/+919677270347">
+        <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+</body>
+</html>
+
+    
+
+  
