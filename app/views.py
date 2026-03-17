@@ -1,109 +1,21 @@
-from django.shortcuts import render,redirect,get_object_or_404
-# 
-#import googlemaps
-from django.conf import settings
+import json
 import requests
-from geopy.distance import geodesic
-from shapely import get_coordinates
-
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
+import os
 
 from django.http import JsonResponse
-
-from shapely.geometry import Point, LineString, Polygon
-import geopandas as gpd
-from shapely.geometry import Point
-from twilio.rest import Client
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
+from django.contrib import messages
 from datetime import datetime
 
 
+
 def homepage(request):
-   
     return render(request,'home.html')
- 
-
-# # Booking view
-# def booking(request):
-#     if request.method == 'POST':
-#         # Get data from the form
-#         pickup = request.POST['pickup']
-#         drop = request.POST['drop']
-#         name = request.POST['name']
-#         phone = request.POST['phone']
-#         email = request.POST['email']
-#         date = request.POST['date']
-#         time = request.POST['time']
-#         fare = request.POST['fare']
-#         driverCharge = request.POST['driverCharge']
-#         total = request.POST['totalFare']
-#         distance = request.POST['distance']
-#         carType = request.POST['carType']
-
-#         # Validate the data (you can add more validations here)
-#         if not pickup or not drop or not name or not phone or not email or not date or not time:
-#             messages.error(request, "All fields are required.")
-#             return redirect('login')  # Stay on the same page if fields are missing
-
-#         try:
-#             # Create a booking instance
-#             booking = Booking.objects.create(
-#                 pickup=pickup,
-#                 drop=drop,
-#                 name=name,
-#                 phone=phone,
-#                 email=email,
-#                 date=date,
-#                 time=time,
-#                 fare=fare,
-#                 total=total,
-#                 driverCharge=driverCharge,
-#                 distance=distance,
-#                 carType=carType
-#             )
-#             booking.save()
-
-#             # Success message and redirect to the homepage or success page
-#             subject = "Booking Completed"
-#             message = f"""\nYour Booking confirmed.\nTRIP TYPE\n ONE WAY TRIP
-
-#             Pickup: {pickup},
-#             Drop: {drop},
-#             Dear: {name}
-#             Phone: {phone}
-#             Email: {email}
-#             Distance: {distance} km (Approximate)
-#             Date: {date}
-#             Time: {time}
-#             Fare (minimum fare 130 km): ₹ {fare}
-#             Driver Bata: ₹{driverCharge}
-#             Total Amount: ₹{total}
-#             Car Type: {carType}
-
-#             Thank you for booking with us!"""
-#             recipient = email
-#             send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient], fail_silently=False)
-
-#             messages.success(request, "Booking successful! A confirmation message has been sent to your Email.")
-#             return redirect('homepage')  # Adjust the redirection as per your URL configuration
-
-#         except Exception as e:
-#             messages.error(request, f"An error occurred: {e}")
-#             return redirect('homepage')  # Stay on the same page and show the error
-
-#     # Render the booking form if it's a GET request
-#     return render(request, 'home.html')
-
-import requests
-
-
-# Booking view
-from django.core.mail import send_mail
-from django.conf import settings
-from django.contrib import messages
-import requests
-import os
+             
+def round(request):
+   return render(request, 'round.html')
 
 
 
@@ -157,7 +69,7 @@ Car Type: {carType}
 
 Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
 
-Thank you for booking with us! DROP TAXI ONE..!
+Thank you for booking with us! DROP TAXI BOOKING..!
 """
         try:
             send_mail(
@@ -186,15 +98,14 @@ Thank you for booking with us! DROP TAXI ONE..!
 ⏰ Time: {formatted_time}
 
 💰 Fare: ₹{fare}
-📏 Distance: {distance} Km
 🚗 Car Type: {carType}
 🧾 Driver Bata: ₹{driverCharge}
 🔖 Total Fare: ₹{total}
 """
         try:
-            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
-            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "1313402845"
-
+            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
+            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "8797007744"
+            
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
             response = requests.post(telegram_url, data={
                 "chat_id": telegram_chat_id,
@@ -209,7 +120,7 @@ Thank you for booking with us! DROP TAXI ONE..!
 
     return render(request, 'home.html')
 import json
-import requests
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -234,7 +145,14 @@ def enqurie(request):
                     "status": "error",
                     "message": "All required fields are required"
                 })
-
+            try:
+               formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
+               formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")
+            except Exception as e:
+               messages.error(request, "Invalid date or time format.")
+               print("DATE/TIME ERROR:", e)
+               return redirect('homepage')
+                
             # ✅ Optional fields with defaults
             fare = data.get("fare", "0")
             driverCharge = data.get("driverCharge", "0")
@@ -244,7 +162,7 @@ def enqurie(request):
 
             # ✅ Prepare Telegram message
             admin_message = f"""
-📩ONE WAY NEW ENQUIRY 
+📩 NEW ENQUIRY
 
 👤 Name: {name}
 📱 Phone: {phone}
@@ -253,8 +171,8 @@ def enqurie(request):
 📍 Pickup: {pickup}
 📍 Drop: {drop}
 
-🗓 Date: {date}
-⏰ Time: {time}
+🗓️ Date: {formatted_date}
+⏰ Time: {formatted_time}
 
 💰 Fare: ₹ ₹{fare}
 🧾 Drivercharge: ₹ {driverCharge}
@@ -267,8 +185,8 @@ Thank you for booking with us!
 """
 
             # ✅ Send Telegram
-            telegram_bot_token = "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
-            telegram_chat_id = "1313402845"
+            telegram_bot_token = "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
+            telegram_chat_id = "8797007744"
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
             response = requests.post(telegram_url, data={
@@ -301,35 +219,8 @@ Thank you for booking with us!
     return JsonResponse({"status": "invalid request"})
 
 
-def round(request):
-    return render(request,'round.html')
 
-
-
-def login(request):
-    return render(request,'login.html')
-
-def login_data(request):
-    if request.method=="POST":
-        username=request.POST["username"]
-        password=request.POST["password"]
-
-        user=auth.authenticate(username=username,password=password)
-
-        if user is not None:
-            auth.login(request,user)
-            if(user.is_superuser):
-                return redirect("admin_page")
-            else:
-                request.session['uid']=user.id
-                return redirect("user_page")
-        else:
-            messages.info(request,"Invalid username and password")
-            return redirect("login")
-    else:
-        return redirect("login") 
-
-    
+   
 def round_booking(request):
     if request.method == 'POST':
         try:
@@ -352,7 +243,14 @@ def round_booking(request):
             if not all([pickup, drop, name, phone, date, number_of_days]):
                 messages.error(request, "All fields are required.")
                 return redirect('round')
-
+            try:
+               formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
+               formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")
+            except Exception as e:
+               messages.error(request, "Invalid date or time format.")
+               print("DATE/TIME ERROR:", e)
+               return redirect('homepage')    
+            
             # ✅ EMAIL
             subject = "Booking Completed ✅"
             message = f"""
@@ -365,9 +263,9 @@ Name: {name}
 Phone: +91 {phone}
 Email: {email}
 
-Date: {date}
-Time: {time}
-Number of Days: {number_of_days}
+🗓️ Date: {formatted_date}
+⏰ Time: {formatted_time}
+📆 Days: {number_of_days}
 
 
 Driver Bata (Per Day): ₹{driverCharge}
@@ -377,7 +275,7 @@ Car Type: {carType}
 
 Note: Excluding - Hills, Tollgate & Permit Charges Applicable if use only.
 
-Thank you for booking with us! DROP TAXI ONE..!
+Thank you for booking with us! DROP TAXI BOOKING..!
 """
 
             try:
@@ -403,18 +301,20 @@ Thank you for booking with us! DROP TAXI ONE..!
 📱 Phone: {phone}
 ✉️ Email: {email}
 
-🗓 Date: {date}
-⏰ Time: {time}
+🗓️ Date: {formatted_date}
+⏰ Time: {formatted_time}
 📆 Days: {number_of_days}
 
 🚗 Car Type: {carType}
 🧾 Driver Bata: ₹{driverCharge}
+📏 Distance: {distance} KM
 💰 Total Fare: ₹{total}
 """
 
             try:
-                telegram_bot_token = "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
-                telegram_chat_id = "1313402845"
+                # ✅ Send Telegram
+                telegram_bot_token = "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
+                telegram_chat_id = "8797007744"
                 telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
                 response = requests.post(telegram_url, data={
@@ -436,9 +336,6 @@ Thank you for booking with us! DROP TAXI ONE..!
             return redirect('round')
 
     return redirect('homepage')
-import requests
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
@@ -459,9 +356,9 @@ def enquries(request):
     time = request.POST.get("time", "").strip()
 
     number_of_days = request.POST.get('number_of_days',"").strip()
-    car_type = request.POST.get("car_type", "").strip()
+    car_type = request.POST.get("carType", "").strip()
     distance = request.POST.get("distance", "").strip()
-    total_fare = request.POST.get("total_fare", "").strip()
+    total_fare = request.POST.get("totalFare", "").strip()
 
     # ------------------ REQUIRED VALIDATION ------------------
     if not all([name, phone, pickup, drop, date, time, number_of_days]):
@@ -485,6 +382,14 @@ def enquries(request):
             "status": "error",
             "message": "Invalid number of days."
         })
+    # ✅ Format date & time
+    try:
+        formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime("%d-%m-%Y")
+        formatted_time = datetime.strptime(time, "%H:%M").strftime("%I:%M %p")
+    except Exception as e:
+        messages.error(request, "Invalid date or time format.")
+        print("DATE/TIME ERROR:", e)
+        return redirect('round')    
 
     # ------------------ TELEGRAM MESSAGE ------------------
     message = f"""
@@ -496,8 +401,8 @@ def enquries(request):
 📍 Pickup: {pickup}
 📍 Drop: {drop}
 
-📅 Date: {date}
-⏰ Time: {time}
+🗓️ Date: {formatted_date}
+⏰ Time: {formatted_time}
 🗓 Days: {number_of_days}
 
 🚘 Car Type: {car_type}
@@ -505,8 +410,9 @@ def enquries(request):
 💰 Total Fare: ₹{total_fare}
 """
 
-    telegram_bot_token = "8410338451:AAExpqr7sO18NkW9tjvwEw4p_AEkd2XNqzM"
-    telegram_chat_id = "1313402845"
+    # ✅ Send Telegram
+    telegram_bot_token = "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
+    telegram_chat_id = "8797007744"
     telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
     try:
@@ -539,17 +445,6 @@ def enquries(request):
         "message": "Enquiry sent successfully"
     })
 
+def terms(request):
+    return render(request, 'terms.html')
 
-
-def roundtrip(request):
-    bookings = Booking.objects.all()
-    round = RoundTrip.objects.all()
-     
-    round_bookings = RoundTrip.objects.filter(is_active=True)  # Assuming is_active=False indicates new or pending bookings          
-    pending_round = round_bookings.count()
-    new_bookings = Booking.objects.filter(is_active=True) 
-    pending_count = new_bookings.count()
-    return render(request,'round_admin.html',{'bookings': bookings,'pending_count':pending_count,'round':round, 'pending_round':pending_round})
-
-def about(request):
-    return render(request,'about.html')
