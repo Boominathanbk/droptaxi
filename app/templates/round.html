@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   
+    <meta name="google-site-verification" content="lWvFQPktMReqK4qahbZRWJz_Php8jHwit_OouBuqkr4" />
+     <link rel='shortcut icon' type='icon' href='https://play-lh.googleusercontent.com/i5SZ1SSn8bNIfdyw5vSNyS6lqG4LljUaBw95onE0JM2yMcF6ifLyqzOvPiQmTswpX9s0CKhFuI6zae_gATF6'><link>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
     <meta name="description" content="Book a taxi near me instantly. Affordable taxi service near you, available 24/7. Find cabs near me and enjoy a smooth ride.">
     <meta name="keywords" content="taxi near me, near me taxi, taxi service, taxi service near me, taxi cab service near me, cabs near me">
-    <meta name="author" content="DROP TAXI ONE">
+    <meta name="author" content="DROP TAXI BOOKING">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,19 +21,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap" rel="stylesheet">
-<title>DROP TAXI ONE</title>
+ <title>Drop Taxi One | One Way Taxi Service in Tamil Nadu | Chennai to Madurai Drop Taxi</title>
 
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17851216191"></script>
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17994259587"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-17851216191');
-</script>
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-17851216191/bookingID'});
+  gtag('config', 'AW-17994259587');
 </script>
         <!-- Event snippet for Purchase conversion page -->
 
@@ -90,15 +89,146 @@ function gtag_report_conversion(url) {
     }
 
 
-.car img:hover {
-  color:rgb(17, 212, 60);
 
+/* Hover effect */
+.car-card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
 }
 
-.car p:hover {
+.car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
 
-    font-size: larger;
-    color: #0c0c0c;
+.car-card img {
+    transition: transform 0.4s ease;
+}
+
+.car-card:hover img {
+    transform: scale(1.05);
+}
+
+.price-box {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.car-title {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+/* ===== ABOUT SECTION PREMIUM DESIGN ===== */
+#about {
+    background: linear-gradient(135deg, #141E30, #243B55);
+    color: #fff;
+    border-radius: 25px;
+    padding: 60px 30px;
+    margin-top: 50px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.about-title {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.about-box {
+    background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s ease;
+}
+
+.about-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.highlight {
+    color: #00FFD1;
+    font-weight: 600;
+}
+
+.phone-box {
+    background: linear-gradient(45deg, #06d92c, #71ec73);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 20px;
+    transition: 0.4s;
+}
+
+.phone-box:hover {
+    transform: scale(1.05);
+}
+/* Premium Footer */
+.footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #ffc107;
+    text-decoration: underline;
+}
+
+.social-icon {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #ffc107 !important;
+}
+#service {
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    padding: 70px 20px;
+    border-radius: 25px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+/* Title Styling */
+.service-title {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(90deg,#ffc107,#ff9800,#ffc107);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.4s ease;
+}
+
+/* Hover Glow */
+.glass-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 0 25px rgba(255,193,7,0.6);
+    background: rgba(255,255,255,0.15);
+}
+
+/* Icon style */
+.glass-card i {
+    color: #21ea06;
+    margin-bottom: 8px;
+    font-size: 20px;
 }
 
 
@@ -435,20 +565,20 @@ function gtag_report_conversion(url) {
 <body>
   <nav class="navbar navbar-expand-lg fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand " style="color: white; font-family: Audiowide;" href="#"><img class="img-fluid bg-none" style="width: 40px; height: 40px; border-radius: 50px;" src="https://th.bing.com/th/id/OIP.1YfkxxUUITwga6Ady4PNuQHaHa?pid=ImgDet&w=182&h=182&c=7" alt=""> DROP TAXI ONE</a><small id='time'></small>
+      <a class="navbar-brand " style="color: white; font-family: Audiowide;" href="#"><img class="img-fluid bg-none" style="width: 40px; height: 40px; border-radius: 50px;" src="{% static 'image/lo.jpg' %}" alt=""> DROP TAXI ONE</a><small id='time'></small>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav mx-auto me-3 " style="font-family: Faculty;">
           <li class="nav-item d-sm-block d-none " style="margin-left:200px ;">
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/+919629753043"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 9629753043</a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none " style="color: yellow;" href="https://wa.me/+918778604136"> <i class="fa-brands fa-whatsapp fa-lg" style="color: #a6f1f1ff;"> </i> 8778604136</a>
           </li>
           <li class="nav-item d-sm-block d-none" >
-            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+919629753043"> <i class="fa-solid fa-phone" style="color: #5ffa05ff;"></i> 9629753043</a>
+            <a aria-label="Chat on WhatsApp" class="nav-link active text-decoration-none  d-sm-none d-md-block" style="color: yellow;" href="tel:+918778604136"> <i class="fa-solid fa-phone" style="color: #5ffa05ff;"></i> 8778604136</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+            <a class="nav-link active text-light" aria-current="{% url 'homepage' %}" href="#">Home</a>
           </li>
           <li class="nav-item me-3">
             <a class="nav-link active text-light" href="#about">About</a>
@@ -458,14 +588,14 @@ function gtag_report_conversion(url) {
           </li>
 
           <li class="nav-item me-3">
-            <a class="nav-link active text-light" href="{% url 'login' %}">Login</a>
+            <a class="nav-link active text-light" href="">Login</a>
           </li>
         </ul>
       </div>
     </div>
   </nav><br><br><br>
   <marquee behavior="left" direction="" style="color: orangered;">
-    🚕 Book Taxi Online | 24/7 Cab Service | One-Way & Round Trips | Reliable & Affordable Rides – Drop Taxi One Taxi 🚖
+    🚕 Book Taxi Online | 24/7 Cab Service | One-Way & Round Trips | Reliable & Affordable Rides – Drop Taxi One 🚖
     </marquee>
       
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -495,35 +625,49 @@ function gtag_report_conversion(url) {
       </div>
 
       
-       <div class="d-flex justify-content-center p-2">
+            <div class="d-flex justify-content-center p-2">
 
   <!-- Drop Trip -->
-  <div class="p-3 rounded text-center me-3 
-       {% if request.resolver_match.url_name == 'drop' %}
-       active-trip
-       {% endif %}">
+  <div class="p-3 rounded text-center me-3"
+       style="background-color: #fff3cd; min-width:150px;">
        
-    <a href="{% url 'homepage' %}"
-       class="fs-5 fw-bold text-decoration-none">
+    <a class="fs-5 fw-bold text-danger text-decoration-none" href="{% url 'homepage' %}">
       Drop Trip
     </a>
+
   </div>
 
   <!-- Round Trip -->
-  <div class="p-3 rounded text-center 
-       {% if request.resolver_match.url_name == 'round' %}
-       active-trip
-       {% endif %}">
-       
-    <a href=""
-       class="fs-5 fw-bold text-decoration-none">
-      Round Trip
+  <div class="p-3 rounded text-center position-relative"
+       style="background: linear-gradient(135deg,#ff416c,#ff4b2b);
+              min-width:170px;
+              box-shadow:0 6px 15px rgba(0,0,0,0.2);">
+
+    <a href="{% url 'round' %}"
+       class="text-decoration-none text-white fs-5 fw-bold">
+       🔥 Round Trip
     </a>
+
+    <!-- Tick -->
+    <i class="bi bi-check-circle-fill"
+       style="color:green;"></i>
+
+    <span style="
+        position:absolute;
+        top:-10px;
+        right:-10px;
+        background:#28a745;
+        color:white;
+        font-size:12px;
+        padding:4px 8px;
+        border-radius:20px;">
+        Popular
+    </span>
+
   </div>
-  
 
 </div>
-<div class="container">
+<div class="container" >
         <div class="row">
           <p></p>
           <h1 class="text-center">ROUND TRIP BOOKING</h1>
@@ -535,7 +679,7 @@ function gtag_report_conversion(url) {
         <input type="hidden" id="fareField" name="fare" value="0">
         <input type="hidden" id="totalFareField" name="totalFare" value="0">
         <input type="hidden" id="driverChargeField" name="driverCharge" value="400">
-        <input type="hidden" id="selectedCarTypeField" name="carType" value="sedan">
+        <input type="hidden" id="selectedCarTypeField" name="carType" value="">
         <div class=" container text-center  mx-auto   p-2 shadow-lg  bg-opacity-75 rounded " style="display: block; place-items: center;">
           <div class="pickup-drop-wrapper">
             
@@ -720,7 +864,7 @@ function gtag_report_conversion(url) {
       <!--<button type="button" onclick="validateLocations()" class="btn btn-primary">Booking</button> -->
 
       <div id="please-wait" style="display: none;">
-        <p class='text-success'>Please wait...</p>
+        <p class='text-success text-center'>Please wait...</p>
       </div>
       <div id="errorMessage" style="color: red; display: none;"></div>
 
@@ -766,293 +910,235 @@ function gtag_report_conversion(url) {
     </form><br>
     
     <br>
-<div class='container'>
-  <div class='row p-3'>
-    <div class='col-md-6 text-center' id='ads'>
+<div class="container py-5">
+  <div class="row g-4">
 
-        <img class='img-fluid' src='static\image\wp9332439.jpg' alt='' width='325px'>
-      <div class='adds car-name border rounded shadow-lg p-2' style="background-color: #20B2AA;">
-        <div class='text-center text-danger fw-bold'>SEDAN</div>
-        <div class=''>
-          <div>One Way: <b class='text-light'>Rs 14</b> Per Km</div>
-          <div class='p-1'>Round Trip: <b class='text-light'>Rs 13 </b>Per Km</div>
-        </div>
-      </div>
-    </div>
-    <div class='col-md-6 text-center' id='ads'>
-      <img class='img-fluid m-3' src='static\image\innova.png' alt=''width='305px'>
-      <div class='adds rounded shadow-lg p-2' style='margin: 30px; background-color: #20B2AA'>
-        <div class='car-name text-center text-danger fw-bold'>SUV</div>
-        <div class=''>
-          <div>One Way: <b class='text-light'>Rs 19 </b>Per Km</div>
-          <div>Round Trip: <b class='text-light'> Rs 18 </b>Per Km</div>
+    <!-- SEDAN -->
+    <div class="col-md-6">
+      <div class="car-card text-center p-4 shadow-lg">
+
+        <img class="img-fluid mb-3"
+             src="{% static 'image/sedan-300x200.webp' %}"
+             alt="Sedan taxi service"
+             style="height:200px; object-fit:contain;">
+
+        <div class="car-title fw-bold text-warning">SEDAN</div>
+
+        <div class="price-box mt-3">
+          <div>🚕 One Way: <b class="text-info">Rs 14</b> / Km</div>
+          <div class="mt-2">🔁 Round Trip: <b class="text-info">Rs 13</b> / Km</div>
         </div>
 
       </div>
-
     </div>
 
+    <!-- SUV -->
+    <div class="col-md-6">
+      <div class="car-card text-center p-4 shadow-lg">
 
-  </div><br>
+        <img class="img-fluid mb-3"
+             src="{% static 'image/innova.png' %}"
+             alt="SUV taxi service"
+             style="height:200px; object-fit:contain;">
 
+        <div class="car-title fw-bold text-warning">SUV</div>
+
+        <div class="price-box mt-3">
+          <div>🚕 One Way: <b class="text-info">Rs 19</b> / Km</div>
+          <div class="mt-2">🔁 Round Trip: <b class="text-info">Rs 18</b> / Km</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>
 
 
-<div class='container' id='about'>
-  <h1 class='text-center fw-bold 'style='font-family: "Bungee Tint", sans-serif;'>ABOUT US ! </h1>
-  <p class='text-center'> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-fill" style='color:green;'></i> <i class="bi bi-star-half" style='color:green;'></i></p>
-  <div class='row'>
-    <div class='col-md-6'>
-      <p class="mt-4 fs-5 text-justify">
-        <i class="bi bi-heart-fill" style="color:rgb(234, 6, 6);"></i> Welcome to <strong>DROP TAXI ONE</strong>, your trusted partner in reliable and affordable travel solutions across Tamil Nadu.
-        Whether you're planning a family trip, a business journey, or a one-way ride, we are here to ensure your journey is smooth, safe, and comfortable.
-      </p>
+<div class="container py-5">
 
-      <p class="fs-5 text-justify">
-        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> With a fleet of well-maintained vehicles ranging from Sedans to SUVs, and a professional team of drivers, we are committed to providing a premium experience at a pocket-friendly price.
-        Our transparent pricing, punctual service, and customer-first approach make us the preferred choice for thousands of happy customers.
-      </p>
+  <!-- TITLE -->
+  
 
-      <p class="fs-5 text-justify">
-        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> From Chennai to Coimbatore, Trichy to Thanjavur, and all across Tamil Nadu, Andhra Pradesh, Kerala, Karnataka, Telangana, Puducherry we proudly serve in more than 6+ states and towns.
-        Let us take the wheel while you sit back and enjoy the ride!
-      </p>
-
-      <p class="fs-5 text-justify">
-        <i class="bi bi-heart-fill"style="color:rgb(234, 6, 6);"></i> Thank you for choosing <strong>DROP TAXI ONE</strong> – where every journey matters.
-      </p>
-      <p class="fs-5 text-justify">
-        <i class="bi bi-telephone-fill" style='color: green;'></i> Any Enquiry Call This Number:  <strong><h4 class='text-danger'>9629753043</h4></strong>
-      </p>
-
-    </div>
-    <div class='col-md-6'>
-      <img class='img-fluid' src='static\image\taxicar.jpeg' width='70%'>
-
-    </div>
+  <!-- CONTENT ROW -->
+  <div class="row align-items-center justify-content-center" 
+       id="about" 
+       data-aos="fade-up">
+       <div class="text-center mb-5" data-aos="zoom-in">
+    <h1 class="fw-bold about-title text-warning">
+      ABOUT US
+    </h1>
+    <p>⭐⭐⭐⭐☆</p>
   </div>
+
+    <!-- LEFT CONTENT -->
+    <div class="col-lg-6 col-md-6 col-12 text-center text-md-start mb-4 mb-md-0">
+
+      <div class="about-box mb-4">
+        ❤️ Welcome to <span class="highlight">DROP TAXI BOOKING</span>, 
+        your trusted partner for reliable and affordable taxi services across Tamil Nadu.
+      </div>
+
+      <div class="about-box mb-4">
+        🚖 We provide <span class="highlight">one-way rides</span>, 
+        <span class="highlight">round trips</span>, and premium travel 
+        experiences with well-maintained Sedans & SUVs.
+      </div>
+
+      <div class="about-box mb-4">
+        🌍 Serving Chennai, Coimbatore, Trichy, Madurai and 6+ states 
+        including Kerala, Karnataka, Andhra & Telangana.
+      </div>
+
+      <div class="about-box mb-4">
+        💛 Thank you for choosing 
+        <span class="highlight">DROP TAXI BOOKING</span> – 
+        where every journey matters.
+      </div>
+
+      <div class="phone-box mt-4 text-center text-md-start">
+        📞 Any Enquiry Call:
+        <h4 class="fw-bold mt-2">+91-8778604136</h4>
+      </div>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="col-lg-6 col-md-6 col-12 text-center">
+      <img class="img-fluid rounded shadow-lg"
+           src="https://plus.unsplash.com/premium_photo-1661911000633-3320fe8b6901?w=600&auto=format&fit=crop&q=60"
+           style="max-height:500px; object-fit:contain;">
+    </div>
+
+  </div>
+
 </div>
-<div class='container-fluid fw-bold  text-primary bg-dark bg-opacity-25 p-3' style='font-family: "Oswald", sans-serif;' id='service'>
-  <h1 class='text-center fw-bold' style='color: orange;'>Our Service Location</h1><br>
-      <div class='row '>
-    <div class='col-md-2 'style='color:red;'>
-      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i> Tamil Nadu</h5>
+<div class="container-fluid" id="service">
 
-    </div>
-    <div class='col-md-2'style='color:red;'>
-      <h5><i class="bi bi-car-front-fill" style='color: #800080'v></i> Puducherry </h5>
+  <h1 class="text-center service-title mb-3">
+      Our Taxi Service Locations
+  </h1>
 
-    </div>
-    <div class='col-md-2'style='color:red;'>
-      <h5 ><i class="bi bi-car-front-fill" style='color: #800080'></i> Kerala</h5>
+  <p class="text-center text-light mb-5">
+      🚖 24/7 Taxi Service Available – Book Your Ride Now!
+  </p>
 
-    </div>
-    <div class='col-md-2'style='color:red;'>
-      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i>  Karnataka</h5>
-
-    </div>
-    <div class='col-md-2'style='color:red;'>
-      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i> Telangana</h5>
-
-    </div>
-    <div class='col-md-2'style='color:red;'>
-      <h5><i class="bi bi-car-front-fill" style='color: #800080'></i>  Andhra Pradesh   </h5>
-
-    </div>
-
-  </div><br>
-  <div class='row '>
-    <div class='col-md-2 '>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Chennai</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Trichy</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Ariyalur</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p> <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Nagappattinam</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Perambalur</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Pudukkottai</p>
-
-    </div>
-
+  <!-- STATES -->
+  <div class="row g-3 justify-content-center mb-4">
+      <div class="col-md-2 col-6">
+          <div class="glass-card">Tamil Nadu</div>
+      </div>
+      <div class="col-md-2 col-6">
+          <div class="glass-card">Puducherry</div>
+      </div>
+      <div class="col-md-2 col-6">
+          <div class="glass-card">Kerala</div>
+      </div>
+      <div class="col-md-2 col-6">
+          <div class="glass-card">Karnataka</div>
+      </div>
+      <div class="col-md-2 col-6">
+          <div class="glass-card">Telangana</div>
+      </div>
+      <div class="col-md-2 col-6">
+          <div class="glass-card">Andhra Pradesh</div>
+      </div>
   </div>
-  <div class='row '>
-    <div class='col-md-2'>
-      <p> <i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Thanjavur</p>
+<div class="container-fluid" id="service">
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Thiruvallur</p>
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Mayiladuthurai</p>
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Dharmapuri</p>
+<div class="row g-3">
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Coimbatore</p>
+<!-- Tamil Nadu Cities -->
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Chennai</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Trichy</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Ariyalur</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Nagapattinam</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Perambalur</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Pudukkottai</div></div>
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Erode</p>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Thanjavur</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Thiruvallur</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Mayiladuthurai</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Dharmapuri</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Coimbatore</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Erode</div></div>
 
-    </div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Krishnagiri</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Namakkal</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Nilgiris</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Salem</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Tiruppur</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Dindigul</div></div>
 
-  </div>
-  <div class='row'>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Krishnagiri</p>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Kanyakumari</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Madurai</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Ramanathapuram</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Sivagangai</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Theni</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Thoothukudi</div></div>
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Namakkal</p>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Tirunelveli</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Virudhunagar</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Tenkasi</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Cuddalore</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Kanchipuram</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Chengalpattu</div></div>
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Nilgiris</p>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Tiruvallur</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Tiruvannamalai</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Vellore</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Villupuram</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Kallakurichi</div></div>
+<div class="col-md-2 col-6"><div class="glass-card"><i class="fa-solid fa-location-dot"></i><br>Ranipet</div></div>
 
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Salem</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tiruppur</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Dindigul</p>
-
-    </div>
-
-  </div>
-  <div class='row'>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Kanyakumari</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Madurai</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Ramanathapuram</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Sivagangai</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Theni</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Thoothukudi</p>
-
-    </div>
-
-  </div>
-  <div class='row'>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tirunelveli</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Virudhunagar</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tenkasi</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Coddalore</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Kanchipuram</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Chengalpattu</p>
-
-    </div>
-
-  </div>
-  <div class='row'>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tiruvallur</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Tiruvannamalai</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Vellore</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Villupuram</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Kallakurichi</p>
-
-    </div>
-    <div class='col-md-2'>
-      <p><i class="fa-solid fa-location-dot fa-xl p-2" style="color: #21ea06;"></i> Ranipet</p>
-
-    </div>
-
-  </div>
+</div>
+</div>
 
 </div><br><br>
- <footer style="background-color: #212529; color: white;">
-  <p class="text-center" style="width: 100%;">2026 &copy; DROP TAXI ONE. All Rights Reserved.</p>
-  <p class="text-center" style="width: 100%;">Boominathan Developer.</p>
+<footer class="pt-4 pb-3" style="background-color: #212529; color: white;">
 
-  <!-- Social Media Icons -->
-  <div class="container  text-center">
-    <div class="col-md-12">
-      <i class="fa-brands fa-square-facebook fa-2xl m-2" style="color: #058af0;"></i>
-      <i class="fa-brands fa-square-instagram fa-2xl m-2" style="color: #ea0b77;"></i>
-      <i class="fa-brands fa-square-x-twitter fa-2xl m-2" style="color: #045df6;"></i>
-      <i class="fa-brands fa-youtube fa-2xl m-2" style="color: #fa1900;"></i>
+  <div class="container text-center">
+
+    <!-- Company Name -->
+    <h5 class="fw-bold text-warning">DROP TAXI BOOKING</h5>
+
+    <p>2026 &copy; All Rights Reserved.</p>
+    <p class="mb-3">Developed by Boominathan P</p>
+
+    <!-- Policy Links -->
+    <div class="mb-3">
+      <a href="{% url 'terms' %}" class="footer-link">Terms & Conditions</a> |
+      <a href="#" class="footer-link">Privacy Policy</a> |
+      <a href="#" class="footer-link">Cancellation Policy</a>
     </div>
-  </div><br><br>
-</footer>
+
+    <!-- Social Media Icons -->
+    <div class="mb-3">
+      <i class="fa-brands fa-square-facebook fa-xl m-2 social-icon"></i>
+      <i class="fa-brands fa-square-instagram fa-xl m-2 social-icon"></i>
+      <i class="fa-brands fa-square-x-twitter fa-xl m-2 social-icon"></i>
+      <i class="fa-brands fa-youtube fa-xl m-2 social-icon"></i>
+    </div>
+
+  </div>
+
+</footer><br>
 
 <!-- Bottom Section for mobile -->
 <section>
   <div class="row fixed-bottom text-center d-md-none">
     <!-- Call Button -->
     <div class="col-6 rounded bg-primary py-2">
-      <a aria-label="Call Us" class="text-decoration-none" style="color: white;" href="tel:+919629753043">
+      <a aria-label="Call Us" class="text-decoration-none" style="color: white;" href="tel:+918778604136">
         <i class="fa-solid fa-phone" style="color: #2ee60a;"></i> Call
       </a>
     </div>
 
     <!-- WhatsApp Button -->
     <div class="col-6 rounded bg-warning py-2">
-      <a aria-label="Chat on WhatsApp" class="text-decoration-none" style="color: white;" href="https://wa.me/+919629753043">
+      <a aria-label="Chat on WhatsApp" class="text-decoration-none" style="color: white;" href="https://wa.me/+918778604136">
         <i class="fa-brands fa-whatsapp fa-lg" style="color: #3bdb0f;"></i> WhatsApp
       </a>
     </div>
@@ -1150,7 +1236,7 @@ if (selectedCarType) {
 
     });
 }function handleEnquiry() {
-
+    // Input values
     const name = document.getElementById("name").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const pickup = document.getElementById("pickup").value.trim();
@@ -1169,28 +1255,29 @@ if (selectedCarType) {
     if (!date) return showError("Please select pickup date");
     if (!time) return showError("Please select pickup time");
     if (!selectedCarType) return showError("Please select car type");
-    
 
+    // ✅ First calculate fare to update hidden fields
     calculateFare();
-    document.getElementById("please-wait").style.display = "block";
 
-    // 🔥 SEND TO DJANGO HERE
+    // ✅ Now submit form with FormData
+    const form = document.getElementById("bookingForm");
+    const formData = new FormData(form);
+
     fetch("/enquries/", {
         method: "POST",
-        body: new FormData(document.getElementById("bookingForm"))
+        body: formData
     })
     .then(res => res.json())
     .then(data => {
         if (data.status === "success") {
-          
             document.getElementById("resultContainer").style.display = "block";
             document.getElementById("getEnquiryBtn").style.display = "none";
         } else {
             showError(data.message);
         }
     })
-    .catch(error => {
-        console.log("Error:", error);
+    .catch(err => {
+        console.log(err);
         showError("Something went wrong");
     });
 }
@@ -1223,44 +1310,28 @@ function selectCar(type) {
 
 // ------------------ FARE CALCULATION ------------------
 function calculateFare() {
+    if (!selectedCarType) return;
 
-    if (!selectedCarType) {
-        alert("Please select a car type!");
-        return;
-    }
-
-    const pickup = document.getElementById("pickup").value;
-    const drop = document.getElementById("drop").value;
     const days = parseInt(document.getElementById("days").value) || 1;
-
-    if (!pickup || !drop) {
-        alert("Please select pickup and drop location!");
-        return;
-    }
-
     const distanceKm = globalDistance || 0;
     const ratePerKm = selectedCarType === "suv" ? 18 : 13;
     const minimumKm = days * distancePerDay;
     const driverBata = days * driverChargePerDay;
 
-    // Round km first
     let chargeableKm = distanceKm < minimumKm ? minimumKm : distanceKm;
     chargeableKm = Math.round(chargeableKm);
 
     const baseFare = chargeableKm * ratePerKm;
     const totalFare = baseFare + driverBata;
 
-    document.getElementById("fare").style.display = "block";
-    document.getElementById("fare").innerText =
-        "Base Fare (" + chargeableKm + " km): ₹" + baseFare;
+    document.getElementById("fare").innerText = `Base Fare (${chargeableKm} km): ₹${baseFare}`;
+    document.getElementById("total").innerHTML = `Driver Bata (${days} day): ₹${driverBata}<br><strong>Total Amount: ₹${totalFare}</strong>`;
 
-    document.getElementById("total").innerHTML =
-        "Driver Bata (" + days + " day): ₹" + driverBata +
-        "<br><strong>Total Amount: ₹" + totalFare + "</strong>";
-
-    // Hidden fields
+    // ✅ Hidden fields update
     document.getElementById("distanceField").value = chargeableKm;
+    document.getElementById("fareField").value = baseFare;
     document.getElementById("totalFareField").value = totalFare;
+    document.getElementById("selectedCarTypeField").value = selectedCarType;
 }
 
 
@@ -1302,7 +1373,7 @@ function submitBooking() {
         return;
     }
 
-    
+    document.getElementById("please-wait").style.display = "block";
     document.getElementById("bookingForm").submit();
 }
 function showError(message) {
@@ -1311,6 +1382,16 @@ function showError(message) {
     errorDiv.style.display = "block";
 }
 
+
+
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+      duration: 1200,
+      once: true
+  });
 </script>
 </body>
 </html>
