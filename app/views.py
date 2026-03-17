@@ -103,8 +103,8 @@ Thank you for booking with us! DROP TAXI BOOKING..!
 🔖 Total Fare: ₹{total}
 """
         try:
-            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
-            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "8797007744"
+            telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN") or "8749101532:AAGyz-1mLJNA5vObrtdw9Ytm2H8ZR8cP7OA"
+            telegram_chat_id = os.getenv("TELEGRAM_CHAT_ID") or "1941956017"
             
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
             response = requests.post(telegram_url, data={
@@ -185,8 +185,8 @@ Thank you for booking with us!
 """
 
             # ✅ Send Telegram
-            telegram_bot_token = "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
-            telegram_chat_id = "8797007744"
+            telegram_bot_token = "8749101532:AAGyz-1mLJNA5vObrtdw9Ytm2H8ZR8cP7OA"
+            telegram_chat_id = "1941956017"
             telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
             response = requests.post(telegram_url, data={
@@ -313,8 +313,8 @@ Thank you for booking with us! DROP TAXI BOOKING..!
 
             try:
                 # ✅ Send Telegram
-                telegram_bot_token = "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
-                telegram_chat_id = "8797007744"
+                telegram_bot_token = "8749101532:AAGyz-1mLJNA5vObrtdw9Ytm2H8ZR8cP7OA"
+                telegram_chat_id = "1941956017"
                 telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
                 response = requests.post(telegram_url, data={
@@ -411,8 +411,8 @@ def enquries(request):
 """
 
     # ✅ Send Telegram
-    telegram_bot_token = "8654950958:AAH55ppU7kNZvROC6n8rUcTVibrNpkuPgew"
-    telegram_chat_id = "8797007744"
+    telegram_bot_token = "8749101532:AAGyz-1mLJNA5vObrtdw9Ytm2H8ZR8cP7OA"
+    telegram_chat_id = "1941956017"
     telegram_url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
 
     try:
