@@ -448,3 +448,8 @@ def enquries(request):
 def terms(request):
     return render(request, 'terms.html')
 
+
+
+def chennai_madurai(request):
+    return render(request, 'chennai_madurai.html')
+
