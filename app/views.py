@@ -453,3 +453,23 @@ def terms(request):
 def chennai_madurai(request):
     return render(request, 'chennai_madurai.html')
 
+def route_page(request, route_name):
+
+    route_titles = {
+        "chennai-to-trichy-one-way-taxi": "Chennai to Trichy One Way Taxi",
+        "chennai-to-coimbatore-drop-taxi": "Chennai to Coimbatore Drop Taxi",
+        "chennai-to-tirunelveli-drop-taxi": "Chennai to Tirunelveli Drop Taxi",
+        "madurai-to-chennai-drop-taxi": "Madurai to Chennai Drop Taxi",
+        "chennai-to-kanyakumari-drop-taxi": "Chennai to Kanyakumari Drop Taxi",
+        "chennai-to-thanjavur-drop-taxi": "Chennai to Thanjavur Drop Taxi",
+        "chennai-to-erode-drop-taxi": "Chennai to Erode Drop Taxi",
+    }
+
+    title = route_titles.get(route_name)
+
+    if not title:
+        return render(request, "404.html")
+
+    return render(request, "route_template.html", {
+        "title": title
+    })
