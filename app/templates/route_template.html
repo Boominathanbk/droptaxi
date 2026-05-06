@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section style="padding:60px 20px;">
+    <div class="container text-center">
+        <h1>{{ title }}</h1>
+
+        <p>
+            Book affordable {{ title }} service with professional drivers.
+            One way drop taxi available 24/7 across Tamil Nadu.
+        </p>
+
+        <h3>Why Choose Us?</h3>
+        <ul style="list-style:none; padding:0;">
+            <li>✔ No Return Charges</li>
+            <li>✔ 24/7 Service</li>
+            <li>✔ Clean & Sanitized Cars</li>
+            <li>✔ Experienced Drivers</li>
+        </ul>
+
+        <a href="/booking" class="btn btn-warning mt-3">
+            Book Now
+        </a>
+    </div>
+</section>
+
+{% endblock %}
