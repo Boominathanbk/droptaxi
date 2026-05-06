@@ -12,5 +12,6 @@ urlpatterns = [
    path('enqurie/', views.enqurie, name='enqurie'), 
    path('enquries/', views.enquries, name='enquries'),
    path('terms', views.terms, name='terms'),
+   path('chennai-to-madurai-drop-taxi/', views.chennai_madurai, name='chennai_madurai'),
 ]
 
