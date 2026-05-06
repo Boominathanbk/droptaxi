@@ -13,5 +13,7 @@ urlpatterns = [
    path('enquries/', views.enquries, name='enquries'),
    path('terms', views.terms, name='terms'),
    path('chennai-to-madurai-drop-taxi/', views.chennai_madurai, name='chennai_madurai'),
+   # 🔥 Dynamic Route Page (KEEP THIS LAST)
+    path('<slug:route_name>/', views.route_page, name='route_page'),
 ]
 
