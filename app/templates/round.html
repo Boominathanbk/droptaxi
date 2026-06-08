@@ -837,7 +837,7 @@ function gtag_report_conversion(url) {
       Sedan
       <i id="sedan-check" class="bi bi-check-circle-fill" style="display: none;"></i>
     </small><br>
-    ₹13 / km
+    ₹14 / km
   </button>
 
   <!-- SUV Button -->
@@ -848,7 +848,7 @@ function gtag_report_conversion(url) {
       SUV
       <i id="suv-check" class="bi bi-check-circle-fill" style="display: none;"></i>
     </small><br>
-    ₹18 / km
+    ₹19 / km
   </button>
 
 </div>
@@ -1314,7 +1314,7 @@ function calculateFare() {
 
     const days = parseInt(document.getElementById("days").value) || 1;
     const distanceKm = globalDistance || 0;
-    const ratePerKm = selectedCarType === "suv" ? 18 : 13;
+    const ratePerKm = selectedCarType === "suv" ? 19 : 14;
     const minimumKm = days * distancePerDay;
     const driverBata = days * driverChargePerDay;
 
