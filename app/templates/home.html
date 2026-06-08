@@ -821,7 +821,7 @@ opacity:0.9;
         Sedan
         <i id="sedan-check" class="bi bi-check-circle-fill" style="display:none;"></i>
       </small><br>
-      ₹14 / perkm
+      ₹15 / perkm
     </button>
 
     <button type="button"
@@ -831,7 +831,7 @@ opacity:0.9;
         SUV
         <i id="suv-check" class="bi bi-check-circle-fill" style="display:none;"></i>
       </small><br>
-      ₹19 / perkm
+      ₹20 / perkm
     </button>
 
   </div>
@@ -895,8 +895,8 @@ opacity:0.9;
         <div class="car-title fw-bold text-warning">SEDAN</div>
 
         <div class="price-box mt-3">
-          <div>🚕 One Way: <b class="text-info">Rs 14</b> / Km</div>
-          <div class="mt-2">🔁 Round Trip: <b class="text-info">Rs 13</b> / Km</div>
+          <div>🚕 One Way: <b class="text-info">Rs 15</b> / Km</div>
+          <div class="mt-2">🔁 Round Trip: <b class="text-info">Rs 14</b> / Km</div>
         </div>
 
       </div>
@@ -914,8 +914,8 @@ opacity:0.9;
         <div class="car-title fw-bold text-warning">SUV</div>
 
         <div class="price-box mt-3">
-          <div>🚕 One Way: <b class="text-info">Rs 19</b> / Km</div>
-          <div class="mt-2">🔁 Round Trip: <b class="text-info">Rs 18</b> / Km</div>
+          <div>🚕 One Way: <b class="text-info">Rs 20</b> / Km</div>
+          <div class="mt-2">🔁 Round Trip: <b class="text-info">Rs 19</b> / Km</div>
         </div>
 
       </div>
@@ -1285,7 +1285,7 @@ function enqurie() {
 
     // 2️⃣b Update hidden fields before submitting
     
-    const fare = kmToCharge * (selectedCar === "suv" ? 19 : 14);
+    const fare = kmToCharge * (selectedCar === "suv" ? 20 : 15);
     const total = fare + driverCharge;
 
     document.getElementById("distanceField").value = Math.round(kmToCharge);
@@ -1443,7 +1443,7 @@ function updateFare(distanceKm) {
 
     if (!selectedCar) return;
 
-    const ratePerKm = selectedCar === "suv" ? 19 : 14;
+    const ratePerKm = selectedCar === "suv" ? 20 : 15;
 
     // ✅ APPLY BASE KM RULE HERE
     const kmToCharge = distanceKm < baseKm ? baseKm : distanceKm;
