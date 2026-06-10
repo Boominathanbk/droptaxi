@@ -624,10 +624,11 @@ opacity:0.9;
   <div class="carousel-inner">
    <div class="carousel-item active position-relative">
 
-  <img src="https://backiee.com/static/wallpapers/560x315/320086.jpg"
-       class="d-block w-100"
-       style="height:550px; object-fit:cover;"
-       alt="reflection image">
+  <img src="{% static 'image/banner.webp' %}"
+     width="1200"
+     height="550"
+     class="d-block w-100"
+     alt="Chennai One Way Drop Taxi">
 
   <!-- Dark Overlay -->
   <div class="overlay"></div>
@@ -1214,11 +1215,11 @@ to provide fast and reliable cab booking across Tamil Nadu.
     <div id="map"></div>
 
     <!-- Google Maps JS API with 2025 compliant Places support -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC04JLmWVo64DhY99RugsBSF7WQ8jXahi8&callback=initMap&libraries=places"
-        async
-        defer
-    ></script>
+   <script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC04JLmWVo64DhY99RugsBSF7WQ8jXahi8&libraries=places&callback=initAutocomplete"
+async
+defer>
+</script>
 <script>
 /* ===============================
    EXISTING VARIABLES
@@ -1493,7 +1494,7 @@ function selectCar(carType) {
 /* ===============================
    INIT
 ================================ */
-window.onload = initAutocomplete;
+
 </script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
